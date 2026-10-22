@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" data-base="/texas-eats">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-AkMVKTRbY48IHs7HCgTMJ+hY/m+ygSRs9Y4Wj9nM0CQ=' 'sha256-YfPxYBJDc639ac4gHFGjFpJLVatKf6JcrBZeF/tuACM='; style-src 'sha256-3iZSg4xQ4QFvVOJZj04kTE1hxqz8X2b04o/im1aZ6Vg='; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Texas Restaurant Search: Map, Barbecue &amp; Inspection Scores</title>
+<meta name="description" content="Look up 78,906 Texas restaurants by name, town, street, zip or dish, map 203 hand-checked places and see city inspection scores, with addresses and websites.">
+<link rel="canonical" href="https://nickstrom5.github.io/texas-eats/explore/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#002868">
+<!-- Smart App Banner: once the App Store Connect record exists, replace APP_ID with the numeric Apple ID and uncomment.
+<meta name="apple-itunes-app" content="app-id=APP_ID">
+-->
+<meta property="og:title" content="Texas Restaurant Search: Map, Barbecue &amp; Inspection Scores">
+<meta property="og:description" content="Look up 78,906 Texas restaurants by name, town, street, zip or dish, map 203 hand-checked places and see city inspection scores, with addresses and websites.">
+<meta property="og:url" content="https://nickstrom5.github.io/texas-eats/explore/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Texas Eats">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://nickstrom5.github.io/texas-eats/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Texas Eats: BBQ, Tex-Mex &amp; taquerías. Texas restaurants, with hand-checked barbecue joints, Tex-Mex, taquerías, kolaches and the state&#x27;s oldest places.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Texas Restaurant Search: Map, Barbecue &amp; Inspection Scores">
+<meta name="twitter:description" content="Look up 78,906 Texas restaurants by name, town, street, zip or dish, map 203 hand-checked places and see city inspection scores, with addresses and websites.">
+<meta name="twitter:image" content="https://nickstrom5.github.io/texas-eats/og.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CclipPath id='lg-r'%3E%3Crect width='64' height='64' rx='14'/%3E%3C/clipPath%3E%3CclipPath id='lg-s1'%3E%3Crect x='12.16' y='21.12' width='17.92' height='21.76' rx='3.2'/%3E%3C/clipPath%3E%3CclipPath id='lg-s2'%3E%3Crect x='23.04' y='21.12' width='17.92' height='21.76' rx='3.2'/%3E%3C/clipPath%3E%3CclipPath id='lg-s3'%3E%3Crect x='33.92' y='21.12' width='17.92' height='21.76' rx='3.2'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23lg-r)'%3E%3Crect width='64' height='64' fill='%23002868'/%3E%3Crect x='8.64' y='16.64' width='46.72' height='30.08' fill='%23E7B9A6'/%3E%3Crect x='12.16' y='21.12' width='17.92' height='21.76' rx='3.2' fill='none' stroke='%23E7B9A6' stroke-width='1.6'/%3E%3Cg clip-path='url(%23lg-s1)'%3E%3Crect x='12.16' y='21.12' width='17.92' height='21.76' fill='%23C98A5E'/%3E%3Crect x='12.16' y='36.79' width='17.92' height='6.09' fill='%23A9683F'/%3E%3Crect x='12.16' y='21.12' width='17.92' height='5.44' fill='%23D9574A'/%3E%3Crect x='12.16' y='21.12' width='17.92' height='3.2' fill='%233A2318'/%3E%3C/g%3E%3Crect x='23.04' y='21.12' width='17.92' height='21.76' rx='3.2' fill='none' stroke='%23E7B9A6' stroke-width='1.6'/%3E%3Cg clip-path='url(%23lg-s2)'%3E%3Crect x='23.04' y='21.12' width='17.92' height='21.76' fill='%23C98A5E'/%3E%3Crect x='23.04' y='36.79' width='17.92' height='6.09' fill='%23A9683F'/%3E%3Crect x='23.04' y='21.12' width='17.92' height='5.44' fill='%23D9574A'/%3E%3Crect x='23.04' y='21.12' width='17.92' height='3.2' fill='%233A2318'/%3E%3C/g%3E%3Crect x='33.92' y='21.12' width='17.92' height='21.76' rx='3.2' fill='none' stroke='%23E7B9A6' stroke-width='1.6'/%3E%3Cg clip-path='url(%23lg-s3)'%3E%3Crect x='33.92' y='21.12' width='17.92' height='21.76' fill='%23C98A5E'/%3E%3Crect x='33.92' y='36.79' width='17.92' height='6.09' fill='%23A9683F'/%3E%3Crect x='33.92' y='21.12' width='17.92' height='5.44' fill='%23D9574A'/%3E%3Crect x='33.92' y='21.12' width='17.92' height='3.2' fill='%233A2318'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/texas-eats/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/texas-eats/apple-touch-icon.png">
+<link rel="manifest" href="/texas-eats/site.webmanifest">
+<style>
+  :root {
+    --bg: #f7f3ec; --surface: #fff; --surface2: #efe9df; --rule: #e3dbcf;
+    --ink: #0e1a30; --ink2: #28385a; --muted: #55627a;
+    --accent: #002868; --accent2: #1c3f86; --on-accent: #fff; --orange: #bf0a30; --on-orange: #fff; --lime: #e7b9a6; --soft: #f8dce2; --limesoft: #f6e7e0;
+    --focus: #bf0a30;
+    --radius: 16px;
+    --display: "Avenir Next Condensed", "Helvetica Neue Condensed", "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b1426; --surface: #111e38; --surface2: #172747; --rule: #263a63; --ink: #eef2fa; --ink2: #d3dcef; --muted: #a9b6d0; --accent: #9fb8ff; --accent2: #c0d0ff; --on-accent: #0b1426; --focus: #ff8aa0; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible, summary:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+  .skip { position: absolute; left: -9999px; top: 0; background: var(--orange); color: var(--on-orange); padding: 10px 14px; font-weight: 700; z-index: 10; }
+  .skip:focus { left: 8px; top: 8px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  header.site { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0 14px; }
+  .stripes { display: grid; grid-template-columns: 36px 1fr; grid-template-rows: 9px 9px; margin: 0 0 4px; border-radius: 4px; overflow: hidden; }
+  .stripes i { display: block; }
+  .stripes i:nth-child(1) { grid-row: 1 / span 2; background: var(--accent); }
+  .stripes i:nth-child(2) { background: var(--surface2); }
+  .stripes i:nth-child(3) { background: var(--orange); }
+  .logo { display: flex; align-items: center; gap: 10px; font: 800 24px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; color: var(--accent); text-decoration: none; }
+  .logo svg { flex: 0 0 auto; border-radius: 7px; }
+  header.site nav { display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: flex-end; }
+  header.site nav a { color: var(--ink2); text-decoration: none; font-size: 15px; }
+  header.site nav a:hover { color: var(--accent); text-decoration: underline; }
+  h1, h2 { font-family: var(--display); font-weight: 800; color: var(--accent); letter-spacing: -.005em; }
+  h1 { font-size: clamp(40px, 8.5vw, 64px); line-height: .95; margin: 0 0 18px; text-transform: uppercase; overflow-wrap: break-word; text-shadow: 3px 3px 0 var(--orange); }
+  .kicker { font: 600 13px/1.4 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
+  .kicker::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); margin: 0 8px 1px 0; }
+  h2 { font-size: 34px; line-height: 1.02; margin: 0 0 10px; text-transform: uppercase; }
+  h3 { font-size: 18px; margin: 0; line-height: 1.3; }
+  .lede { font-size: 19px; color: var(--ink2); margin: 0 0 26px; }
+  .hero { padding: 44px 0 28px; }
+  section { padding: 36px 0; border-top: 1px solid var(--rule); }
+  section.hero { border: 0; }
+  .sub { color: var(--ink2); margin: 0 0 22px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: var(--on-orange); font-weight: 700; padding: 14px 20px; border-radius: 14px; text-decoration: none; font-size: 17px; }
+  .btn-ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+  .pill { font-size: 14px; color: var(--muted); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 28px 0 0; padding: 0; list-style: none; }
+  .stats li { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 14px; }
+  .stats b { display: block; font: 600 28px/1 var(--mono); color: var(--accent); }
+  .stats span { font-size: 14px; color: var(--muted); }
+  .steps { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+  .step { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
+  .step .n { flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--orange); color: var(--on-orange); font-weight: 800; display: grid; place-items: center; }
+  .step p { margin: 4px 0 0; color: var(--ink2); }
+  .shots { display: flex; gap: 14px; overflow-x: auto; margin: 0 -20px; padding: 4px 20px 14px; scroll-snap-type: x proximity; list-style: none; }
+  .shots li { flex: 0 0 auto; width: 210px; scroll-snap-align: start; }
+  .shots img { display: block; width: 210px; height: auto; border-radius: 24px; border: 1px solid var(--rule); background: var(--surface2); }
+  .shots p { font-size: 14px; color: var(--muted); margin: 8px 2px 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
+  .card h3 { font: 800 21px/1.1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+  a.card.gc { display: flex; flex-direction: column; gap: 6px; border: 0; border-radius: 18px; min-height: 150px; }
+  a.card.gc b { font: 600 32px/1 var(--mono); margin-bottom: auto; }
+  a.card.gc p, a.card.gc h3 { color: inherit; }
+  a.card.gc p { opacity: .92; }
+  a.card.gc.gc-bbq, a.card.gc.gc-texmex, a.card.gc.gc-taqueria, a.card.gc.gc-kolache, a.card.gc.gc-cfs { background: #bf0a30; color: #fff; }
+  a.card.gc.gc-oldest, a.card.gc.gc-honors { background: #002868; color: #fff; }
+  .card p { margin: 6px 0 0; color: var(--ink2); }
+  a.card { display: block; text-decoration: none; color: var(--ink); }
+  a.card:hover h3 { text-decoration: underline; color: var(--accent); }
+  .cities { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .cities a { display: inline-block; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); text-decoration: none; color: var(--ink); font-size: 15px; }
+  .cities a:hover { border-color: var(--accent); }
+  .cities a[aria-current] { border-color: var(--accent); font-weight: 700; }
+  details { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 2px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; padding: 14px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--accent); font-weight: 800; }
+  details[open] summary::after { content: "\2013"; }
+  details p { margin: 0 0 16px; color: var(--ink2); }
+  .final { text-align: center; }
+  .final .cta-row { justify-content: center; }
+  nav.crumbs { font-size: 14px; color: var(--muted); padding: 16px 0 0; }
+  nav.crumbs ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  nav.crumbs li + li::before { content: "/"; margin-right: 6px; color: var(--rule); }
+  nav.crumbs a { color: var(--muted); }
+  .places { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .places li { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 14px 16px; min-width: 0; overflow-wrap: anywhere; scroll-margin-top: 12px; }
+  .places li:target { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+  .places .where { margin: 2px 0 0; font-size: 15px; color: var(--muted); }
+  .places .facts { margin: 8px 0 0; font-size: 15px; color: var(--ink2); }
+  .places .facts b { color: var(--ink); font-weight: 600; }
+  .places .note { margin: 6px 0 0; font-size: 15px; color: var(--ink2); }
+  .places .fine { margin: 6px 0 0; }
+  .places .link { font-size: 14px; margin: 6px 0 0; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; background: var(--lime); color: #0e1a30; border-radius: 6px; padding: 1px 6px; margin: 0 4px 2px 0; }
+  .tag-mi { background: #bf0a30; color: #fff; }
+  .tag-jb { background: #002868; color: #fff; }
+  .tag-plain { background: var(--soft); color: #0e1a30; }
+  .toc { columns: 2; padding-left: 20px; margin: 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .tbl { overflow-x: auto; }
+  .res { display: inline-block; font: 800 12px/1.4 -apple-system, system-ui, sans-serif; letter-spacing: .04em; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; }
+  .res-ok { background: #ddefe3; color: #0e5a2b; } .res-mid { background: #ffe9c2; color: #6b3a00; } .res-low { background: #f9d5db; color: #7a0019; }
+  .groups { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 12px; }
+  .groups > li { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 14px 16px; }
+  .groups ul { margin: 8px 0 0; padding-left: 20px; color: var(--ink2); font-size: 15px; }
+  .groups .count { margin: 8px 0 0; font-weight: 600; }
+  .fine { font-size: 14px; color: var(--muted); }
+  .legal h2 { font-size: 26px; margin-top: 28px; }
+  .legal p, .legal li { color: var(--ink2); }
+  footer { padding: 32px 0 56px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); margin-top: 20px; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  footer a { color: var(--muted); }
+  footer p { margin: 12px 0 0; }
+  @media (max-width: 600px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .toc { columns: 1; }
+    .toc a { display: inline-block; padding: 3px 0; }
+    header.site { flex-direction: column; align-items: flex-start; }
+    header.site nav { justify-content: flex-start; }
+    header.site nav a, footer nav a, nav.crumbs a { display: inline-block; padding: 10px 0; }
+    footer nav { gap: 0 18px; }
+    th, td { padding: 8px 4px; font-size: 14px; }
+    .tbl th, .tbl td { padding: 8px 3px; font-size: 13px; }
+    .res { font-size: 11px; letter-spacing: .02em; padding: 2px 4px; }
+    nav.crumbs ol { align-items: center; }
+  }
+
+  [hidden] { display: none !important; }
+  .ex-hero { padding: 28px 0 8px; }
+  .ex-hero h1 { font-size: clamp(30px, 6vw, 44px); }
+  .ex-controls { background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--rule); }
+  .ex-guides { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+  @media (min-width: 601px) { .ex-guides { flex-wrap: wrap; overflow: visible; } }
+  @media (max-width: 600px) { .ex-guides { padding-right: 32px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); } }
+  .ex-guides button, .ex-view button, .ex-small { flex: 0 0 auto; border: 1px solid var(--rule); background: var(--surface); color: var(--accent); border-radius: 999px; padding: 7px 12px; font: 600 14px/1.2 system-ui, sans-serif; font-family: inherit; cursor: pointer; }
+  .ex-guides button[aria-pressed="true"], .ex-view button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .ex-row1 { display: flex; gap: 8px; align-items: center; }
+  .ex-row1 input[type=search] { flex: 1; min-width: 0; font: 16px/1.3 system-ui, sans-serif; font-family: inherit; padding: 10px 12px; border: 2px solid var(--accent); border-radius: 12px; background: var(--surface); color: var(--ink); }
+  .ex-row2 { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; font-size: 14px; }
+  .ex-row2 select { font: 14px system-ui, sans-serif; font-family: inherit; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink); max-width: 46vw; }
+  .ex-view { margin-left: auto; display: flex; gap: 4px; }
+  #ex-count { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+  #ex-sub { margin: 4px 0 0; font-size: 14px; color: var(--ink2); }
+  #ex-locmsg { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+  .ex-list { list-style: none; padding: 0; margin: 10px 0; }
+  .ex-list li + li { border-top: 1px solid var(--rule); }
+  .ex-row { width: 100%; display: flex; gap: 12px; align-items: center; text-align: left; background: none; border: 0; padding: 12px 4px; cursor: pointer; color: var(--ink); font: inherit; }
+  .ex-row:hover { background: var(--surface2); }
+  .ex-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; overflow-wrap: anywhere; }
+  .ex-main b { font-weight: 650; }
+  .ex-town { font-size: 14px; color: var(--muted); }
+  .tag-dash { background: transparent; color: var(--muted); border: 1px dashed var(--rule); }
+  .ex-metric { text-align: right; display: flex; flex-direction: column; align-items: flex-end; max-width: 46%; }
+  .ex-metric b { font: 800 22px/1 var(--display); color: var(--accent); }
+  .ex-metric small { font-size: 11px; color: var(--muted); }
+  .ex-rank { flex: 0 0 34px; height: 34px; display: grid; place-items: center; font: 800 20px var(--display); color: var(--accent); border-radius: 8px; }
+  .ex-rank.top { background: var(--orange); color: var(--on-orange); }
+  .ex-empty { padding: 24px 4px; color: var(--muted); }
+  #ex-more { display: block; margin: 8px auto 24px; }
+  #ex-mapwrap { position: relative; height: min(72vh, 720px); margin: 10px 0 20px; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; background: #dfe6f2; }
+  #ex-map { width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+  .ex-zoom { position: absolute; right: 10px; top: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .ex-zoom button { width: 44px; height: 44px; border-radius: 10px; border: 1px solid #e3dbcf; background: #fff; color: #002868; font: 700 22px/1 system-ui, sans-serif; cursor: pointer; }
+  #ex-maphint { position: absolute; left: 10px; top: 10px; margin: 0; font-size: 13px; background: #fff; padding: 3px 8px; border-radius: 999px; color: #28385a; pointer-events: none; }
+  #ex-mapattr { position: absolute; right: 0; bottom: 0; margin: 0; font-size: 11px; background: rgba(255,255,255,.85); padding: 2px 6px; border-radius: 6px 0 0 0; color: #28385a; pointer-events: none; }
+  .ex-panel { position: fixed; z-index: 20; right: 0; top: 0; bottom: 0; width: min(440px, 100%); overflow-y: auto; background: var(--surface); border-left: 1px solid var(--rule); box-shadow: -8px 0 24px rgba(0,0,0,.12); padding: 18px 20px 40px; }
+  @media (max-width: 600px) { .ex-panel { top: auto; height: 86vh; border-left: 0; border-top: 4px solid var(--orange); border-radius: 18px 18px 0 0; } }
+  .ex-close { position: sticky; top: 0; float: right; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rule); background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; color: var(--ink); }
+  .ex-kicker { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent2); }
+  .ex-panel h2 { font-size: 34px; margin: 4px 0 6px; text-transform: uppercase; overflow-wrap: anywhere; }
+  .ex-addr, .ex-dist { margin: 0 0 4px; color: var(--ink2); font-size: 15px; }
+  .ex-actions { margin: 14px 0 8px; display: grid; gap: 8px; }
+  .ex-apple { justify-content: center; }
+  .ex-act-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ex-act-row a, .ex-act-row button { flex: 1; min-width: 88px; text-align: center; padding: 10px; border: 1px solid var(--rule); border-radius: 12px; text-decoration: none; color: var(--accent); font: 600 14px system-ui, sans-serif; font-family: inherit; background: var(--surface); cursor: pointer; }
+  .ex-act-row button[aria-pressed="true"] { background: var(--soft); color: #0e1a30; }
+  .ex-sec { margin-top: 18px; }
+  .ex-sec h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 6px; margin-bottom: 8px; }
+  .ex-sec p, .ex-sec li { font-size: 15px; color: var(--ink2); margin: 6px 0; }
+  .ex-sec ul { padding-left: 18px; }
+  .ex-kv { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 3px 0; }
+  .ex-kv span { color: var(--ink2); flex: 0 0 auto; max-width: 40%; }
+  .ex-kv b { text-align: right; overflow-wrap: anywhere; }
+  .ex-fine { font-size: 13px !important; color: var(--muted) !important; }
+  .ex-result { display: flex; align-items: center; gap: 10px; font-weight: 600; flex-wrap: wrap; }
+  .ex-app { margin-top: 22px; font-size: 14px; color: var(--muted); }
+  body.ex-open { overflow: hidden; }
+  .ex-backdrop { position: fixed; inset: 0; z-index: 19; background: rgba(14, 26, 48, .32); }
+  /* phones: 16px or more in the search box and the selects, or iOS Safari zooms the page when one gets focus */
+  @media (max-width: 600px) { .ex-row1 input[type=search], .ex-row2 select { font-size: 16px; } }
+  /* the sort's longest choice ("Lowest inspection score") at 16px: wider than 46vw, so on phones it may use the row */
+  @media (max-width: 600px) { #ex-sort { max-width: calc(100vw - 100px); } }
+  .ex-res { display: inline-block; font: 800 12px/1.4 -apple-system, system-ui, sans-serif; letter-spacing: .04em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; text-align: center; }
+  .ex-res-ok { background: #ddefe3; color: #0e5a2b; } .ex-res-mid { background: #ffe9c2; color: #6b3a00; } .ex-res-low { background: #f9d5db; color: #7a0019; } .ex-res-x { background: var(--surface2); color: var(--ink2); }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Texas Eats web app",
+ "url": "https://nickstrom5.github.io/texas-eats/explore/",
+ "applicationCategory": "TravelApplication",
+ "operatingSystem": "Any",
+ "browserRequirements": "Requires JavaScript",
+ "description": "Look up 78,906 Texas restaurants by name, town, street, zip or dish, map 203 hand-checked places and see city inspection scores, with addresses and websites.",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "@id": "https://nickstrom5.github.io/texas-eats/#org",
+  "name": "Texas Eats",
+  "url": "https://nickstrom5.github.io/texas-eats/",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://nickstrom5.github.io/texas-eats/icon-512.png",
+   "width": 512,
+   "height": 512
+  },
+  "parentOrganization": {
+   "@type": "Organization",
+   "@id": "https://eatsranked.com/#organization",
+   "name": "Eats Ranked",
+   "url": "https://eatsranked.com/"
+  }
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://nickstrom5.github.io/texas-eats/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Search",
+   "item": "https://nickstrom5.github.io/texas-eats/explore/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <header class="site">
+    <a class="logo" href="/texas-eats/" aria-label="Texas Eats home"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><defs><clipPath id="lg-r"><rect width="64" height="64" rx="14"/></clipPath><clipPath id="lg-s1"><rect x="12.16" y="21.12" width="17.92" height="21.76" rx="3.2"/></clipPath><clipPath id="lg-s2"><rect x="23.04" y="21.12" width="17.92" height="21.76" rx="3.2"/></clipPath><clipPath id="lg-s3"><rect x="33.92" y="21.12" width="17.92" height="21.76" rx="3.2"/></clipPath></defs><g clip-path="url(#lg-r)"><rect width="64" height="64" fill="#002868"/><rect x="8.64" y="16.64" width="46.72" height="30.08" fill="#E7B9A6"/><rect x="12.16" y="21.12" width="17.92" height="21.76" rx="3.2" fill="none" stroke="#E7B9A6" stroke-width="1.6"/><g clip-path="url(#lg-s1)"><rect x="12.16" y="21.12" width="17.92" height="21.76" fill="#C98A5E"/><rect x="12.16" y="36.79" width="17.92" height="6.09" fill="#A9683F"/><rect x="12.16" y="21.12" width="17.92" height="5.44" fill="#D9574A"/><rect x="12.16" y="21.12" width="17.92" height="3.2" fill="#3A2318"/></g><rect x="23.04" y="21.12" width="17.92" height="21.76" rx="3.2" fill="none" stroke="#E7B9A6" stroke-width="1.6"/><g clip-path="url(#lg-s2)"><rect x="23.04" y="21.12" width="17.92" height="21.76" fill="#C98A5E"/><rect x="23.04" y="36.79" width="17.92" height="6.09" fill="#A9683F"/><rect x="23.04" y="21.12" width="17.92" height="5.44" fill="#D9574A"/><rect x="23.04" y="21.12" width="17.92" height="3.2" fill="#3A2318"/></g><rect x="33.92" y="21.12" width="17.92" height="21.76" rx="3.2" fill="none" stroke="#E7B9A6" stroke-width="1.6"/><g clip-path="url(#lg-s3)"><rect x="33.92" y="21.12" width="17.92" height="21.76" fill="#C98A5E"/><rect x="33.92" y="36.79" width="17.92" height="6.09" fill="#A9683F"/><rect x="33.92" y="21.12" width="17.92" height="5.44" fill="#D9574A"/><rect x="33.92" y="21.12" width="17.92" height="3.2" fill="#3A2318"/></g></g></svg>Texas Eats</a>
+    <nav aria-label="Main">
+      <a href="/texas-eats/texas-barbecue.html">Barbecue</a>
+      <a href="/texas-eats/texas-taquerias.html">Taquerías</a>
+      <a href="/texas-eats/texas-kolaches.html">Kolaches</a>
+      <a href="/texas-eats/cities/">Cities</a>
+      <a href="/texas-eats/explore/">Search</a>
+    </nav>
+  </header>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i></div>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/texas-eats/">Home</a></li><li aria-current="page">Search</li></ol></nav>
+  <main id="main">
+  <section class="ex-hero">
+    <p class="kicker">Texas Eats · on the web</p>
+    <h1>Search Texas restaurants</h1>
+    <p class="sub">Pick a list, or type a name, a town, a street or a dish. Behind the search: 78,906 Texas restaurants, cafés, bars and bakeries; 203 hand-checked places on the barbecue, Tex-Mex, taquería, kolache, chicken-fried steak and oldest-places lists; 166 MICHELIN and James Beard honorees; TABC licenses; and the inspection scores Austin, El Paso and Arlington publish. It's the data the iPhone and iPad app will ship with, and what you save stays in this browser.</p>
+  </section>
+  <p id="ex-loading" hidden>Loading the restaurant list…</p>
+  <noscript><p>The search needs JavaScript. The guides work without it: <a href="/texas-eats/texas-barbecue.html">barbecue joints</a>, <a href="/texas-eats/texas-taquerias.html">taquerías</a>, <a href="/texas-eats/texas-kolaches.html">kolaches</a>, <a href="/texas-eats/texas-restaurant-inspections.html">inspections explained</a>.</p></noscript>
+  <div id="ex-app" hidden data-ver="3d1c060e5911">
+    <div class="ex-controls">
+      <div class="ex-guides" role="group" aria-label="Guides"><button type="button" data-g="bbq" aria-pressed="false">Barbecue</button><button type="button" data-g="texmex" aria-pressed="false">Tex-Mex</button><button type="button" data-g="taqueria" aria-pressed="false">Taquerías</button><button type="button" data-g="kolache" aria-pressed="false">Kolaches</button><button type="button" data-g="cfs" aria-pressed="false">Chicken-fried steak</button><button type="button" data-g="honors" aria-pressed="false">MICHELIN &amp; James Beard</button><button type="button" data-g="oldest" aria-pressed="false">Oldest</button><button type="button" data-g="brewpubs" aria-pressed="false">Brewpubs</button><button type="button" data-g="alcohol" aria-pressed="false">Bar sales</button><button type="button" data-g="inspections" aria-pressed="false">Inspection scores</button><button type="button" data-g="all" aria-pressed="false">All restaurants</button><button type="button" data-g="saved" aria-pressed="false">Saved</button></div>
+      <div class="ex-row1">
+        <label class="skip" for="ex-q">Search</label>
+        <input id="ex-q" type="search" placeholder="Name, town, street or dish" autocomplete="off" enterkeyhint="search">
+        <button type="button" id="ex-locate" class="ex-small">Near me</button>
+      </div>
+      <div class="ex-row2">
+        <label>Sort <select id="ex-sort" aria-label="Sort"></select></label>
+        <select id="ex-town" aria-label="Town"></select>
+        <select id="ex-cuisine" aria-label="Kind of place"></select>
+        <label><input type="checkbox" id="ex-chains"> Hide chains</label>
+        <label id="ex-bibwrap" hidden><input type="checkbox" id="ex-bib"> <span>Bib Gourmand <span id="ex-bibn"></span></span></label>
+        <button type="button" id="ex-clear" class="ex-small" hidden>Clear filters</button>
+        <div class="ex-view" role="group" aria-label="View"><button type="button" data-v="list" aria-pressed="true">List</button><button type="button" data-v="map" aria-pressed="false">Map</button></div>
+      </div>
+      <p id="ex-sub"></p>
+      <p id="ex-count" aria-live="polite"></p>
+      <p id="ex-locmsg"></p>
+    </div>
+    <div id="ex-listwrap"><ol id="ex-list" class="ex-list"></ol><button type="button" id="ex-more" class="ex-small" hidden></button></div>
+    <div id="ex-mapwrap" hidden>
+      <canvas id="ex-map" aria-label="Map of Texas with a dot for each place in the list. The list view has the same places."></canvas>
+      <div class="ex-zoom"><button type="button" id="ex-zin" aria-label="Zoom in">+</button><button type="button" id="ex-zout" aria-label="Zoom out">−</button></div>
+      <p id="ex-maphint"></p>
+      <p id="ex-mapattr">Outlines © OpenStreetMap contributors, Overture Maps Foundation</p>
+    </div>
+  </div>
+  <div id="ex-backdrop" class="ex-backdrop" hidden></div>
+  <aside id="ex-panel" class="ex-panel" hidden aria-labelledby="ex-pname"></aside>
+  </main>
+<script>
+// Texas Eats web app: the iPhone app's guides, search, filters, map and place details, in the browser.
+// Keep its guide rules in step with TexasEats/Models/Guide.swift and its search with TexasEats/Models/Search.swift.
+// Same data as the app, split by scripts/make-site.py into data/core.json (list, search and map columns), data/ids.json (each place's
+// stable id, fetched at the first tap, key, scroll or hover, so a visit that only looks doesn't download it; saved places and #p= links
+// wait for it) and data/detail-<county>.json (phones, websites, notes, TABC licenses, inspection histories), fetched per
+// county when a place there is opened. Every data file carries the version of the core.json it was built with (core.json "ver",
+// detail "_v", ids "v"): files from another build are fetched again, and never mixed in, because ids and details are keyed by row. No cookies, no trackers; saved places and the last guide live in this browser's localStorage only
+// (keys start with txeats-: other state sites share the nickstrom5.github.io origin).
+// The page runs under a strict Content-Security-Policy (hash-pinned inline script and style): never add inline event handlers or
+// inline style attributes to the HTML built here; set properties from code instead.
+(() => {
+  "use strict";
+  const BASE = document.documentElement.dataset.base || "";
+  const $ = (s) => document.querySelector(s);
+  // every value that goes into innerHTML passes through esc(), numbers included (the data file is trusted, but not that much)
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const own = (o, k) => typeof k === "string" && Object.prototype.hasOwnProperty.call(o, k);   // Object.hasOwn, for older Safari too
+  const PREFIX = "txeats-";
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(PREFIX + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(PREFIX + k, JSON.stringify(v)); } catch { /* private mode */ } },
+  };
+  // only http(s) links leave the page; bare hosts ("example.com/menu") get https://
+  const safeUrl = (u) => {
+    u = String(u ?? "").trim();
+    if (/^https?:\/\/[^\s"'<>\\]+$/i.test(u)) return u;
+    if (/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}(?:[/?#][^\s"'<>\\]*)?$/i.test(u)) return "https://" + u;
+    return null;
+  };
+  const num = (x) => (x == null || x === "" || !Number.isFinite(Number(x)) ? null : Number(x));
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const fmtDate = (s) => { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(s ?? "")); return m ? `${MONTHS[+m[2] - 1]} ${+m[3]}, ${m[1]}` : String(s ?? ""); };
+  const fmtMonth = (s) => { const m = /^(\d{4})-(\d{2})/.exec(String(s ?? "")); return m ? `${MONTHS[+m[2] - 1]} ${m[1]}` : String(s ?? ""); };
+  const TABC_SEARCH = "https://www.tabc.texas.gov/public-information/tabc-public-inquiry/";
+  const MIXBEV = "https://data.texas.gov/d/naix-2893";
+  const INS_CITY = ["Austin", "El Paso", "Arlington"], INS_KEY = ["aus", "elp", "arl"];
+  const INS_URL = ["https://data.austintexas.gov/Health-and-Community-Services/Food-Establishment-Inspection-Scores/ecmv-9xxi",
+    "https://foodscores.elpasotexas.gov/", "https://opendata.arlingtontx.gov/datasets/food-establishments"];
+  const INS_SCALE = ["Scores are out of 100 under the Texas Food Establishment Rules; higher is better. Austin's own bands: Green 90–100, Yellow 70–89, Red under 70.",
+    "Scores are out of 100; higher is better. El Paso: 70 or above is passing, and 60 or below starts a closure. The city calls these scores a summary; full reports are by open-records request.",
+    "Scores are out of 100; higher is better. Arlington's letter grades: A 91–100, B 81–90, C 71–80, F under 70. Arlington publishes the latest inspection only."];
+  const money = (k) => (k >= 1000 ? `$${(k / 1000).toFixed(1)}M` : `$${k}K`);
+
+  // ---------------------------------------------------------------- search (a port of TexasEats/Models/Search.swift)
+  const typeSyn = { avenue: "ave", av: "ave", street: "st", boulevard: "blvd", road: "rd", drive: "dr", place: "pl", court: "ct",
+    parkway: "pkwy", highway: "hwy", lane: "ln", trail: "trl", circle: "cir", terrace: "ter" };
+  // directions and Texas road names: "north lamar" finds "N Lamar Blvd", "interstate 35" finds "I-35"
+  const syn = { ...typeSyn, north: "n", south: "s", east: "e", west: "w", northwest: "nw", northeast: "ne", southwest: "sw", southeast: "se",
+    saint: "st", mount: "mt", fort: "ft", interstate: "i", ih: "i", freeway: "fwy", expressway: "expy" };
+  const abbrs = new Set(Object.values(syn)), typeAbbrs = new Set(Object.values(typeSyn));
+  const BBQ = 1, TEXMEX = 2, TAQUERIA = 4, KOLACHE = 8, CFS = 16, OLDEST = 32, BREWPUB = 64;
+  // a dish ("brisket", "breakfast tacos") is not a tag: it's in each hand-checked place's search text, so it finds the places serving it
+  const tagPhrases = [["barbecue", BBQ], ["barbeque", BBQ], ["bbq", BBQ], ["tex mex", TEXMEX], ["texmex", TEXMEX], ["taquerias", TAQUERIA],
+    ["taqueria", TAQUERIA], ["kolaches", KOLACHE], ["kolache", KOLACHE], ["chicken fried steaks", CFS], ["chicken fried steak", CFS]];
+  function normalize(s) {
+    let t = String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+    t = t.replace(/\b([a-z0-9])\s*&\s*([a-z0-9])\b/g, "$1$2").replace(/&/g, " and ").replace(/['’`]/g, "");
+    return t.replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  }
+  const normAddr = (s) => normalize(s).split(" ").map((w) => (own(syn, w) ? syn[w] : w)).join(" ");
+
+  function parse(text) {
+    const q = { tokens: [], town: null, townPhrase: null, tag: 0, tagPhrase: null, tagStem: null, townNeedle: null };
+    let raw = normalize(text).split(" ").filter(Boolean);
+    if (!raw.length) return q;
+    let mapped = raw.map((w) => (own(syn, w) ? syn[w] : w));
+    const find = (phrase) => {
+      const p = phrase.split(" ");
+      for (let i = 0; i + p.length <= mapped.length; i++) if (p.every((w, k) => mapped[i + k] === w)) return [i, i + p.length];
+      return null;
+    };
+    const cut = ([a, b]) => { const words = raw.slice(a, b).join(" "); raw.splice(a, b - a); mapped.splice(a, b - a); return words; };
+    for (const [phrase, tag] of tagPhrases) { const r = find(normalize(phrase)); if (r) { q.tag = tag; q.tagPhrase = cut(r); break; } }
+    if (q.tagPhrase) { const stem = normalize(q.tagPhrase).replace(/s$/, ""); q.tagStem = stem ? " " + stem : null; }
+    // the longest town named in the query wins, unless a street type follows it ("houston st" is a street)
+    for (const key of TOWN_KEYS_BY_LENGTH) {
+      const r = find(key);
+      if (r && !(r[1] < mapped.length && typeAbbrs.has(mapped[r[1]]))) { q.town = TOWN_KEYS[key]; q.townPhrase = cut(r); q.townNeedle = " " + normalize(q.townPhrase); break; }
+    }
+    const stop = new Set(["the", "and", "of", "a", "in", "near", "me"]);   // "barbecue near me" isn't a place named "Me"
+    let idx = raw.map((_, i) => i);
+    // stop words stay only when they're all there is ("the"); next to a guide or a town ("kolaches near me") they go
+    if (q.tag || q.town || idx.some((i) => !stop.has(mapped[i]))) idx = idx.filter((i) => !stop.has(mapped[i]));
+    idx.forEach((i, n) => {
+      const token = raw[i], isLast = n === idx.length - 1;
+      if (own(syn, token)) { q.tokens.push([` ${syn[token]} `, ` ${token}`]); return; }
+      const whole = (abbrs.has(token) && (!isLast || token.length > 1)) || (token.length <= 2 && !isLast);
+      const needles = [" " + token + (whole ? " " : "")];
+      if (isLast && token.length >= 3) for (const [word, abbr] of Object.entries(typeSyn)) if (word !== token && word.startsWith(token)) needles.push(` ${abbr} `);
+      q.tokens.push(needles);
+    });
+    // "brady st": a finished street type sticks to the word before it
+    if (q.tokens.length >= 2 && idx.length && typeAbbrs.has(mapped[idx[idx.length - 1]])) {
+      const last = idx[idx.length - 1], prev = idx[idx.length - 2];
+      q.tokens.splice(-2, 2, [` ${mapped[prev]} ${mapped[last]} `, ` ${raw[prev]} ${raw[last]}`]);
+    }
+    return q;
+  }
+  const qEmpty = (q) => !q.tokens.length && !q.town && !q.tag;
+  function matches(p, q) {
+    if (q.tag && !(p.g & q.tag)) { if (!q.tagStem || !p.nameText.includes(q.tagStem)) return false; }
+    if (q.town && p.c !== q.town) { if (!q.townNeedle || !p.nameText.includes(q.townNeedle)) return false; }
+    return q.tokens.every((needles) => needles.some((n) => p.search.includes(n)));
+  }
+  const nameMatches = (p, q) => q.tokens.length && q.tokens.every((needles) => needles.some((n) => p.nameText.includes(n)));
+
+  // ---------------------------------------------------------------- guides (TexasEats/Models/Guide.swift)
+  const NO_GRADE = "Texas has no statewide grade, and this site computes none: each score and band is the city's own.";
+  const hcTag = (t) => (p) => p.hc && Boolean(p.g & t);
+  const HC_SORTS = ["featured", "nearest", "name"];
+  const GUIDES = {
+    bbq: { title: "Barbecue Joints", sub: "Hand-checked brisket, ribs and sausage joints", inc: hcTag(BBQ), sorts: HC_SORTS },
+    texmex: { title: "Tex-Mex", sub: "Hand-checked enchiladas, fajitas and combination plates", inc: hcTag(TEXMEX), sorts: HC_SORTS },
+    taqueria: { title: "Taquerías", sub: "Hand-checked taquerías and breakfast taco spots", inc: hcTag(TAQUERIA), sorts: HC_SORTS },
+    kolache: { title: "Kolaches", sub: "Hand-checked kolache bakeries and Czech-Texan stops", inc: hcTag(KOLACHE), sorts: HC_SORTS },
+    cfs: { title: "Chicken-Fried Steak", sub: "Hand-checked chicken-fried steak with cream gravy", inc: hcTag(CFS), sorts: HC_SORTS },
+    honors: { title: "MICHELIN & James Beard", sub: "MICHELIN Guide Texas and James Beard honorees", inc: (p) => p.mi > 0 || p.jb, sorts: ["iconic", "nearest"] },
+    oldest: { title: "Oldest Places", sub: "Founding years checked at the same address, oldest first", inc: (p) => p.f != null && p.hc && Boolean(p.g & OLDEST), sorts: ["oldest"], ranked: true },
+    brewpubs: { title: "Brewpubs", sub: "Places with a TABC brewpub license", inc: (p) => Boolean(p.g & BREWPUB), sorts: ["name", "nearest"] },
+    alcohol: { title: "Bar Sales", sub: "Alcohol sales the Texas Comptroller publishes, biggest first: what each Mixed Beverage permit holder reported for liquor, wine, beer and cover charges. Reported, not estimated.", inc: (p) => p.al != null, sorts: ["alcohol", "nearest"], ranked: true },
+    // no "lowest scores" list at the top: the lowest-score order is a sort a reader picks, never the page's default
+    inspections: { title: "Inspection Scores", sub: "Official scores from Austin, El Paso and Arlington: each place's latest inspection, as the city published it. " + NO_GRADE, inc: (p) => p.idt != null, sorts: ["recent", "high", "low", "nearest"] },
+    all: { title: "All Restaurants", sub: "Restaurants, cafés, bars and bakeries statewide", inc: () => true, sorts: ["name", "nearest"] },
+    saved: { title: "Saved", sub: "Places you saved in this browser", inc: (p) => saved.has(p.id), sorts: ["name", "nearest"] },
+  };
+  const HC_GUIDES = ["bbq", "texmex", "taqueria", "kolache", "cfs"];
+  const SORT_LABEL = { featured: "Featured first", nearest: "Nearest", oldest: "Oldest first", name: "A to Z", iconic: "MICHELIN, then James Beard",
+    recent: "Latest inspection first", high: "Highest inspection score", low: "Lowest inspection score", alcohol: "Most alcohol sold" };
+  let RESULTS = ["Green", "Yellow", "Red", "Passing", "Below 70", "A", "B", "C", "F"];
+  const bandOf = (b) => (Number.isInteger(b) && b >= 0 && b < RESULTS.length ? RESULTS[b] : "");
+  const resCls = (b) => { const l = bandOf(b); return ["Red", "Below 70", "F"].includes(l) ? "low" : ["Yellow", "C"].includes(l) ? "mid" : l ? "ok" : "x"; };
+  const MI = ["", "MICHELIN Recommended", "Bib Gourmand", "1 MICHELIN Star", "2 MICHELIN Stars", "3 MICHELIN Stars"];
+  const CHIP = [[BBQ, "Barbecue"], [TEXMEX, "Tex-Mex"], [TAQUERIA, "Taquería"], [KOLACHE, "Kolaches"], [CFS, "Chicken-fried steak"]];
+
+  // ---------------------------------------------------------------- state
+  let P = [], CAL = {}, TOWN_KEYS = {}, TOWN_KEYS_BY_LENGTH = [], GENERATED = "", META = {};
+  let here = null, shown = 100, current = [], view = "list";
+  const savedRaw = store.get("saved", []);
+  const saved = new Set(Array.isArray(savedRaw) ? savedRaw.filter((x) => typeof x === "string" && x.length < 64) : []);
+  const st = { g: "bbq", q: "", sort: "", town: "", cuisine: "", chains: false, bib: false, p: "" };
+  let bibCount = 0;   // Bib Gourmand places (non-restaurants left out): the box shows only when there are some
+
+  const miles = (a, b) => {
+    const r = Math.PI / 180, dLa = (b.la - a.la) * r, dLo = (b.lo - a.lo) * r;
+    const h = Math.sin(dLa / 2) ** 2 + Math.cos(a.la * r) * Math.cos(b.la * r) * Math.sin(dLo / 2) ** 2;
+    return 3958.8 * 2 * Math.asin(Math.sqrt(h));
+  };
+  const milesText = (m) => (m < 10 ? m.toFixed(1) : Math.round(m)) + " mi";
+
+  function order() {
+    const g = GUIDES[st.g];
+    let o = st.sort && g.sorts.includes(st.sort) ? st.sort : HC_GUIDES.includes(st.g) && here ? "nearest" : g.sorts[0];
+    if (o === "nearest" && !here) o = g.sorts.find((s) => s !== "nearest") || o;   // no location yet: say what the list is really sorted by
+    return o;
+  }
+
+  function allows(p) {
+    if (st.town && p.c !== st.town) return false;
+    if (st.cuisine && p.cu !== st.cuisine) return false;
+    if (st.chains && p.ch >= 5) return false;
+    if (st.bib && p.mi !== 2) return false;      // MICHELIN Bib Gourmand only, as the app's Filters switch
+    return true;
+  }
+
+  function list() {
+    const g = GUIDES[st.g], q = parse(st.q), o = order();
+    if (qEmpty(q) && st.q.trim()) return [];   // typed something, but nothing searchable ("🍕", "!!!")
+    let out = P.filter((p) => g.inc(p) && allows(p) && (qEmpty(q) || matches(p, q)));
+    const byName = (a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : a.i - b.i);
+    if (o === "nearest" && here) {
+      const dist = new Map(out.map((p) => [p, p.la != null ? miles(here, p) : Infinity]));
+      out.sort((a, b) => dist.get(a) - dist.get(b) || byName(a, b));
+    }
+    else if (o === "featured") out.sort((a, b) => (b.ip ?? -1) - (a.ip ?? -1) || (a.f ?? 9999) - (b.f ?? 9999) || byName(a, b));
+    else if (o === "oldest") out.sort((a, b) => (a.f ?? 9999) - (b.f ?? 9999) || byName(a, b));
+    else if (o === "iconic") {   // MICHELIN distinction, then the James Beard honor, then name (the app's order)
+      const jb = (p) => (p.h & 1 ? 4 : p.h & 2 ? 3 : p.h & 4 ? 2 : p.h & 8 ? 1 : 0);
+      out.sort((a, b) => (b.mi || 0) - (a.mi || 0) || jb(b) - jb(a) || byName(a, b));
+    }
+    else if (o === "recent") out.sort((a, b) => String(b.idt || "").localeCompare(String(a.idt || "")) || byName(a, b));
+    else if (o === "high" || o === "low") {   // each city's own latest score out of 100; places without one go last
+      const k = o === "high" ? -1 : 1;
+      out.sort((a, b) => (a.isc == null) - (b.isc == null) || k * ((a.isc ?? 0) - (b.isc ?? 0)) || String(b.idt || "").localeCompare(String(a.idt || "")) || byName(a, b));
+    }
+    else if (o === "alcohol") out.sort((a, b) => (b.al ?? -1) - (a.al ?? -1) || byName(a, b));
+    else out.sort(byName);
+    if (q.tokens.length && !g.ranked) {       // name matches first when searching
+      const named = out.filter((p) => nameMatches(p, q));
+      if (named.length && named.length < out.length) { const ids = new Set(named); out = named.concat(out.filter((p) => !ids.has(p))); }
+    }
+    return out;
+  }
+
+  // ---------------------------------------------------------------- rendering
+  const jbLabel = (p) => (p.h & 1 ? "America's Classic" : p.h & 2 ? "James Beard winner" : p.h & 4 ? "James Beard finalist" : p.h & 8 ? "James Beard semifinalist" : p.jb ? "James Beard (restaurateur)" : null);
+  function chips(p, max) {
+    const c = [];
+    if (p.mi && MI[p.mi]) c.push(`<span class="tag tag-mi">${esc(MI[p.mi])}</span>`);
+    const jb = jbLabel(p);
+    if (jb) c.push(`<span class="tag tag-jb">${esc(jb)}</span>`);
+    if (p.hc) for (const [t, label] of CHIP) if (p.g & t) c.push(`<span class="tag">${label}</span>`);
+    if (p.hc && p.g & OLDEST && p.f) c.push(`<span class="tag tag-plain">Since ${esc(p.f)}</span>`);
+    if (p.g & BREWPUB) c.push('<span class="tag tag-plain">Brewpub</span>');
+    if (p.ch >= 5) c.push(`<span class="tag tag-plain">Chain · ${esc(p.ch)}</span>`);
+    if (p.t === 0 && !p.h && !p.mi && !p.hc) c.push('<span class="tag tag-dash">Listing only</span>');
+    return (max ? c.slice(0, max) : c).join("");
+  }
+
+  function metric(p, o) {
+    if (o === "nearest" && here && p.la != null) return [milesText(miles(here, p)), "away"];
+    if (st.g === "inspections" && p.idt) return [`${INS_CITY[p.ij] || ""} · ${bandOf(p.ib)} · ${p.isc}/100`, `inspected ${fmtDate(p.idt)}`];
+    if (st.g === "alcohol" && p.al != null) return [money(p.al), "a year, reported"];
+    if (p.f && st.g !== "all" && st.g !== "inspections") return [String(p.f), "since"];
+    return null;
+  }
+
+  function render() {
+    const g = GUIDES[st.g], o = order();
+    if (st.g === "saved" && !idsReady) loadIds().then(() => { if (st.g === "saved") render(); });
+    current = list();
+    document.querySelectorAll(".ex-guides button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.g === st.g)));
+    $("#ex-sub").textContent = g.sub + (st.g === "inspections" && META.through ? ` Records through ${INS_CITY.map((c, j) => `${c} ${fmtDate(META.through[INS_KEY[j]])}`).join(", ")}.` : "")
+      + (st.g === "alcohol" && META.mixFrom ? ` ${fmtMonth(META.mixFrom)} through ${fmtMonth(META.mixTo)}.` : "");
+    const sortSel = $("#ex-sort");
+    sortSel.innerHTML = g.sorts.map((s) => `<option value="${esc(s)}"${s === o ? " selected" : ""}>${esc(SORT_LABEL[s])}</option>`).join("");
+    sortSel.disabled = g.sorts.length < 2;
+    const filters = [st.town && `in ${st.town}`, st.cuisine && st.cuisine, st.chains && "no chains", st.bib && "Bib Gourmand"].filter(Boolean);
+    $("#ex-count").textContent = `${current.length.toLocaleString()} ${current.length === 1 ? "place" : "places"} · ${SORT_LABEL[o]}` + (filters.length ? ` · ${filters.join(", ")}` : "");
+    $("#ex-clear").hidden = !filters.length;
+    // Near me stays: each tap asks for a fresh fix (people move), and it's how to retry after a timeout
+    if (view === "list") renderList(o); else drawMap();
+    saveHash();
+  }
+
+  // typing searches only the open guide (the page opens on Barbecue Joints): when that finds little, the same words across every
+  // restaurant, with the same filters, so a famous place outside the guide isn't a dead end
+  const FEW = 5;
+  function elsewhereCount() {
+    const q = parse(st.q);
+    if (st.g === "all" || qEmpty(q) || current.length >= FEW) return 0;
+    let n = 0;
+    for (const p of P) if (allows(p) && matches(p, q)) n++;
+    return n > current.length ? n : 0;
+  }
+  const allButton = (n) => `<button type="button" class="ex-small" id="ex-all">Search all restaurants (${esc(n.toLocaleString())} ${n === 1 ? "match" : "matches"})</button>`;
+  function wireAll() {
+    const b = $("#ex-all");
+    if (b) b.onclick = () => { st.g = "all"; st.sort = ""; shown = 100; render(); const r = $(".ex-row"); if (r) r.focus(); };
+  }
+
+  function renderList(o) {
+    const ol = $("#ex-list");
+    const g = GUIDES[st.g];
+    const elsewhere = elsewhereCount();
+    if (!current.length) {
+      ol.innerHTML = `<li class="ex-empty">${st.g === "saved" && !idsReady ? "Loading your saved places…" : st.g === "saved" && idsFailed && saved.size ? "Your saved places couldn't load: you may be offline, or the site was just updated. Reload the page to try again." : elsewhere ? `Nothing in ${esc(g.title)} matches that. ${allButton(elsewhere)}` : st.g === "saved" ? "Nothing saved yet. Open a place and tap Save to keep it here, in this browser." : "No places match. Try fewer words or clear the filters."}</li>`;
+      wireAll();
+      $("#ex-more").hidden = true;
+      return;
+    }
+    ol.innerHTML = current.slice(0, shown).map((p, i) => {
+      const m = metric(p, o);
+      const rank = g.ranked ? `<span class="ex-rank${i < 3 ? " top" : ""}" aria-label="Rank ${i + 1}">${i + 1}</span>` : "";
+      const where = st.g === "inspections" ? [p.a, p.c].filter(Boolean).join(", ") : [p.c, p.cu].filter(Boolean).join(" · ");
+      const big = st.g === "inspections" && m && o !== "nearest" ? `<span class="ex-res ex-res-${resCls(p.ib)}">${esc(m[0])}</span>` : m ? `<b>${esc(m[0])}</b>` : "";
+      return `<li><button class="ex-row" data-i="${esc(p.i)}">${rank}<span class="ex-main"><b>${esc(p.n)}</b><span class="ex-town">${esc(where)}</span><span class="ex-chips">${chips(p, 4)}</span></span>${m ? `<span class="ex-metric">${big}<small>${esc(m[1])}</small></span>` : ""}</button></li>`;
+    }).join("") + (elsewhere ? `<li class="ex-empty">Only ${esc(current.length)} in ${esc(g.title)}. ${allButton(elsewhere)}</li>` : "");
+    wireAll();
+    const left = current.length - shown;
+    $("#ex-more").hidden = left <= 0;
+    $("#ex-more").textContent = `Show more (${left.toLocaleString()} left)`;
+  }
+
+  // ---------------------------------------------------------------- place panel
+  const TIER = { 2: "On an official list", 1: "High-confidence listing", 0: "Listing only" };   // "High-confidence", not "confirmed" (Nick, 2026-10-13)
+
+  // how often listings like this one matched an inspected or licensed business in Austin, El Paso County and Arlington
+  // (pipeline/calibrate.py); the app's matchRate
+  function rate(p) {
+    if (p.t === 2) return null;
+    const src = SOURCES[p.s] || "meta";
+    const group = src === "meta" ? (p.t === 1 ? "meta_high" : "meta_mid") : (src === "AllThePlaces" || src === "DAC") ? "brand_feed" : null;
+    if (!group) return null;
+    const v = Object.values(CAL || {}).map((a) => a?.groups?.[group]?.official).filter((x) => typeof x === "number").map((x) => Math.round(x * 100)).sort((a, b) => a - b);
+    if (!v.length) return null;
+    return v[0] === v[v.length - 1] ? `${v[0]}%` : `${v[0]}–${v[v.length - 1]}%`;
+  }
+
+  function howWeKnow(p) {
+    const src = SOURCES[p.s] || "meta";
+    if (src === "research") return "On our hand-checked list (checked against a 2025 or 2026 source). The open map data didn't list it as a place to eat, so it's placed from its own map listing or street address.";
+    if (p.t === 2) return src === "official"
+      ? "From an official list (a TABC license or a city's inspection list). The open map data didn't have it, so its location comes from the record's street address."
+      : "Matched to an active TABC license or a city's inspection list.";
+    const r = rate(p);
+    return (p.t === 1 ? "A high-confidence listing in Overture's open map data." : "A single listing in Overture's open map data, so it may be closed or misfiled.")
+      + (r ? ` Checked against the establishments Austin, El Paso and Arlington inspect, listings like this matched an inspected or licensed business ${r} of the time.` : "")
+      + (p.hc ? " It's also on our hand-checked list, checked against a 2025 or 2026 source." : "");
+  }
+
+  const kv = (k, v) => (v == null || v === "" ? "" : `<div class="ex-kv"><span>${esc(k)}</span><b>${esc(v)}</b></div>`);
+  const section = (t, body) => `<section class="ex-sec"><h3>${esc(t)}</h3>${body}</section>`;
+  let listAtPush = null;   // the list's URL state when a place was opened with pushState (Back then closes the panel)
+
+  // the open place is a modal dialog at every width (a bottom sheet on phones, a side sheet on wider screens, which would otherwise
+  // cover Near me and the List/Map buttons): everything behind it is inert, and a click on the dimmed backdrop closes it
+  function panelMode() {
+    const panel = $("#ex-panel"), modal = !panel.hidden;
+    if (modal) { panel.setAttribute("role", "dialog"); panel.setAttribute("aria-modal", "true"); }
+    else { panel.removeAttribute("role"); panel.removeAttribute("aria-modal"); }
+    $("#ex-backdrop").hidden = !modal;
+    const behind = [...document.querySelectorAll("body > .skip, .wrap > header, .wrap > nav, .wrap > footer, #main > *")].filter((el) => el !== panel && el.id !== "ex-backdrop");
+    behind.forEach((el) => { el.inert = modal; });
+  }
+
+  const vtype = (i) => (Number.isInteger(i) && i >= 0 && i < (META.itypes || []).length ? META.itypes[i] : "");
+
+  function inspectionSection(p, d) {
+    if (!p.idt || !Number.isInteger(p.ij)) return "";
+    const j = p.ij;
+    const i = d.in && typeof d.in === "object" ? d.in : {};
+    const hist = Array.isArray(i.h) ? i.h.filter(Array.isArray) : [];
+    let h = `<p class="ex-result"><span class="ex-res ex-res-${resCls(p.ib)}">${esc(INS_CITY[j])} · ${esc(bandOf(p.ib))}</span> ${esc(p.isc)}/100 · latest inspection ${esc(fmtDate(p.idt))}</p>`;
+    if (hist.length) h += `<ul>${hist.map((v) => `<li>${esc(fmtDate(v[0]))} · ${esc(vtype(v[3]))} · ${esc(v[2])}/100 · ${esc(bandOf(v[1]))}</li>`).join("")}</ul>`;
+    if (num(i.n) != null && i.n > hist.length) h += `<p class="ex-fine">The latest ${esc(hist.length)} of ${esc(i.n)} inspections in the last three years.</p>`;
+    h += `<p class="ex-fine">${esc(INS_SCALE[j])} Shown as ${esc(INS_CITY[j])} published it. ${esc(NO_GRADE)} One inspection is a snapshot of one day. Records through ${esc(fmtDate((META.through || {})[INS_KEY[j]]))}.</p>`;
+    h += `<p><a href="${esc(INS_URL[j])}" rel="noopener" target="_blank">${esc(INS_CITY[j])}'s inspection records</a></p>`;
+    return section(`Inspections · ${INS_CITY[j]}`, h);
+  }
+
+  function openPlace(p, push = true) {
+    const panel = $("#ex-panel");
+    const wasOpen = !panel.hidden;
+    // the place opens at once; its id (for Save, the #p= link and the Back step) follows when ids.json arrives, which the first tap
+    // only starts, so a tap never waits on it. If ids.json can't load (offline, or a build changed under us), the place stays open
+    // without Save and without a link.
+    const waiting = p.id == null && !idsReady;
+    if (waiting && (push || !wasOpen)) loadIds().then(() => { if (!panel.hidden && panel.dataset.i === String(p.i)) openPlace(p, push); });
+    const noId = p.id == null, pid = p.id ?? "";
+    // a re-render (the county's details just arrived) replaces the panel's buttons: remember where keyboard focus was, to put it back
+    const focused = wasOpen && panel.contains(document.activeElement) ? document.activeElement : null;
+    const refocus = focused && (focused.id ? `#${focused.id}` : focused.textContent.trim());
+    st.p = pid;
+    const loaded = DETAIL_LOADED.has(p.co), failed = DETAIL_FAILED.has(p.co);
+    const d = DETAIL.get(p.i) || {};
+    const la = num(p.la), lo = num(p.lo);
+    const addr = [p.a, [p.c, p.z].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+    const apple = la != null && lo != null
+      ? `https://maps.apple.com/?q=${encodeURIComponent(p.n)}&ll=${la},${lo}`
+      : `https://maps.apple.com/?q=${encodeURIComponent(p.n + ", " + addr)}`;
+    const dirs = la != null && lo != null ? `https://maps.apple.com/?daddr=${la},${lo}&dirflg=d` : apple;
+    const site = safeUrl(d.w);
+    const tel = d.ph ? String(d.ph).replace(/[^\d+]/g, "") : "";
+    let html = `<button class="ex-close" id="ex-close" aria-label="Close">×</button>
+      <p class="ex-kicker">${esc((p.c || "Texas").toUpperCase())}</p>
+      <h2 id="ex-pname">${esc(p.n)}</h2>
+      <p class="ex-addr">${esc([addr, p.cu].filter(Boolean).join(" · "))}</p>
+      ${here && la != null ? `<p class="ex-dist">${esc(milesText(miles(here, p)))} away</p>` : ""}
+      <p class="ex-chips">${chips(p)}</p>
+      <div class="ex-actions">
+        <a class="btn ex-apple" href="${esc(apple)}" rel="noopener" target="_blank">Ratings, hours &amp; photos · Apple Maps</a>
+        <div class="ex-act-row">
+          <a href="${esc(dirs)}" rel="noopener" target="_blank">Directions</a>
+          ${tel ? `<a href="tel:${esc(tel)}">Call</a>` : ""}
+          ${site ? `<a href="${esc(site)}" rel="noopener nofollow" target="_blank">Website</a>` : ""}
+          ${waiting ? '<button id="ex-save" aria-pressed="false" disabled>Save</button>' : noId ? "" : `<button id="ex-save" aria-pressed="${saved.has(pid)}">${saved.has(pid) ? "Saved" : "Save"}</button>`}
+        </div>
+      </div>`;
+    if (!loaded) html += `<p class="ex-fine">Loading details…</p>`;
+    if (p.hc && (d.note || p.dish || p.f || d.seas)) {
+      html += section("Hand-checked", (d.note ? `<p>${esc(d.note)}</p>` : "") + kv("On the menu", p.dish ? String(p.dish).split("; ").join(", ") : "")
+        + kv("Open here since", p.f) + (d.fn ? `<p class="ex-fine">${esc(d.fn)}</p>` : "") + kv("Season", d.seas)
+        + `<p class="ex-fine">Checked against a 2025 or 2026 source: the place's own site or menu, local news or an official tourism listing. Menus and hours change${p.g & BBQ ? ", and barbecue joints often sell out early" : ""}, so check before you go.</p>`);
+    }
+    if (p.mi || d.jbf) {
+      const lines = [...(p.mi && MI[p.mi] ? [MI[p.mi] + " · MICHELIN Guide Texas"] : []),
+        ...(d.jbf ? String(d.jbf).split("; ").map((x) => "James Beard: " + x) : [])];
+      html += section("Honors", `<ul>${lines.map((l) => `<li>${esc(l)}</li>`).join("")}</ul><p class="ex-fine">Honors are facts, not ratings. MICHELIN and the MICHELIN Guide are trademarks of Michelin; James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation.</p>`);
+    }
+    html += inspectionSection(p, d);
+    if (p.al != null) {
+      html += section("Reported alcohol sales", `<p class="ex-result">${esc(money(p.al))} a year</p><p class="ex-fine">Liquor, wine, beer and cover charges the place's Mixed Beverage permit holder reported to the Texas Comptroller, ${esc(fmtMonth(META.mixFrom))} through ${esc(fmtMonth(META.mixTo))}${num(d.aln) != null && d.aln < 12 ? ` (${esc(d.aln)} months reported)` : ""}. A reported figure, not our estimate. <a href="${esc(MIXBEV)}" rel="noopener" target="_blank">Mixed Beverage Gross Receipts</a></p>`);
+    }
+    if (failed) html += `<p class="ex-fine">This place's details (licenses, inspections, phone, website) didn't load: you may be offline, or the site was just updated. Reload the page to try again.</p>`;
+    else if (loaded) {
+      const lic = Array.isArray(d.lic) ? d.lic.filter(Array.isArray) : [];
+      html += section("Official records", (lic.length ? lic.map((l) => kv(`TABC license ${l[0]}`, String(l[1] || "") + (l[2] ? ` · expires ${fmtDate(l[2])}` : ""))).join("") : kv("Serves alcohol", "— (no TABC license matched)"))
+        + `<p class="ex-fine">${lic.length ? `From the Texas Alcoholic Beverage Commission's list of active licenses (data.texas.gov, read ${esc(fmtDate(META.liq))}). A Food and Beverage Certificate means food service is a real part of the business. <a href="${esc(TABC_SEARCH)}" rel="noopener" target="_blank">TABC's public inquiry</a>` : "Texas has no statewide list of food licenses, so the only statewide record is TABC's alcohol licenses. No license matched this place: it may not serve alcohol, or it's licensed under another name, so a missing license means unknown, not no."}</p>`);
+    }
+    html += section("How we know it's here", kv("Listed as", TIER[p.t])
+      + (p.ch >= 2 ? kv("Locations in Texas", p.ch.toLocaleString()) : "") + `<p class="ex-fine">${esc(howWeKnow(p))}</p>`);
+    const store_url = safeUrl(window.APP_STORE_URL);   // set in the page footer script once the App Store listing exists
+    html += store_url
+      ? `<p class="ex-app">Save it on your phone: <a href="${esc(store_url)}" rel="noopener">get the free iPhone app</a></p>`
+      : `<p class="ex-app">The iPhone app is coming soon. <a href="${BASE}/#download">Ask for early access</a></p>`;
+    panel.innerHTML = html;
+    panel.dataset.id = pid;
+    panel.dataset.i = String(p.i);
+    panel.hidden = false;
+    document.body.classList.add("ex-open");
+    panelMode();
+    $("#ex-close").onclick = () => closePlace();
+    if (!noId) $("#ex-save").onclick = (e) => {
+      if (saved.has(p.id)) saved.delete(p.id); else saved.add(p.id);
+      store.set("saved", [...saved]);
+      e.target.textContent = saved.has(p.id) ? "Saved" : "Save";
+      e.target.setAttribute("aria-pressed", String(saved.has(p.id)));
+      if (st.g === "saved") render();
+    };
+    const samePlace = wasOpen && panel.dataset.shown === String(p.i);   // a re-render: details or the id just arrived
+    if (!samePlace) panel.scrollTop = 0;
+    panel.dataset.shown = String(p.i);
+    if (!samePlace) $("#ex-close").focus();
+    else if (refocus) {
+      const same = refocus.startsWith("#") ? panel.querySelector(refocus)
+        : [...panel.querySelectorAll("a, button")].find((el) => el.textContent.trim() === refocus);
+      (same || $("#ex-close")).focus();
+    }
+    if (push && !noId) {
+      if (panel.dataset.pushed) saveHash();   // one Back step per panel, not per place looked at
+      else { listAtPush = listHash(); saveHash(true); panel.dataset.pushed = "1"; }
+    }
+    if (!loaded) loadDetail(p.co).then(() => { if (panel.dataset.i === String(p.i) && !panel.hidden) openPlace(p, false); });
+  }
+
+  // fromHistory: the Back button (or a hash link) already moved the URL, so don't touch history again
+  function closePlace(fromHistory = false) {
+    st.p = "";
+    const panel = $("#ex-panel");
+    const wasI = panel.dataset.i;   // the row the panel belonged to: focus goes back there
+    panel.hidden = true;
+    delete panel.dataset.id;
+    delete panel.dataset.i;
+    delete panel.dataset.shown;
+    delete panel.dataset.pushed;
+    document.body.classList.remove("ex-open");
+    panelMode();
+    if (!fromHistory) {
+      // the list hasn't changed since the panel opened: step back over the entry openPlace pushed, so Back isn't a dead click
+      if (history.state && history.state.txeats === "place" && listHash() === listAtPush) history.back();
+      else saveHash();
+    }
+    listAtPush = null;
+    const row = wasI && document.querySelector(`.ex-row[data-i="${Number(wasI)}"]`);
+    if (row) row.focus();
+  }
+
+  // ---------------------------------------------------------------- map (canvas: county outlines + a dot per place)
+  let SHAPES = null, cam = null;
+  const LAT0 = 31.2, KX = Math.cos(LAT0 * Math.PI / 180);
+  const proj = (lo, la) => [(lo + 100.0) * KX, -(la - LAT0)];
+
+  function fitCam(w, h) {
+    const [x0, y0] = proj(-106.7, 36.55), [x1, y1] = proj(-93.45, 25.8);
+    const k = Math.min(w / (x1 - x0), h / (y1 - y0)) * 0.95;
+    return { k, x: (w - (x1 - x0) * k) / 2 - x0 * k, y: (h - (y1 - y0) * k) / 2 - y0 * k };
+  }
+
+  // calls f on every ring, however deeply it's nested (the state is [polygon[ring[point]]], each county [ring[point]])
+  const eachRing = (g, f) => {
+    if (!Array.isArray(g) || !g.length) return;
+    if (Array.isArray(g[0]) && typeof g[0][0] === "number") f(g); else g.forEach((x) => eachRing(x, f));
+  };
+
+  const classic = (p) => Boolean((p.hc && p.g) || p.mi);
+  async function drawMap() {
+    const cv = $("#ex-map"), wrap = $("#ex-mapwrap");
+    const w = wrap.clientWidth, h = wrap.clientHeight, dpr = window.devicePixelRatio || 1;
+    if (!w || !h) return;
+    if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    if (!cam) cam = fitCam(w, h);
+    if (!SHAPES) SHAPES = await fetchJSON(`${BASE}/data/tx_shapes.json`).catch(() => ({ state: [], counties: [] }));
+    const c = cv.getContext("2d");
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+    const X = (lo, la) => { const [x, y] = proj(lo, la); return [x * cam.k + cam.x, y * cam.k + cam.y]; };
+    const ring = (r) => { r.forEach(([lo, la], i) => { const [x, y] = X(lo, la); i ? c.lineTo(x, y) : c.moveTo(x, y); }); c.closePath(); };
+    c.fillStyle = "#f7f3ec";   // the map stays light in dark mode (its frame is light too), so the blue dots keep their contrast
+    c.beginPath(); eachRing(SHAPES.state, ring); c.fill("evenodd");
+    c.strokeStyle = "rgba(14,26,48,.22)"; c.lineWidth = 0.8;
+    for (const co of SHAPES.counties || []) { c.beginPath(); eachRing(co.c, ring); c.stroke(); }
+    const pts = current.filter((p) => p.la != null);
+    const r = Math.max(2.2, Math.min(5, 1.6 + cam.k / 120));
+    // plain places: one batch of small squares (tens of thousands draw fast that way); hand-checked and MICHELIN places: red dots on top
+    c.fillStyle = "#002868";
+    const sq = pts.length > 3000 ? Math.max(1.6, r - 0.6) : r * 1.6;
+    for (const p of pts) {
+      if (classic(p)) continue;
+      const [x, y] = X(p.lo, p.la);
+      if (x < -5 || y < -5 || x > w + 5 || y > h + 5) continue;
+      if (pts.length > 3000) c.fillRect(x - sq / 2, y - sq / 2, sq, sq);
+      else { c.beginPath(); c.arc(x, y, r, 0, 6.2832); c.fill(); }
+    }
+    c.fillStyle = "#bf0a30"; c.strokeStyle = "#ffffff"; c.lineWidth = 1;
+    for (const p of pts) {
+      if (!classic(p)) continue;
+      const [x, y] = X(p.lo, p.la);
+      if (x < -5 || y < -5 || x > w + 5 || y > h + 5) continue;
+      c.beginPath(); c.arc(x, y, r + 1, 0, 6.2832); c.fill(); c.stroke();
+    }
+    $("#ex-maphint").textContent = pts.length ? `${pts.length.toLocaleString()} ${pts.length === 1 ? "place" : "places"} · tap a dot` : "No places to show";
+  }
+
+  function nearestDot(px, py) {
+    let best = null, bd = 14 * 14;
+    for (const p of current) {
+      if (p.la == null) continue;
+      const [x0, y0] = proj(p.lo, p.la), x = x0 * cam.k + cam.x, y = y0 * cam.k + cam.y;
+      const d = (x - px) ** 2 + (y - py) ** 2;
+      if (d < bd || (d === bd && classic(p))) { bd = d; best = p; }
+    }
+    return best;
+  }
+
+  function zoomAt(f, px, py) {
+    const k = Math.min(Math.max(cam.k * f, 40), 60000);
+    const s = k / cam.k;
+    cam = { k, x: px - (px - cam.x) * s, y: py - (py - cam.y) * s };
+    drawMap();
+  }
+
+  function mapEvents() {
+    const cv = $("#ex-map");
+    const ptrs = new Map();
+    let moved = false, pinch0 = null;
+    cv.addEventListener("wheel", (e) => { e.preventDefault(); const b = cv.getBoundingClientRect(); zoomAt(e.deltaY < 0 ? 1.25 : 0.8, e.clientX - b.left, e.clientY - b.top); }, { passive: false });
+    cv.addEventListener("pointerdown", (e) => { cv.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = false; pinch0 = null; });
+    cv.addEventListener("pointermove", (e) => {
+      if (!ptrs.has(e.pointerId)) return;
+      const prev = ptrs.get(e.pointerId);
+      ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+      if (ptrs.size === 2) {
+        const [a, b] = [...ptrs.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+        const r = cv.getBoundingClientRect();
+        if (pinch0) zoomAt(d / pinch0, (a[0] + b[0]) / 2 - r.left, (a[1] + b[1]) / 2 - r.top);
+        pinch0 = d; moved = true; return;
+      }
+      const dx = e.clientX - prev[0], dy = e.clientY - prev[1];
+      if (Math.abs(dx) + Math.abs(dy) > 2) moved = true;
+      cam.x += dx; cam.y += dy; drawMap();
+    });
+    const up = (e) => {
+      ptrs.delete(e.pointerId);
+      if (!moved && ptrs.size === 0) {
+        const b = cv.getBoundingClientRect(), p = nearestDot(e.clientX - b.left, e.clientY - b.top);
+        if (p) openPlace(p);
+      }
+      if (ptrs.size < 2) pinch0 = null;
+    };
+    cv.addEventListener("pointerup", up);
+    cv.addEventListener("pointercancel", (e) => ptrs.delete(e.pointerId));
+    $("#ex-zin").onclick = () => zoomAt(1.6, cv.clientWidth / 2, cv.clientHeight / 2);
+    $("#ex-zout").onclick = () => zoomAt(0.625, cv.clientWidth / 2, cv.clientHeight / 2);
+    window.addEventListener("resize", () => { if (view === "map") drawMap(); });
+  }
+
+  function centerOn(pt) {
+    const cv = $("#ex-map"), w = cv.clientWidth, h = cv.clientHeight;
+    const k = 4000, [x, y] = proj(pt.lo, pt.la);
+    cam = { k, x: w / 2 - x * k, y: h / 2 - y * k };
+  }
+
+  // ---------------------------------------------------------------- data, URL state, controls
+  let SOURCES = [], DETAIL_FILES = [];
+  async function fetchJSON(url, opts) { const r = await fetch(url, opts); if (!r.ok) throw new Error(r.status + " " + url); return r.json(); }
+  // the build this page's data comes from: the page names it (so a cached core.json from an older build isn't used), core.json confirms it
+  const PAGE_VER = ($("#ex-app") && $("#ex-app").dataset.ver) || "";
+  let DV = "";
+  const vq = (v) => (v ? "?v=" + encodeURIComponent(v) : "");
+  // a data file from another build (a cache that outlived a deploy) is fetched once more, then refused: its rows wouldn't line up
+  async function fetchCurrent(url, verOf) {
+    let d = await fetchJSON(url + vq(DV));
+    if (DV && verOf(d) !== DV) d = await fetchJSON(url + vq(DV), { cache: "reload" });
+    if (DV && verOf(d) !== DV) throw new Error("another build: " + url);
+    return d;
+  }
+  const DETAIL = new Map(), DETAIL_LOADED = new Set(), DETAIL_FAILED = new Set(), detailPromises = new Map();
+  // a county's detail file (phones, websites, notes, licenses, inspections) is fetched only once someone reaches for a place there
+  function loadDetail(co) {
+    // a county with no extras has no file (null in dfiles): nothing to fetch
+    if (!Number.isInteger(co) || co < 0 || co >= DETAIL_FILES.length || !DETAIL_FILES[co]) { DETAIL_LOADED.add(co); return Promise.resolve(); }
+    if (!detailPromises.has(co)) {
+      detailPromises.set(co, fetchCurrent(`${BASE}/data/detail-${encodeURIComponent(DETAIL_FILES[co])}.json`, (d) => d && d._v).then((d) => {
+        if (d && typeof d === "object") for (const k of Object.keys(d)) { const i = Number(k); if (Number.isInteger(i) && d[k] && typeof d[k] === "object") DETAIL.set(i, d[k]); }
+      }).catch(() => { DETAIL_FAILED.add(co); /* offline or another build: the panel says so, and asks for a reload */ })
+        .finally(() => DETAIL_LOADED.add(co)));
+    }
+    return detailPromises.get(co);
+  }
+
+  // ids.json: one stable id per place, in core order (saved places, #p= links and the panel's history entry use them)
+  let idsPromise = null, idsReady = false, idsFailed = false;
+  function loadIds() {
+    idsPromise ||= fetchCurrent(`${BASE}/data/ids.json`, (d) => d && d.v).then((d) => {
+      const ids = d && typeof d.ids === "string" ? d.ids.split(",") : [];   // one comma-separated string: smaller than a JSON array
+      if (ids.length !== P.length) throw new Error("ids.json doesn't match core.json");
+      ids.forEach((x, i) => { P[i].id = x; });
+    }).catch(() => { idsFailed = true; /* offline or another build: saving and links wait for a reload, and the page says so */ })
+      .finally(() => { idsReady = true; });
+    return idsPromise;
+  }
+
+  async function load() {
+    let d = await fetchJSON(`${BASE}/data/core.json${vq(PAGE_VER)}`);
+    // a core.json with no version predates versioning (a cache that ignored ?v=): its rows would meet this build's ids and county
+    // files unchecked, so fetch it once more past the cache, then stop with the reload message rather than mix two builds
+    if (PAGE_VER && typeof d.ver !== "string") d = await fetchJSON(`${BASE}/data/core.json${vq(PAGE_VER)}`, { cache: "reload" });
+    if (PAGE_VER && typeof d.ver !== "string") throw new Error("core.json from before versioning");
+    DV = typeof d.ver === "string" ? d.ver : "";
+    GENERATED = d.generated; CAL = d.calibration || {}; SOURCES = d.srcs || []; DETAIL_FILES = d.dfiles || [];
+    if (Array.isArray(d.results) && d.results.length) RESULTS = d.results;
+    META = { through: d.inspections_through || {}, liq: d.liquor_updated, mixFrom: d.mixbev_from, mixTo: d.mixbev_to, itypes: d.itypes || [] };
+    const n = d.n, towns = new Map(), C = { ...d.cols };
+    for (const [k, pairs] of Object.entries(d.sparse || {})) {   // mostly-empty columns arrive as [[index, value], ...]
+      const col = new Array(n).fill(null);
+      if (Array.isArray(pairs)) for (const pr of pairs) if (Array.isArray(pr) && Number.isInteger(pr[0]) && pr[0] >= 0 && pr[0] < n) col[pr[0]] = pr[1];
+      C[k] = col;
+    }
+    for (const k of ["n", "c", "co", "cu", "t", "s", "a", "z", "b", "ch", "g", "hc", "ip", "f", "h", "mi", "dish", "al", "liq", "dla", "dlo", "jb", "ij", "ib", "isc", "idn"])
+      if (!Array.isArray(C[k]) || C[k].length !== n) C[k] = new Array(n).fill(null);
+    const day0 = Date.UTC(...String(d.day0 || "2000-01-01").split("-").map((x, k) => Number(x) - (k === 1 ? 1 : 0)));
+    const isoDay = (k) => (k == null ? null : new Date(day0 + k * 86400000).toISOString().slice(0, 10));
+    P = new Array(n);
+    let la = 0, lo = 0;   // coordinates come as steps of 0.0001° from the previous place
+    for (let i = 0; i < n; i++) {
+      let pla = null, plo = null;
+      if (C.dla[i] != null && C.dlo[i] != null) { la += C.dla[i]; lo += C.dlo[i]; pla = la / 10000; plo = lo / 10000; }
+      const city = C.c[i] == null ? null : d.cities[C.c[i]], cu = d.cuisines[C.cu[i]], brand = C.b[i] == null ? null : d.brands[C.b[i]];
+      const county = C.co[i] == null ? null : d.counties[C.co[i]];
+      const p = { i, id: null, n: String(C.n[i] ?? ""), c: city, cu, t: C.t[i], s: C.s[i], a: C.a[i], z: C.z[i], la: pla, lo: plo,
+        ch: num(C.ch[i]) || 1, g: C.g[i] || 0, hc: C.hc[i] === 1, ip: C.ip[i], f: num(C.f[i]), h: C.h[i] || 0,
+        mi: num(C.mi[i]) || 0, jb: C.jb[i] === 1, dish: C.dish[i], co: C.co[i], al: num(C.al[i]), liq: C.liq[i] === 1,
+        ij: num(C.ij[i]), ib: num(C.ib[i]), isc: num(C.isc[i]), idt: isoDay(C.idn[i]) };
+      p.search = " " + normalize([p.n, city, county, p.z, cu, brand, p.dish].filter(Boolean).join(" ")) + " " + normAddr(p.a || "") + " ";
+      p.nameText = " " + normalize([p.n, brand].filter(Boolean).join(" ")) + " ";
+      p.key = normalize(p.n);
+      P[i] = p;
+      if (city) towns.set(city, (towns.get(city) || 0) + 1);
+    }
+    const byCount = [...towns.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    for (const [name] of byCount) { const k = normAddr(name); if (!own(TOWN_KEYS, k)) TOWN_KEYS[k] = name; }   // biggest town wins a shared spelling
+    TOWN_KEYS_BY_LENGTH = Object.keys(TOWN_KEYS).sort((a, b) => b.length - a.length);
+    $("#ex-town").innerHTML = '<option value="">All towns</option>' + [...towns.keys()].sort((a, b) => a.localeCompare(b)).map((t) => `<option>${esc(t)}</option>`).join("");
+    const cuis = new Map();
+    for (const p of P) cuis.set(p.cu, (cuis.get(p.cu) || 0) + 1);
+    $("#ex-cuisine").innerHTML = '<option value="">All kinds</option>' + [...cuis.entries()].sort((a, b) => b[1] - a[1]).map(([c, k]) => `<option value="${esc(c)}">${esc(c)} (${esc(k.toLocaleString())})</option>`).join("");
+    bibCount = P.filter((p) => !p.v && p.mi === 2).length;
+    $("#ex-bibwrap").hidden = !bibCount;
+    $("#ex-bibn").textContent = `(${bibCount.toLocaleString()})`;
+    if (!bibCount) st.bib = false;
+  }
+
+  const guideOk = (g) => own(GUIDES, g);
+  function readHash() {
+    const h = new URLSearchParams(location.hash.slice(1));
+    const last = store.get("guide", "bbq");
+    // a returning visitor gets the guide they used last, unless it's an empty Saved list
+    st.g = guideOk(h.get("g")) ? h.get("g") : guideOk(last) && !(last === "saved" && !saved.size) ? last : "bbq";
+    st.q = h.get("q") || ""; st.town = h.get("town") || ""; st.cuisine = h.get("kind") || ""; st.chains = h.get("chains") === "1"; st.bib = h.get("bib") === "1";
+    st.sort = h.get("sort") || ""; st.p = h.get("p") || "";
+  }
+  function hashOf(withPlace) {
+    const h = new URLSearchParams();
+    h.set("g", st.g);
+    if (st.q) h.set("q", st.q); if (st.town) h.set("town", st.town); if (st.cuisine) h.set("kind", st.cuisine);
+    if (st.chains) h.set("chains", "1"); if (st.bib) h.set("bib", "1"); if (st.sort) h.set("sort", st.sort); if (withPlace && st.p) h.set("p", st.p);
+    return "#" + h.toString();
+  }
+  const listHash = () => hashOf(false);
+  // filter changes replace the current history entry; opening a place pushes one, so Back closes the panel
+  function saveHash(push = false) {
+    const url = hashOf(true);
+    if (push) history.pushState({ txeats: "place" }, "", url);
+    else history.replaceState(st.p ? { txeats: "place" } : null, "", url);
+    store.set("guide", st.g);
+  }
+
+  // a coarse Texas outline (TexasEats/Services/LocationService.swift's TexasOutline): a bounding box would count New Mexico and Oklahoma
+  const TX_RING = [[-106.68, 32.03], [-103.03, 32.03], [-103.0, 36.53], [-99.97, 36.53], [-99.97, 34.6], [-99.2, 34.45], [-98.1, 34.18],
+    [-96.9, 33.97], [-95.6, 33.97], [-94.45, 33.7], [-94.0, 33.6], [-94.0, 32.0], [-93.55, 31.2], [-93.7, 30.3], [-93.8, 29.65], [-94.7, 29.2],
+    [-95.3, 28.7], [-96.6, 28.0], [-97.2, 27.3], [-97.1, 25.9], [-97.5, 25.8], [-98.3, 26.03], [-99.1, 26.38], [-99.55, 27.45], [-100.35, 28.25],
+    [-101.05, 29.33], [-102.4, 29.72], [-103.15, 28.9], [-104.55, 29.6], [-105.0, 30.6], [-106.05, 31.35], [-106.68, 31.75]];
+  function inTexas(la, lo) {
+    let inside = false;
+    for (let i = 0, j = TX_RING.length - 1; i < TX_RING.length; j = i++) {
+      const [xi, yi] = TX_RING[i], [xj, yj] = TX_RING[j];
+      if ((yi > la) !== (yj > la) && lo < (xj - xi) * (la - yi) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+  }
+
+  function locate() {
+    if (!navigator.geolocation) { $("#ex-locmsg").textContent = "This browser can't share its location."; return; }
+    $("#ex-locmsg").textContent = "Finding you…";
+    navigator.geolocation.getCurrentPosition((pos) => {
+      here = { la: pos.coords.latitude, lo: pos.coords.longitude };
+      const inTX = inTexas(here.la, here.lo);
+      $("#ex-locmsg").textContent = inTX ? "Sorted by distance from you. Your location stays in this browser." : "You're outside Texas: distances are from where you are. Your location stays in this browser.";
+      st.sort = GUIDES[st.g].sorts.includes("nearest") ? "nearest" : st.sort;
+      if (view === "map" && inTX) centerOn(here);
+      shown = 100; render();
+    }, (err) => {
+      $("#ex-locmsg").textContent = err && err.code === 1 ? "Location is off for this site. Allow it in your browser settings to sort by distance."
+        : "Couldn't get a location fix just now. Tap Near me to try again.";
+    },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 });   // a fresh fix on every tap, never one from minutes ago
+  }
+
+  function setView(v) {
+    view = v;
+    document.querySelectorAll(".ex-view button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === v)));
+    $("#ex-listwrap").hidden = v !== "list";
+    $("#ex-mapwrap").hidden = v !== "map";
+    render();
+    // the map often starts below the fold (on phones, and on laptop-height screens): bring it into view
+    if (v === "map" && $("#ex-mapwrap").getBoundingClientRect().top > innerHeight * 0.5) $("#ex-mapwrap").scrollIntoView({ block: "nearest" });
+  }
+
+  // the URL moved under us: Back/Forward (popstate) or a link to another #hash (hashchange). Both can fire for one step.
+  function fromURL() {
+    const before = listHash();
+    readHash();
+    if (listHash() !== before) { syncInputs(); shown = 100; render(); }
+    if (st.p && !idsReady) { loadIds().then(fromURL); return; }
+    const p = st.p && P.find((x) => x.id === st.p);
+    const panel = $("#ex-panel");
+    if (p) {
+      if (panel.hidden || panel.dataset.id !== p.id) {
+        openPlace(p, false);
+        // Forward to a place opened earlier: its entry was pushed after the list's, so closing it steps back, as after a tap
+        if (history.state && history.state.txeats === "place") { listAtPush = listHash(); panel.dataset.pushed = "1"; }
+      }
+    }
+    else { if (!panel.hidden) closePlace(true); linkMissing(); }
+  }
+
+  // a #p= link whose place isn't here: ids.json didn't load, or the place has left the list since the link was made
+  function linkMissing() {
+    if (!st.p) return;
+    $("#ex-locmsg").textContent = idsFailed ? "The place in this link couldn't load: you may be offline, or the site was just updated. Reload the page to try again."
+      : "The place in this link isn't on the list anymore (it may have closed or moved).";
+  }
+
+  function controls() {
+    document.querySelectorAll(".ex-guides button").forEach((b) => b.onclick = () => { if (guideOk(b.dataset.g)) st.g = b.dataset.g; st.sort = ""; shown = 100; render(); });
+    let t = null;
+    $("#ex-q").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => { st.q = e.target.value; shown = 100; render(); }, 120); });
+    $("#ex-sort").onchange = (e) => { st.sort = e.target.value; if (st.sort === "nearest" && !here) locate(); shown = 100; render(); };
+    $("#ex-town").onchange = (e) => { st.town = e.target.value; shown = 100; render(); };
+    $("#ex-cuisine").onchange = (e) => { st.cuisine = e.target.value; shown = 100; render(); };
+    $("#ex-chains").onchange = (e) => { st.chains = e.target.checked; shown = 100; render(); };
+    $("#ex-bib").onchange = (e) => { st.bib = e.target.checked; shown = 100; render(); };
+    $("#ex-clear").onclick = () => { st.town = st.cuisine = ""; st.chains = st.bib = false; syncInputs(); shown = 100; render(); };
+    $("#ex-locate").onclick = locate;
+    $("#ex-more").onclick = () => { shown += 200; renderList(order()); };
+    document.querySelectorAll(".ex-view button").forEach((b) => b.onclick = () => setView(b.dataset.v));
+    $("#ex-list").addEventListener("click", (e) => { const b = e.target.closest(".ex-row"); if (b && P[+b.dataset.i]) openPlace(P[+b.dataset.i]); });
+    // warm the region file of the row under the pointer (or keyboard focus), so the panel opens with its details
+    for (const ev of ["pointerover", "focusin"]) $("#ex-list").addEventListener(ev, (e) => { const b = e.target.closest && e.target.closest(".ex-row"); if (b && P[+b.dataset.i]) { loadIds(); loadDetail(P[+b.dataset.i].co); } });
+    // the ids (a few hundred KB) wait for the first sign of use, so a visit that only looks doesn't download them
+    const WARM = ["pointerdown", "keydown", "wheel", "scroll", "touchstart"];
+    const warmIds = () => { WARM.forEach((ev) => removeEventListener(ev, warmIds, true)); loadIds(); };
+    WARM.forEach((ev) => addEventListener(ev, warmIds, { capture: true, passive: true }));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#ex-panel").hidden) closePlace(); });
+    window.addEventListener("popstate", fromURL);
+    window.addEventListener("hashchange", fromURL);
+    $("#ex-backdrop").addEventListener("click", () => { if (st.p || !$("#ex-panel").hidden) closePlace(); });
+    mapEvents();
+  }
+  function syncInputs() {
+    $("#ex-q").value = st.q; $("#ex-town").value = st.town; $("#ex-cuisine").value = st.cuisine; $("#ex-chains").checked = st.chains; $("#ex-bib").checked = st.bib;
+  }
+
+  (async () => {
+    $("#ex-loading").hidden = false;   // hidden in the HTML, so a browser without JavaScript shows only the <noscript> note
+    readHash();
+    try { await load(); } catch (e) { $("#ex-loading").textContent = "The restaurant list couldn't load. Refresh to try again."; return; }
+    syncInputs(); controls();
+    $("#ex-app").hidden = false;
+    $("#ex-loading").hidden = true;
+    render();
+    if (st.p) {
+      await loadIds();
+      const open = P.find((p) => p.id === st.p);
+      if (open) { await loadDetail(open.co); openPlace(open, false); }
+      else linkMissing();
+    }
+  })();
+})();
+
+</script>
+  <footer>
+    <nav aria-label="Footer">
+      <a href="/texas-eats/">Texas Eats app</a>
+      <a href="/texas-eats/explore/">Search Texas restaurants</a>
+      <a href="/texas-eats/texas-barbecue.html">Barbecue joints</a>
+      <a href="/texas-eats/texas-tex-mex.html">Tex-Mex</a>
+      <a href="/texas-eats/texas-taquerias.html">Taquerías</a>
+      <a href="/texas-eats/texas-kolaches.html">Kolaches</a>
+      <a href="/texas-eats/texas-chicken-fried-steak.html">Chicken-fried steak</a>
+      <a href="/texas-eats/texas-oldest-restaurants.html">Oldest restaurants</a>
+      <a href="/texas-eats/texas-michelin-james-beard.html">MICHELIN &amp; James Beard</a>
+      <a href="/texas-eats/texas-restaurant-inspections.html">Restaurant inspections</a>
+      <a href="/texas-eats/cities/">Cities and towns</a>
+      <a href="/texas-eats/privacy.html">Privacy policy</a>
+      <a href="/texas-eats/terms.html">Terms of use</a>
+      <a href="mailto:nick@eatsranked.com">Email us</a>
+    </nav>
+    <p>Place data: hand-checked research by Texas Eats (fall 2026); Texas Alcoholic Beverage Commission license information and the Texas Comptroller's mixed beverage gross receipts (data.texas.gov); inspection scores from Austin Public Health (data.austintexas.gov), the City of El Paso Department of Public Health and the City of Arlington; Overture Maps Foundation places (CDLA Permissive 2.0) and addresses (open address sources under permissive licenses, docs.overturemaps.org/attribution); map outlines © OpenStreetMap contributors, Overture Maps Foundation (ODbL); U.S. Census Bureau Geocoder (public domain). Not affiliated with or endorsed by the State of Texas, TABC, the Comptroller, any city, any restaurant or chain, the MICHELIN Guide or the James Beard Foundation. MICHELIN and the MICHELIN Guide are trademarks of Michelin; James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation. Places open and close, so check before you go.</p>
+    <p>© 2026 Texas Eats. Part of <a href="https://eatsranked.com/" rel="noopener">Eats Ranked</a>, restaurant apps state by state.</p>
+    <p>Created by <a href="https://work-with-nick.com/" rel="author">Nick Soderstrom</a>.</p>
+  </footer>
+</div>
+<script>
+  // Once the App Store listing exists, paste its URL here (looks like https://apps.apple.com/app/id123456789).
+  // Every button switches from "Ask for early access" to "Download on the App Store" automatically (then use Apple's badge artwork,
+  // see store_button() in scripts/make-site.py). Also fill in the apple-itunes-app meta tag in <head> on every page, and put the
+  // MobileApplication "offers" back in the landing page's JSON-LD (re-run scripts/make-site.py after editing it there).
+  var APP_STORE_URL = "";
+  if (APP_STORE_URL) {
+    document.querySelectorAll(".store-btn").forEach(function (b) { b.href = APP_STORE_URL; b.rel = "noopener"; });
+    document.querySelectorAll(".store-label").forEach(function (l) { l.textContent = "Download on the App Store"; });
+    document.querySelectorAll(".store-note").forEach(function (n) { n.textContent = "Free for iPhone and iPad."; });
+  }
+</script>
+</body>
+</html>

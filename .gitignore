@@ -1,0 +1,16 @@
+# private: downloaded official files, the Google 2021 snapshot, pipeline caches, research, the leaderboard (Google-derived)
+/data/
+/site/
+LOCAL.md
+.venv/
+DerivedData*/
+build/
+*.xcodeproj
+.simulators
+.preview/
+# the private leaderboard generator (it builds the Google-2021 page in site/), as in wi-eats, co-eats and fl-eats
+scripts/make-leaderboard.py
+scripts/leaderboard-base.html
+__pycache__/
+.DS_Store
+*.log

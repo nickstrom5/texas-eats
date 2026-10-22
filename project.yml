@@ -1,0 +1,76 @@
+name: TexasEats
+options:
+  bundleIdPrefix: com.texaseats
+  deploymentTarget:
+    iOS: "18.0"
+  xcodeVersion: "16.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: "4C8TU6U7MQ"
+    CODE_SIGN_STYLE: Automatic
+    TARGETED_DEVICE_FAMILY: "1,2"  # iPhone and iPad
+    SWIFT_STRICT_CONCURRENCY: minimal
+
+targets:
+  TexasEats:
+    type: application
+    platform: iOS
+    sources:
+      - path: TexasEats
+    info:
+      path: TexasEats/Info.plist
+      properties:
+        CFBundleDisplayName: TX Eats
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIRequiresFullScreen: false
+        UIUserInterfaceStyle: Light      # the palette is light-only (Design/Theme.swift); dark mode made lists unreadable
+        NSLocationWhenInUseUsageDescription: "Your location sorts barbecue joints, taquerías and restaurants by distance and shows where you are on the map. It stays on your device."
+        ITSAppUsesNonExemptEncryption: false
+        LSApplicationQueriesSchemes: [maps]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.texaseats.ios
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    scheme:
+      testTargets: [TexasEatsTests, TexasEatsUITests]
+
+  TexasEatsTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: TexasEatsTests
+    dependencies:
+      - target: TexasEats
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.texaseats.ios.tests
+        GENERATE_INFOPLIST_FILE: true
+
+  TexasEatsUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: TexasEatsUITests
+    dependencies:
+      - target: TexasEats
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.texaseats.ios.uitests
+        GENERATE_INFOPLIST_FILE: true
+        TEST_TARGET_NAME: TexasEats
