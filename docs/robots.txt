@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nickstrom5.github.io/texas-eats/sitemap.xml
+Sitemap: https://texas.eatsranked.com/sitemap.xml

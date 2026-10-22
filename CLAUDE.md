@@ -9,8 +9,8 @@ Products (same three as every state):
   `scripts/make-leaderboard.py` from `../wi-eats/site/index.html`; republish it with `texas.json`, `tx_detail.json`, `tx_shapes.json`.
 - **iOS/iPadOS app** "Texas Eats: Restaurants" (subtitle "BBQ, Tex-Mex & Taquerías", Home Screen "TX Eats"). Nick 2026-10-20: icon = three brisket slices on pink butcher paper on flag blue (`scripts/icon-concepts-2.swift` `paper()`, concept D; check with `--emblem`); palette = Texas flag blue #002868, red #BF0A30, white.
 - **Website** (generated `docs/`): public repo https://github.com/nickstrom5/texas-eats (Nick's yes 2026-10-22), Pages from `main:/docs` at
-  https://nickstrom5.github.io/texas-eats/. `texas.eatsranked.com` waits on Nick's Cloudflare `CNAME texas → nickstrom5.github.io` (DNS only);
-  after `dig` shows it, rebuild with `TX_DOMAIN=texas.eatsranked.com` and push. Public commits as `329204362+nickstrom5@users.noreply.github.com`.
+  https://texas.eatsranked.com (Cloudflare `CNAME texas → nickstrom5.github.io`, DNS only, 2026-10-22; was nickstrom5.github.io/texas-eats/);
+  always build with `TX_DOMAIN=texas.eatsranked.com`. The app's Links.swift still points at github.io (301-forwarded) until the next update. Public commits as `329204362+nickstrom5@users.noreply.github.com`.
 
 ## App status (2026-10-20)
 - `TexasEats/` is ported from `../fl-eats/FloridaEats` (Florida's core + per-region detail files fit Texas's size): bundle
@@ -37,7 +37,7 @@ Products (same three as every state):
   screenshot lookup prefers the hand-checked place.
 - Launch: `testLaunchIsQuick` measured 6.5-6.7 s (limit 6) with load average 10-13 from other sessions; the data load alone is 1.7 s
   (`PerformanceTests.testSpeedLoad`). Re-measure on a quiet machine; if still slow, split the 14 MB core and decode in parallel (ca-eats).
-- Not done: launch-time check on a quiet machine, USPTO check, App Store listing, custom domain (all outward steps need Nick's yes).
+- Not done: launch-time check on a quiet machine, USPTO check, App Store listing (all outward steps need Nick's yes).
 
 ## Sources (details and dates: `playbook/12-sources.md`)
 - Statewide: TABC License Information (data.texas.gov 7hf9-qc9f, daily) and the Comptroller's Mixed Beverage Gross Receipts
