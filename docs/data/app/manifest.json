@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "version": "2026-10-21.1",
+ "records_through": "2026-10-21",
+ "published": "2026-10-26T14:19:49Z",
+ "min_app_build": 1,
+ "files": {
+  "detail-austin-central-texas": {
+   "path": "detail-austin-central-texas-3b3e53533ac3.json",
+   "sha256": "3b3e53533ac304ac45657a06f20e731fd78df09a7759ac3b91d44af0e49f1851",
+   "bytes": 1235184,
+   "rows": 10224
+  },
+  "detail-coastal-bend": {
+   "path": "detail-coastal-bend-343dadebfbe8.json",
+   "sha256": "343dadebfbe8e81b69cabcf69456ef3d45cf5a5f8be953927a3d4ff256a429d5",
+   "bytes": 203224,
+   "rows": 2276
+  },
+  "detail-dallas-fort-worth": {
+   "path": "detail-dallas-fort-worth-add5c0a0499d.json",
+   "sha256": "add5c0a0499dd55548ed2cba93bebdef73814f1526115d5fc8b0860dbbb1e425",
+   "bytes": 2335555,
+   "rows": 24836
+  },
+  "detail-east-texas": {
+   "path": "detail-east-texas-9e078d513226.json",
+   "sha256": "9e078d51322659d7bdf36890099d90167ae129d0947a04bf95de3db2a88927e6",
+   "bytes": 254402,
+   "rows": 3004
+  },
+  "detail-el-paso-west-texas": {
+   "path": "detail-el-paso-west-texas-b0872246e58c.json",
+   "sha256": "b0872246e58cfee5488446732c6f3f0f9bd3b91d4b1ad1e585824680ccf49798",
+   "bytes": 653673,
+   "rows": 4419
+  },
+  "detail-houston-gulf-coast": {
+   "path": "detail-houston-gulf-coast-1de8ecf6c650.json",
+   "sha256": "1de8ecf6c65002b455da85a2018c3d6914491184766538e65547dd0920880703",
+   "bytes": 2043625,
+   "rows": 22294
+  },
+  "detail-panhandle-plains": {
+   "path": "detail-panhandle-plains-eb37171b6288.json",
+   "sha256": "eb37171b6288d0c7390c58fb21d26f8cfb3ff1e798b62d287b6b7d67b5e0874e",
+   "bytes": 233585,
+   "rows": 2748
+  },
+  "detail-rio-grande-valley-border": {
+   "path": "detail-rio-grande-valley-border-9bfeb8a9e4d5.json",
+   "sha256": "9bfeb8a9e4d5897ab6b2d68bd93701c591d50651d0610ae70e69df119436c460",
+   "bytes": 376080,
+   "rows": 4883
+  },
+  "detail-san-antonio-hill-country": {
+   "path": "detail-san-antonio-hill-country-b72251322269.json",
+   "sha256": "b72251322269e55042b51f4fb0bcd85997203e06f7a8bca4d766d67e45f4555f",
+   "bytes": 773693,
+   "rows": 8589
+  },
+  "places": {
+   "path": "places-1f3f463a8428.json",
+   "sha256": "1f3f463a84286add39bc5b3ba2b976bfb3522b4fe71cb75e208bbeb1d34b674e",
+   "bytes": 14352475,
+   "rows": 84375
+  }
+ },
+ "counts": {
+  "places": 84375,
+  "files": 10,
+  "bytes": 22461496,
+  "restaurants": 78906
+ }
+}

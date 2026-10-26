@@ -1145,8 +1145,20 @@ def browser_checks(problems):
     return len(urls)
 
 
+def app_data_checks(problems):
+    """docs/data/app/, the app's data updates (scripts/publish_app_data.py, OTA-DATA.md): every manifest entry's hash, size and
+    row count match its file, the head file's date matches, and no old copy lingers."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from publish_app_data import check_app_data, app_data_dir
+    found, notes = check_app_data(DOCS, app_data_dir())
+    problems.extend("app data: " + x for x in found)
+    for x in notes:
+        print("  note: app data:", x)
+
+
 def main():
     problems, n = static_checks()
+    app_data_checks(problems)
     if "--static" in sys.argv:
         print(f"{n} pages, static checks")
     else:

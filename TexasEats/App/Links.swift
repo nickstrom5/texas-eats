@@ -6,6 +6,8 @@ import Foundation
 /// links to the custom domain after the switch, so a shipped build keeps working; point them at the new domain in the next update.
 enum Links {
     static let site = URL(string: "https://nickstrom5.github.io/texas-eats/")!
+    /// The app's data updates: scripts/publish_app_data.py writes docs/data/app/ (OTA-DATA.md).
+    static let appData = URL(string: site.absoluteString + "data/app/")!
     static let privacy = URL(string: "https://nickstrom5.github.io/texas-eats/privacy.html")!
     static let terms = URL(string: "https://nickstrom5.github.io/texas-eats/terms.html")!
     /// TABC's public license search (a page that opens and works; a place shows its license number to look up)

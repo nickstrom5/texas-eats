@@ -86,8 +86,8 @@ final class AppModel {
 
     /// A cold launch from Spotlight asks for the data twice (the app's .task and the search continuation); both wait on one decode.
     private var loading: Task<Void, Never>?
-    /// where a region's detail file is: the app bundle, or (tests) a folder next to a test core file
-    private var detailURL: (String) -> URL? = { Bundle.main.url(forResource: "detail-" + $0, withExtension: "json") }
+    /// where a region's detail file is: the copy AppData chose (bundled or downloaded), or (tests) a folder next to a test core file
+    private var detailURL: (String) -> URL? = { AppData.url("detail-" + $0) }
     /// region detail files already read, and the reads in flight (two places of one region opened quickly share one read)
     @ObservationIgnored private var details: [String: [String: PlaceDetail]] = [:]
     @ObservationIgnored private var detailLoads: [String: Task<[String: PlaceDetail], Never>] = [:]
@@ -106,8 +106,8 @@ final class AppModel {
         if let t = detailLoads[region] { return await t.value[p.id] }
         let url = detailURL(Self.regionSlug(region))
         let t = Task.detached(priority: .userInitiated) { () -> [String: PlaceDetail] in
-            guard let url, let data = try? Data(contentsOf: url) else { return [:] }
-            return (try? JSONDecoder().decode([String: PlaceDetail].self, from: data)) ?? [:]
+            guard let url else { return [:] }
+            return (try? AppModel.readDetail(url)) ?? [:]
         }
         detailLoads[region] = t
         let d = await t.value
@@ -116,7 +116,12 @@ final class AppModel {
         return d[p.id]
     }
 
-    func load(from url: URL? = Bundle.main.url(forResource: "places", withExtension: "json"), detailFolder: URL? = nil) async {
+    /// Reads a region's detail file: here, and in the check a downloaded copy passes (DataLayout.app).
+    nonisolated static func readDetail(_ url: URL) throws -> [String: PlaceDetail] {
+        try JSONDecoder().decode([String: PlaceDetail].self, from: Data(contentsOf: url))
+    }
+
+    func load(from url: URL? = AppData.url("places"), detailFolder: URL? = nil) async {
         if let detailFolder { detailURL = { detailFolder.appendingPathComponent("detail-\($0).json") } }
         guard !isLoaded else { return }
         if let loading { await loading.value; return }
@@ -128,19 +133,24 @@ final class AppModel {
     private func decode(from url: URL?) async {
         guard let url else { loadError = "The restaurant data is missing from the app."; return }
         do {
-            let (file, places) = try await Task.detached(priority: .userInitiated) { () throws -> (DataFile, [Place]) in
-                let data = try Data(contentsOf: url)
-                guard let root = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { throw DataFile.Malformed(field: "everything") }
-                let file = try DataFile(json: root)
-                // kept in A-to-Z order: a filter keeps it, so the A-to-Z sort of any list is a pass over an already sorted array
-                let places = Place.build(root["places"] as? [[String: Any]] ?? [], file: file)
-                    .sorted { $0.sortKey != $1.sortKey ? $0.sortKey < $1.sortKey : $0.id < $1.id }
-                return (file, places)
-            }.value
+            let (file, places) = try await Task.detached(priority: .userInitiated) { try AppModel.read(url) }.value
             apply(file: file, places: places)
         } catch {
+            // a downloaded copy this build can't read (OTA-DATA.md): back to the data built into the app
+            if let bundled = AppData.fallback(from: url) { return await decode(from: bundled) }
             loadError = "The restaurant data couldn't be read (\(error.localizedDescription))."
         }
+    }
+
+    /// Reads a places.json: launch, and the check a downloaded copy passes before it's stored (DataLayout.app, OTA-DATA.md).
+    nonisolated static func read(_ url: URL) throws -> (DataFile, [Place]) {
+        let data = try Data(contentsOf: url)
+        guard let root = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { throw DataFile.Malformed(field: "everything") }
+        let file = try DataFile(json: root)
+        // kept in A-to-Z order: a filter keeps it, so the A-to-Z sort of any list is a pass over an already sorted array
+        let places = Place.build(root["places"] as? [[String: Any]] ?? [], file: file)
+            .sorted { $0.sortKey != $1.sortKey ? $0.sortKey < $1.sortKey : $0.id < $1.id }
+        return (file, places)
     }
 
     func apply(file: DataFile, places: [Place]) {

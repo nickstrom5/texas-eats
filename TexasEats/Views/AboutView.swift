@@ -43,6 +43,8 @@ struct AboutView: View {
             Section("Privacy") {
                 Text("The app collects nothing. Your location, if you allow it, only sorts lists by distance and shows where you are on the map, on this device. Saved places stay on this device.")
                     .font(.subheadline).foregroundStyle(Theme.ink2)
+                DataUpdatesNote()
+                    .font(.footnote).foregroundStyle(Theme.muted)
                 Link("Privacy policy", destination: Links.privacy)
                 Link("Terms of use", destination: Links.terms)
             }
