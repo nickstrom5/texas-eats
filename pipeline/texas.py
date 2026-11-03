@@ -1424,7 +1424,11 @@ o = o.drop(index=list(drop)).reset_index(drop=True)
 # adult clubs aren't restaurants and don't belong in a 13+ app at all; smoke, vape and cannabis shops are hidden with non-restaurants
 webs = o.get("web", pd.Series("", index=o.index)).fillna("").astype(str) + " " + o.rsite.fillna("").astype(str)
 # Texas: "cabaret" alone is no sign (Deep Eddy Cabaret is an Austin dive bar, The St. James a supper club), so only these words count
-adult = o.name_out.str.contains(r"gentlem[ae]n['’]?s club|exotic dancer|strip club|adult entertainment|showclub|baby dolls|"
+# QA 2026-10-29: "Gentlemen Club", "Gentleman's Lounge", topless and bikini bars, a male exotic cabaret and the Gold Club, Peppermint Hippo
+# and Stilettos brands got through, so they count too. El Punto De Oro goes by its name ("Cabaret Latino"), not its address:
+# Tacos El Cazador, a food truck with its own inspection, shares 8110 Southwest Fwy
+adult = o.name_out.str.contains(r"gentlem[ae]n['’]?s? (?:club|lounge)|exotic dancer|strip club|adult entertainment|showclub|baby dolls|"
+                                r"\btopless\b|male exotic|\bgold club\b|peppermint hippo|stilettos? cabaret|cabaret latino|flash ?dancers?\b|"
                                 r"rick'?s cabaret|xtc cabaret|\bmen'?s club|bikini bar|showgirls|showclub|centerfolds", case=False, regex=True) \
     | webs.str.contains(r"centerfolds|gentlemensclub|stripclub|babydolls|diamondcabaret", case=False, regex=True)
 # most clubs hold a plain Tavern license under a plain trade name ("PT's After Dark", "Glendale Restaurants"), so names alone miss them:
