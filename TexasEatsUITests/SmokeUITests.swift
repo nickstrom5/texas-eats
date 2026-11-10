@@ -210,10 +210,10 @@ final class SmokeUITests: XCTestCase {
         }
         let search = app.searchFields.firstMatch
         if !search.exists { app.swipeDown() }
-        waitFor(search, 5, "search"); search.tap(); search.typeText("versailles")
-        let row = button(containing: "Versailles")
-        waitFor(row, 5, "Versailles in results"); row.tap()
-        exerciseDetail(named: "VERSAILLES")
+        waitFor(search, 5, "search"); search.tap(); search.typeText("kreuz")
+        let row = button(containing: "Kreuz Market")
+        waitFor(row, 5, "Kreuz Market in results"); row.tap()
+        exerciseDetail(named: "KREUZ MARKET")
         // Apple's place card is still up over the split view: a tap outside it (or a swipe down) closes it
         for _ in 0..<3 where !sidebarItem("Map").isHittable {
             app.coordinate(withNormalizedOffset: CGVector(dx: 0.03, dy: 0.08)).tap()
