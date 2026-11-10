@@ -105,7 +105,7 @@ struct SplitRoot: View {
             } else if let p = model.selectedPlace {
                 NavigationStack { PlaceDetailView(place: p) }.id(p.id)
             } else {
-                ContentUnavailableView("Pick a place", systemImage: "fork.knife", description: Text("Choose a Cuban spot, a seafood shack or any restaurant to see its details."))
+                ContentUnavailableView("Pick a place", systemImage: "fork.knife", description: Text("Choose a barbecue joint, a taquería or any restaurant to see its details."))
             }
         }
         .navigationSplitViewStyle(.balanced)
