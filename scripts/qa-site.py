@@ -18,7 +18,7 @@ Static (no browser):
   Google-derived field (rating, reviews, price) anywhere in the published data; core.json, ids.json, every detail file and the web
   app page carry the same build version (rows only line up within one build)
 - every page: the "Part of Eats Ranked" footer line, a #org Organization whose parentOrganization is the eatsranked.com hub, a mailto:
-  to nick@eatsranked.com, no web font loaded; work-with-nick@gmail.com and other states' app names and
+  to nick@eatsranked.com, no web font but the site's own headline face; work-with-nick@gmail.com and other states' app names and
   repo slugs nowhere in docs/, other states' names nowhere in the site's own copy or code; no domain or URL from
   pipeline/website_blocklist.json (hacked, expired or wrong-business sites) anywhere in docs/, data files included; the privacy policy names every localStorage
   key the web app writes; the landing page shows the app screenshots (docs/img) with alt text, sizes and lazy loading
@@ -382,9 +382,16 @@ def static_checks():
         # --- the contact address (Nick, 2026-10-12)
         if f'href="mailto:{EMAIL}' not in text:
             problems.append(f"{where}: no mailto:{EMAIL} link")
-        # --- no web font: the site uses system faces only (the CSP and the privacy policy promise nothing loads from anyone else)
-        if re.search(r"@font-face|/fonts/", text):
-            problems.append(f"{where}: loads a web font")
+        # --- the one web font is the site's own headline face (Holtwood One SC): every @font-face reads a file in this site's
+        # /fonts/ folder and swaps instead of hiding text, the latin file is preloaded (the h1 uses it above the fold), and nothing
+        # names a font host, so the CSP and the privacy policy still hold: nothing loads from anyone else
+        faces = re.findall(r"@font-face\s*\{[^}]*\}", text)
+        if not faces or any("font-display: swap" not in f or not re.search(r'url\("[^":]*/fonts/[a-z0-9-]+\.woff2"\)', f) for f in faces):
+            problems.append(f"{where}: an @font-face that isn't this site's own file with font-display: swap")
+        if not re.search(r'<link rel="preload" href="[^":]*/fonts/holtwood\-one\-sc\-latin\.woff2" as="font" type="font/woff2" crossorigin>', text):
+            problems.append(f"{where}: the headline font isn't preloaded")
+        if re.search(r"fonts\.googleapis\.com|fonts\.gstatic\.com|use\.typekit\.net", text):
+            problems.append(f"{where}: loads a font from another host")
         # --- no other state's name in this site's own copy or code (place items and JSON-LD aside), nor its app name or repo (XS-05)
         own = re.sub(r'<li id="[^"]*">.*?</li>|<script type="application/ld\+json">.*?</script>', " ", text, flags=re.S)
         for m in re.finditer(OTHER_STATES, own):
