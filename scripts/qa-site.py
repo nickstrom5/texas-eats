@@ -619,6 +619,8 @@ def serve():
         root = tempfile.mkdtemp()
         os.symlink(os.path.abspath(DOCS), os.path.join(root, BASE.strip("/")))
     # QA_PORT: a fixed port (the machine is shared; each session keeps to its own range); default, any free port
+    # the default listen backlog (5) resets one of a browser's burst of requests when the machine is busy
+    http.server.ThreadingHTTPServer.request_queue_size = 64
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", int(os.environ.get("QA_PORT") or 0)), functools.partial(Quiet, directory=root))
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return f"http://127.0.0.1:{srv.server_address[1]}"
