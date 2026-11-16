@@ -1,13 +1,13 @@
 {
- "generated": "2026-11-03",
+ "generated": "2026-11-15",
  "domain": "https://texas.eatsranked.com",
- "restaurants": 78609,
- "places_incl_hidden": 84368,
+ "restaurants": 78608,
+ "places_incl_hidden": 84372,
  "towns": 1233,
  "counties": 249,
- "on_an_official_list": 31936,
- "serves_alcohol_tabc": 27772,
- "reported_alcohol_sales": 16926,
+ "on_an_official_list": 31935,
+ "serves_alcohol_tabc": 27771,
+ "reported_alcohol_sales": 16923,
  "hand_checked_on_a_guide": 203,
  "guide_bbq": 74,
  "guide_texmex": 30,
@@ -23,21 +23,21 @@
  },
  "james_beard": 31,
  "americas_classics": 8,
- "inspection_scores": 5949,
+ "inspection_scores": 5950,
  "inspection_bands": {
   "Austin": {
-   "Green": 1576,
+   "Green": 1574,
    "Yellow": 1234,
    "Red": 6
   },
   "El Paso": {
-   "Passing": 2291
+   "Passing": 2293
   },
   "Arlington": {
-   "A": 390,
-   "B": 347,
-   "C": 91,
-   "F": 14
+   "A": 393,
+   "B": 346,
+   "C": 89,
+   "F": 15
   }
  },
  "inspections_through": {
@@ -52,7 +52,7 @@
  ],
  "city_pages": {
   "Houston": {
-   "restaurants": 8807,
+   "restaurants": 8808,
    "listed": 89,
    "bbq": 10,
    "taqueria": 25,
@@ -78,7 +78,7 @@
    "inspection_bands": {}
   },
   "Austin": {
-   "restaurants": 4042,
+   "restaurants": 4039,
    "listed": 61,
    "bbq": 13,
    "taqueria": 6,
@@ -87,10 +87,10 @@
    "cfs": 1,
    "hon": 46,
    "oldest": 2,
-   "inspection_scores": 2470,
+   "inspection_scores": 2468,
    "inspection_bands": {
-    "Green": 1358,
-    "Yellow": 1106,
+    "Green": 1355,
+    "Yellow": 1107,
     "Red": 6
    }
   },
@@ -121,7 +121,7 @@
    "inspection_bands": {}
   },
   "El Paso": {
-   "restaurants": 2516,
+   "restaurants": 2517,
    "listed": 5,
    "bbq": 0,
    "taqueria": 3,
@@ -130,9 +130,9 @@
    "cfs": 0,
    "hon": 0,
    "oldest": 0,
-   "inspection_scores": 2062,
+   "inspection_scores": 2064,
    "inspection_bands": {
-    "Passing": 2062
+    "Passing": 2064
    }
   }
  },
@@ -163,28 +163,28 @@
  "noindex_pages": [],
  "web_app_data_bytes": {
   "data/core.json": {
-   "raw": 8690088,
-   "gzip": 1367141
+   "raw": 8689879,
+   "gzip": 1366916
   },
   "data/detail-anderson-county.json": {
    "raw": 6372,
-   "gzip": 1805
+   "gzip": 1803
   },
   "data/detail-andrews-county.json": {
    "raw": 2929,
-   "gzip": 983
+   "gzip": 990
   },
   "data/detail-angelina-county.json": {
-   "raw": 14150,
-   "gzip": 3389
+   "raw": 14061,
+   "gzip": 3370
   },
   "data/detail-aransas-county.json": {
    "raw": 8613,
-   "gzip": 2203
+   "gzip": 2198
   },
   "data/detail-archer-county.json": {
    "raw": 903,
-   "gzip": 378
+   "gzip": 376
   },
   "data/detail-armstrong-county.json": {
    "raw": 393,
@@ -192,43 +192,43 @@
   },
   "data/detail-atascosa-county.json": {
    "raw": 8038,
-   "gzip": 2057
+   "gzip": 2060
   },
   "data/detail-austin-county.json": {
    "raw": 8393,
-   "gzip": 2153
+   "gzip": 2152
   },
   "data/detail-bailey-county.json": {
    "raw": 1086,
-   "gzip": 456
+   "gzip": 458
   },
   "data/detail-bandera-county.json": {
    "raw": 5219,
-   "gzip": 1373
+   "gzip": 1375
   },
   "data/detail-bastrop-county.json": {
-   "raw": 19472,
-   "gzip": 4500
+   "raw": 19405,
+   "gzip": 4485
   },
   "data/detail-baylor-county.json": {
    "raw": 557,
-   "gzip": 307
+   "gzip": 305
   },
   "data/detail-bee-county.json": {
    "raw": 5208,
    "gzip": 1380
   },
   "data/detail-bell-county.json": {
-   "raw": 70906,
-   "gzip": 14954
+   "raw": 70577,
+   "gzip": 14892
   },
   "data/detail-bexar-county.json": {
-   "raw": 458801,
-   "gzip": 92577
+   "raw": 457426,
+   "gzip": 92389
   },
   "data/detail-blanco-county.json": {
    "raw": 8259,
-   "gzip": 2091
+   "gzip": 2090
   },
   "data/detail-borden-county.json": {
    "raw": 51,
@@ -236,59 +236,59 @@
   },
   "data/detail-bosque-county.json": {
    "raw": 3597,
-   "gzip": 1123
+   "gzip": 1122
   },
   "data/detail-bowie-county.json": {
-   "raw": 18479,
-   "gzip": 4378
+   "raw": 18500,
+   "gzip": 4364
   },
   "data/detail-brazoria-county.json": {
-   "raw": 73570,
-   "gzip": 15435
+   "raw": 73517,
+   "gzip": 15427
   },
   "data/detail-brazos-county.json": {
-   "raw": 53693,
-   "gzip": 11701
+   "raw": 53600,
+   "gzip": 11682
   },
   "data/detail-brewster-county.json": {
    "raw": 4418,
-   "gzip": 1237
+   "gzip": 1239
   },
   "data/detail-briscoe-county.json": {
    "raw": 185,
-   "gzip": 134
+   "gzip": 135
   },
   "data/detail-brooks-county.json": {
    "raw": 1233,
-   "gzip": 513
+   "gzip": 511
   },
   "data/detail-brown-county.json": {
-   "raw": 7449,
-   "gzip": 1914
+   "raw": 7450,
+   "gzip": 1913
   },
   "data/detail-burleson-county.json": {
    "raw": 4143,
-   "gzip": 1217
+   "gzip": 1214
   },
   "data/detail-burnet-county.json": {
-   "raw": 14349,
-   "gzip": 3533
+   "raw": 14289,
+   "gzip": 3516
   },
   "data/detail-caldwell-county.json": {
-   "raw": 12034,
-   "gzip": 2999
+   "raw": 12066,
+   "gzip": 3006
   },
   "data/detail-calhoun-county.json": {
    "raw": 5580,
-   "gzip": 1554
+   "gzip": 1550
   },
   "data/detail-callahan-county.json": {
    "raw": 1815,
    "gzip": 685
   },
   "data/detail-cameron-county.json": {
-   "raw": 84828,
-   "gzip": 18163
+   "raw": 84782,
+   "gzip": 18127
   },
   "data/detail-camp-county.json": {
    "raw": 1936,
@@ -300,27 +300,27 @@
   },
   "data/detail-cass-county.json": {
    "raw": 3113,
-   "gzip": 1040
+   "gzip": 1038
   },
   "data/detail-castro-county.json": {
    "raw": 453,
-   "gzip": 228
+   "gzip": 226
   },
   "data/detail-chambers-county.json": {
-   "raw": 11657,
-   "gzip": 3127
+   "raw": 11583,
+   "gzip": 3111
   },
   "data/detail-cherokee-county.json": {
    "raw": 5872,
-   "gzip": 1639
+   "gzip": 1638
   },
   "data/detail-childress-county.json": {
    "raw": 1713,
-   "gzip": 594
+   "gzip": 592
   },
   "data/detail-clay-county.json": {
    "raw": 1103,
-   "gzip": 497
+   "gzip": 498
   },
   "data/detail-cochran-county.json": {
    "raw": 81,
@@ -332,31 +332,31 @@
   },
   "data/detail-coleman-county.json": {
    "raw": 1840,
-   "gzip": 602
+   "gzip": 603
   },
   "data/detail-collin-county.json": {
-   "raw": 267351,
-   "gzip": 53440
+   "raw": 266961,
+   "gzip": 53382
   },
   "data/detail-collingsworth-county.json": {
    "raw": 309,
-   "gzip": 189
+   "gzip": 190
   },
   "data/detail-colorado-county.json": {
-   "raw": 6340,
-   "gzip": 1747
+   "raw": 6375,
+   "gzip": 1757
   },
   "data/detail-comal-county.json": {
-   "raw": 54043,
-   "gzip": 11578
+   "raw": 53852,
+   "gzip": 11528
   },
   "data/detail-comanche-county.json": {
-   "raw": 2068,
-   "gzip": 715
+   "raw": 2112,
+   "gzip": 739
   },
   "data/detail-concho-county.json": {
    "raw": 492,
-   "gzip": 284
+   "gzip": 282
   },
   "data/detail-cooke-county.json": {
    "raw": 9772,
@@ -364,7 +364,7 @@
   },
   "data/detail-coryell-county.json": {
    "raw": 8222,
-   "gzip": 2192
+   "gzip": 2195
   },
   "data/detail-cottle-county.json": {
    "raw": 259,
@@ -372,27 +372,27 @@
   },
   "data/detail-crane-county.json": {
    "raw": 663,
-   "gzip": 328
+   "gzip": 329
   },
   "data/detail-crockett-county.json": {
    "raw": 601,
-   "gzip": 274
+   "gzip": 275
   },
   "data/detail-crosby-county.json": {
    "raw": 432,
-   "gzip": 225
+   "gzip": 226
   },
   "data/detail-culberson-county.json": {
    "raw": 1351,
-   "gzip": 530
+   "gzip": 528
   },
   "data/detail-dallam-county.json": {
    "raw": 2486,
    "gzip": 798
   },
   "data/detail-dallas-county.json": {
-   "raw": 613921,
-   "gzip": 124344
+   "raw": 613046,
+   "gzip": 124217
   },
   "data/detail-dawson-county.json": {
    "raw": 2076,
@@ -400,19 +400,19 @@
   },
   "data/detail-deaf-smith-county.json": {
    "raw": 2868,
-   "gzip": 878
+   "gzip": 876
   },
   "data/detail-delta-county.json": {
    "raw": 800,
    "gzip": 382
   },
   "data/detail-denton-county.json": {
-   "raw": 194468,
-   "gzip": 39564
+   "raw": 194368,
+   "gzip": 39527
   },
   "data/detail-dewitt-county.json": {
    "raw": 5343,
-   "gzip": 1468
+   "gzip": 1469
   },
   "data/detail-dickens-county.json": {
    "raw": 207,
@@ -420,7 +420,7 @@
   },
   "data/detail-dimmit-county.json": {
    "raw": 2261,
-   "gzip": 784
+   "gzip": 786
   },
   "data/detail-donley-county.json": {
    "raw": 639,
@@ -428,63 +428,63 @@
   },
   "data/detail-duval-county.json": {
    "raw": 1293,
-   "gzip": 474
+   "gzip": 473
   },
   "data/detail-eastland-county.json": {
    "raw": 3569,
    "gzip": 1030
   },
   "data/detail-ector-county.json": {
-   "raw": 36410,
+   "raw": 36420,
    "gzip": 7862
   },
   "data/detail-edwards-county.json": {
    "raw": 396,
-   "gzip": 240
+   "gzip": 241
   },
   "data/detail-el-paso-county.json": {
-   "raw": 483165,
-   "gzip": 89215
+   "raw": 482713,
+   "gzip": 89084
   },
   "data/detail-ellis-county.json": {
    "raw": 37473,
-   "gzip": 8185
+   "gzip": 8187
   },
   "data/detail-erath-county.json": {
-   "raw": 10380,
-   "gzip": 2542
+   "raw": 10272,
+   "gzip": 2499
   },
   "data/detail-falls-county.json": {
    "raw": 2225,
-   "gzip": 775
+   "gzip": 776
   },
   "data/detail-fannin-county.json": {
    "raw": 3416,
    "gzip": 1073
   },
   "data/detail-fayette-county.json": {
-   "raw": 12228,
-   "gzip": 2940
+   "raw": 12259,
+   "gzip": 2946
   },
   "data/detail-fisher-county.json": {
    "raw": 166,
-   "gzip": 148
+   "gzip": 147
   },
   "data/detail-floyd-county.json": {
    "raw": 582,
-   "gzip": 317
+   "gzip": 313
   },
   "data/detail-foard-county.json": {
    "raw": 111,
    "gzip": 86
   },
   "data/detail-fort-bend-county.json": {
-   "raw": 144033,
-   "gzip": 30153
+   "raw": 143423,
+   "gzip": 30060
   },
   "data/detail-franklin-county.json": {
    "raw": 1042,
-   "gzip": 471
+   "gzip": 473
   },
   "data/detail-freestone-county.json": {
    "raw": 2784,
@@ -492,79 +492,79 @@
   },
   "data/detail-frio-county.json": {
    "raw": 3920,
-   "gzip": 1206
+   "gzip": 1205
   },
   "data/detail-gaines-county.json": {
    "raw": 2275,
    "gzip": 797
   },
   "data/detail-galveston-county.json": {
-   "raw": 93296,
-   "gzip": 18896
+   "raw": 92991,
+   "gzip": 18840
   },
   "data/detail-garza-county.json": {
    "raw": 1525,
-   "gzip": 604
+   "gzip": 603
   },
   "data/detail-gillespie-county.json": {
    "raw": 22800,
-   "gzip": 4847
+   "gzip": 4849
   },
   "data/detail-goliad-county.json": {
    "raw": 1432,
-   "gzip": 544
+   "gzip": 543
   },
   "data/detail-gonzales-county.json": {
    "raw": 4823,
-   "gzip": 1401
+   "gzip": 1395
   },
   "data/detail-gray-county.json": {
    "raw": 3555,
-   "gzip": 1036
+   "gzip": 1038
   },
   "data/detail-grayson-county.json": {
    "raw": 27600,
-   "gzip": 6437
+   "gzip": 6431
   },
   "data/detail-gregg-county.json": {
-   "raw": 34231,
-   "gzip": 7501
+   "raw": 34101,
+   "gzip": 7477
   },
   "data/detail-grimes-county.json": {
-   "raw": 8066,
-   "gzip": 2029
+   "raw": 8144,
+   "gzip": 2040
   },
   "data/detail-guadalupe-county.json": {
-   "raw": 26639,
-   "gzip": 6155
+   "raw": 26674,
+   "gzip": 6175
   },
   "data/detail-hale-county.json": {
    "raw": 4684,
-   "gzip": 1363
+   "gzip": 1358
   },
   "data/detail-hall-county.json": {
    "raw": 504,
-   "gzip": 282
+   "gzip": 281
   },
   "data/detail-hamilton-county.json": {
    "raw": 2854,
-   "gzip": 891
+   "gzip": 888
   },
   "data/detail-hansford-county.json": {
    "raw": 649,
-   "gzip": 325
+   "gzip": 324
   },
   "data/detail-hardeman-county.json": {
    "raw": 780,
-   "gzip": 389
+   "gzip": 387
   },
   "data/detail-hardin-county.json": {
    "raw": 8276,
-   "gzip": 2229
+   "gzip": 2228
   },
   "data/detail-harris-county.json": {
-   "raw": 1067412,
-   "gzip": 217667
+   "raw": 1064512,
+   "gzip": 217111
   },
   "data/detail-harrison-county.json": {
    "raw": 8745,
@@ -572,27 +572,27 @@
   },
   "data/detail-hartley-county.json": {
    "raw": 423,
-   "gzip": 206
+   "gzip": 205
   },
   "data/detail-haskell-county.json": {
    "raw": 787,
    "gzip": 385
   },
   "data/detail-hays-county.json": {
-   "raw": 68161,
-   "gzip": 14518
+   "raw": 67956,
+   "gzip": 14497
   },
   "data/detail-hemphill-county.json": {
    "raw": 747,
-   "gzip": 357
+   "gzip": 356
   },
   "data/detail-henderson-county.json": {
-   "raw": 14899,
-   "gzip": 3557
+   "raw": 14942,
+   "gzip": 3572
   },
   "data/detail-hidalgo-county.json": {
-   "raw": 156410,
-   "gzip": 32708
+   "raw": 155907,
+   "gzip": 32617
   },
   "data/detail-hill-county.json": {
    "raw": 6538,
@@ -600,11 +600,11 @@
   },
   "data/detail-hockley-county.json": {
    "raw": 2707,
-   "gzip": 925
+   "gzip": 924
   },
   "data/detail-hood-county.json": {
    "raw": 14352,
-   "gzip": 3407
+   "gzip": 3401
   },
   "data/detail-hopkins-county.json": {
    "raw": 7182,
@@ -612,23 +612,23 @@
   },
   "data/detail-houston-county.json": {
    "raw": 3006,
-   "gzip": 892
+   "gzip": 891
   },
   "data/detail-howard-county.json": {
    "raw": 6593,
-   "gzip": 1792
+   "gzip": 1793
   },
   "data/detail-hudspeth-county.json": {
    "raw": 232,
-   "gzip": 178
+   "gzip": 177
   },
   "data/detail-hunt-county.json": {
    "raw": 16433,
-   "gzip": 3988
+   "gzip": 3987
   },
   "data/detail-hutchinson-county.json": {
    "raw": 3153,
-   "gzip": 1019
+   "gzip": 1018
   },
   "data/detail-irion-county.json": {
    "raw": 81,
@@ -640,7 +640,7 @@
   },
   "data/detail-jackson-county.json": {
    "raw": 2359,
-   "gzip": 774
+   "gzip": 775
   },
   "data/detail-jasper-county.json": {
    "raw": 4004,
@@ -648,63 +648,63 @@
   },
   "data/detail-jeff-davis-county.json": {
    "raw": 921,
-   "gzip": 366
+   "gzip": 367
   },
   "data/detail-jefferson-county.json": {
-   "raw": 55522,
-   "gzip": 11672
+   "raw": 55225,
+   "gzip": 11615
   },
   "data/detail-jim-hogg-county.json": {
    "raw": 1021,
-   "gzip": 429
+   "gzip": 430
   },
   "data/detail-jim-wells-county.json": {
    "raw": 7568,
-   "gzip": 1991
+   "gzip": 1988
   },
   "data/detail-johnson-county.json": {
-   "raw": 28219,
-   "gzip": 6606
+   "raw": 28194,
+   "gzip": 6611
   },
   "data/detail-jones-county.json": {
    "raw": 1636,
-   "gzip": 610
+   "gzip": 609
   },
   "data/detail-karnes-county.json": {
    "raw": 3352,
    "gzip": 1014
   },
   "data/detail-kaufman-county.json": {
-   "raw": 24870,
-   "gzip": 5734
+   "raw": 24906,
+   "gzip": 5741
   },
   "data/detail-kendall-county.json": {
-   "raw": 14659,
-   "gzip": 3495
+   "raw": 14590,
+   "gzip": 3477
   },
   "data/detail-kerr-county.json": {
-   "raw": 15018,
-   "gzip": 3553
+   "raw": 15073,
+   "gzip": 3569
   },
   "data/detail-kimble-county.json": {
    "raw": 1789,
-   "gzip": 682
+   "gzip": 680
   },
   "data/detail-kinney-county.json": {
    "raw": 519,
-   "gzip": 281
+   "gzip": 279
   },
   "data/detail-kleberg-county.json": {
    "raw": 7441,
-   "gzip": 2015
+   "gzip": 2019
   },
   "data/detail-knox-county.json": {
    "raw": 490,
-   "gzip": 272
+   "gzip": 271
   },
   "data/detail-la-salle-county.json": {
    "raw": 2263,
-   "gzip": 799
+   "gzip": 797
   },
   "data/detail-lamar-county.json": {
    "raw": 8104,
@@ -712,31 +712,31 @@
   },
   "data/detail-lamb-county.json": {
    "raw": 1450,
-   "gzip": 591
+   "gzip": 590
   },
   "data/detail-lampasas-county.json": {
    "raw": 3608,
-   "gzip": 1109
+   "gzip": 1108
   },
   "data/detail-lavaca-county.json": {
    "raw": 3793,
-   "gzip": 1093
+   "gzip": 1094
   },
   "data/detail-lee-county.json": {
    "raw": 3754,
-   "gzip": 1140
+   "gzip": 1139
   },
   "data/detail-leon-county.json": {
-   "raw": 3753,
-   "gzip": 1140
+   "raw": 3790,
+   "gzip": 1155
   },
   "data/detail-liberty-county.json": {
    "raw": 13655,
-   "gzip": 3186
+   "gzip": 3188
   },
   "data/detail-limestone-county.json": {
    "raw": 4033,
-   "gzip": 1157
+   "gzip": 1153
   },
   "data/detail-lipscomb-county.json": {
    "raw": 111,
@@ -744,7 +744,7 @@
   },
   "data/detail-live-oak-county.json": {
    "raw": 2695,
-   "gzip": 840
+   "gzip": 838
   },
   "data/detail-llano-county.json": {
    "raw": 6167,
@@ -755,32 +755,32 @@
    "gzip": 70
   },
   "data/detail-lubbock-county.json": {
-   "raw": 71502,
-   "gzip": 14945
+   "raw": 71414,
+   "gzip": 14916
   },
   "data/detail-lynn-county.json": {
    "raw": 361,
-   "gzip": 259
+   "gzip": 260
   },
   "data/detail-madison-county.json": {
-   "raw": 2460,
-   "gzip": 755
+   "raw": 2499,
+   "gzip": 769
   },
   "data/detail-marion-county.json": {
    "raw": 2376,
-   "gzip": 786
+   "gzip": 785
   },
   "data/detail-martin-county.json": {
-   "raw": 714,
-   "gzip": 365
+   "raw": 632,
+   "gzip": 332
   },
   "data/detail-mason-county.json": {
    "raw": 1415,
-   "gzip": 550
+   "gzip": 551
   },
   "data/detail-matagorda-county.json": {
    "raw": 9068,
-   "gzip": 2247
+   "gzip": 2243
   },
   "data/detail-maverick-county.json": {
    "raw": 8678,
@@ -788,51 +788,51 @@
   },
   "data/detail-mcculloch-county.json": {
    "raw": 1878,
-   "gzip": 687
+   "gzip": 686
   },
   "data/detail-mclennan-county.json": {
-   "raw": 57348,
-   "gzip": 12702
+   "raw": 57296,
+   "gzip": 12686
   },
   "data/detail-mcmullen-county.json": {
    "raw": 116,
-   "gzip": 111
+   "gzip": 110
   },
   "data/detail-medina-county.json": {
    "raw": 10070,
-   "gzip": 2475
+   "gzip": 2464
   },
   "data/detail-menard-county.json": {
    "raw": 432,
-   "gzip": 228
+   "gzip": 229
   },
   "data/detail-midland-county.json": {
-   "raw": 40943,
-   "gzip": 8970
+   "raw": 40779,
+   "gzip": 8905
   },
   "data/detail-milam-county.json": {
    "raw": 5525,
-   "gzip": 1444
+   "gzip": 1445
   },
   "data/detail-mills-county.json": {
    "raw": 1154,
-   "gzip": 503
+   "gzip": 504
   },
   "data/detail-mitchell-county.json": {
    "raw": 1082,
-   "gzip": 468
+   "gzip": 469
   },
   "data/detail-montague-county.json": {
    "raw": 4235,
-   "gzip": 1242
+   "gzip": 1240
   },
   "data/detail-montgomery-county.json": {
-   "raw": 150459,
-   "gzip": 30633
+   "raw": 150168,
+   "gzip": 30551
   },
   "data/detail-moore-county.json": {
    "raw": 3904,
-   "gzip": 1218
+   "gzip": 1219
   },
   "data/detail-morris-county.json": {
    "raw": 1586,
@@ -843,36 +843,36 @@
    "gzip": 159
   },
   "data/detail-nacogdoches-county.json": {
-   "raw": 11158,
-   "gzip": 2741
+   "raw": 11087,
+   "gzip": 2732
   },
   "data/detail-navarro-county.json": {
    "raw": 8668,
-   "gzip": 2240
+   "gzip": 2235
   },
   "data/detail-newton-county.json": {
    "raw": 252,
    "gzip": 171
   },
   "data/detail-nolan-county.json": {
-   "raw": 2956,
-   "gzip": 978
+   "raw": 2986,
+   "gzip": 983
   },
   "data/detail-nueces-county.json": {
-   "raw": 94703,
-   "gzip": 18718
+   "raw": 94563,
+   "gzip": 18690
   },
   "data/detail-ochiltree-county.json": {
    "raw": 2118,
-   "gzip": 714
+   "gzip": 713
   },
   "data/detail-oldham-county.json": {
    "raw": 657,
-   "gzip": 357
+   "gzip": 356
   },
   "data/detail-orange-county.json": {
-   "raw": 13817,
-   "gzip": 3347
+   "raw": 13659,
+   "gzip": 3328
   },
   "data/detail-other.json": {
    "raw": 153,
@@ -880,15 +880,15 @@
   },
   "data/detail-palo-pinto-county.json": {
    "raw": 9005,
-   "gzip": 2331
+   "gzip": 2327
   },
   "data/detail-panola-county.json": {
    "raw": 2296,
-   "gzip": 834
+   "gzip": 832
   },
   "data/detail-parker-county.json": {
    "raw": 26785,
-   "gzip": 5996
+   "gzip": 5997
   },
   "data/detail-parmer-county.json": {
    "raw": 689,
@@ -896,31 +896,31 @@
   },
   "data/detail-pecos-county.json": {
    "raw": 3447,
-   "gzip": 1070
+   "gzip": 1069
   },
   "data/detail-polk-county.json": {
-   "raw": 7129,
-   "gzip": 1887
+   "raw": 7163,
+   "gzip": 1893
   },
   "data/detail-potter-county.json": {
-   "raw": 33804,
-   "gzip": 7445
+   "raw": 33672,
+   "gzip": 7403
   },
   "data/detail-presidio-county.json": {
    "raw": 3055,
-   "gzip": 951
+   "gzip": 953
   },
   "data/detail-rains-county.json": {
    "raw": 1636,
-   "gzip": 589
+   "gzip": 588
   },
   "data/detail-randall-county.json": {
-   "raw": 22858,
-   "gzip": 5256
+   "raw": 22801,
+   "gzip": 5235
   },
   "data/detail-reagan-county.json": {
    "raw": 625,
-   "gzip": 319
+   "gzip": 318
   },
   "data/detail-real-county.json": {
    "raw": 1472,
@@ -928,35 +928,35 @@
   },
   "data/detail-red-river-county.json": {
    "raw": 1037,
-   "gzip": 466
+   "gzip": 465
   },
   "data/detail-reeves-county.json": {
    "raw": 4222,
-   "gzip": 1227
+   "gzip": 1224
   },
   "data/detail-refugio-county.json": {
    "raw": 2006,
-   "gzip": 695
+   "gzip": 694
   },
   "data/detail-robertson-county.json": {
    "raw": 3746,
    "gzip": 1142
   },
   "data/detail-rockwall-county.json": {
-   "raw": 28551,
-   "gzip": 6395
+   "raw": 28424,
+   "gzip": 6368
   },
   "data/detail-runnels-county.json": {
    "raw": 1899,
-   "gzip": 683
+   "gzip": 681
   },
   "data/detail-rusk-county.json": {
    "raw": 5512,
-   "gzip": 1568
+   "gzip": 1567
   },
   "data/detail-sabine-county.json": {
    "raw": 1545,
-   "gzip": 593
+   "gzip": 592
   },
   "data/detail-san-augustine-county.json": {
    "raw": 290,
@@ -964,7 +964,7 @@
   },
   "data/detail-san-jacinto-county.json": {
    "raw": 1910,
-   "gzip": 675
+   "gzip": 673
   },
   "data/detail-san-patricio-county.json": {
    "raw": 14994,
@@ -972,11 +972,11 @@
   },
   "data/detail-san-saba-county.json": {
    "raw": 1520,
-   "gzip": 592
+   "gzip": 591
   },
   "data/detail-schleicher-county.json": {
    "raw": 81,
-   "gzip": 79
+   "gzip": 81
   },
   "data/detail-scurry-county.json": {
    "raw": 2796,
@@ -984,27 +984,27 @@
   },
   "data/detail-shackelford-county.json": {
    "raw": 535,
-   "gzip": 308
+   "gzip": 307
   },
   "data/detail-shelby-county.json": {
    "raw": 3349,
-   "gzip": 1000
+   "gzip": 996
   },
   "data/detail-sherman-county.json": {
    "raw": 260,
-   "gzip": 203
+   "gzip": 202
   },
   "data/detail-smith-county.json": {
-   "raw": 47930,
-   "gzip": 10106
+   "raw": 47848,
+   "gzip": 10084
   },
   "data/detail-somervell-county.json": {
    "raw": 3716,
-   "gzip": 1097
+   "gzip": 1096
   },
   "data/detail-starr-county.json": {
-   "raw": 9520,
-   "gzip": 2314
+   "raw": 9553,
+   "gzip": 2334
   },
   "data/detail-stephens-county.json": {
    "raw": 2081,
@@ -1012,7 +1012,7 @@
   },
   "data/detail-sterling-county.json": {
    "raw": 166,
-   "gzip": 150
+   "gzip": 149
   },
   "data/detail-stonewall-county.json": {
    "raw": 111,
@@ -1027,16 +1027,16 @@
    "gzip": 380
   },
   "data/detail-tarrant-county.json": {
-   "raw": 512451,
-   "gzip": 103197
+   "raw": 511326,
+   "gzip": 103007
   },
   "data/detail-taylor-county.json": {
-   "raw": 32407,
-   "gzip": 7270
+   "raw": 32273,
+   "gzip": 7236
   },
   "data/detail-terrell-county.json": {
    "raw": 406,
-   "gzip": 249
+   "gzip": 250
   },
   "data/detail-terry-county.json": {
    "raw": 2319,
@@ -1048,19 +1048,19 @@
   },
   "data/detail-titus-county.json": {
    "raw": 5979,
-   "gzip": 1639
+   "gzip": 1640
   },
   "data/detail-tom-green-county.json": {
-   "raw": 26762,
-   "gzip": 6086
+   "raw": 26649,
+   "gzip": 6053
   },
   "data/detail-travis-county.json": {
-   "raw": 639089,
-   "gzip": 125509
+   "raw": 638513,
+   "gzip": 125598
   },
   "data/detail-trinity-county.json": {
    "raw": 2359,
-   "gzip": 741
+   "gzip": 742
   },
   "data/detail-tyler-county.json": {
    "raw": 1224,
@@ -1068,7 +1068,7 @@
   },
   "data/detail-upshur-county.json": {
    "raw": 3645,
-   "gzip": 1157
+   "gzip": 1158
   },
   "data/detail-upton-county.json": {
    "raw": 358,
@@ -1076,51 +1076,51 @@
   },
   "data/detail-uvalde-county.json": {
    "raw": 6364,
-   "gzip": 1654
+   "gzip": 1653
   },
   "data/detail-val-verde-county.json": {
    "raw": 7956,
-   "gzip": 2132
+   "gzip": 2129
   },
   "data/detail-van-zandt-county.json": {
    "raw": 8751,
-   "gzip": 2259
+   "gzip": 2261
   },
   "data/detail-victoria-county.json": {
-   "raw": 20595,
-   "gzip": 4757
+   "raw": 20554,
+   "gzip": 4729
   },
   "data/detail-walker-county.json": {
    "raw": 11352,
-   "gzip": 2993
+   "gzip": 2997
   },
   "data/detail-waller-county.json": {
    "raw": 8461,
-   "gzip": 2184
+   "gzip": 2187
   },
   "data/detail-ward-county.json": {
    "raw": 3023,
-   "gzip": 961
+   "gzip": 960
   },
   "data/detail-washington-county.json": {
    "raw": 12234,
-   "gzip": 2932
+   "gzip": 2930
   },
   "data/detail-webb-county.json": {
-   "raw": 52034,
-   "gzip": 10996
+   "raw": 52152,
+   "gzip": 11014
   },
   "data/detail-wharton-county.json": {
-   "raw": 8481,
-   "gzip": 2194
+   "raw": 8512,
+   "gzip": 2197
   },
   "data/detail-wheeler-county.json": {
    "raw": 1377,
    "gzip": 547
   },
   "data/detail-wichita-county.json": {
-   "raw": 27451,
-   "gzip": 6148
+   "raw": 27405,
+   "gzip": 6153
   },
   "data/detail-wilbarger-county.json": {
    "raw": 2382,
@@ -1128,35 +1128,35 @@
   },
   "data/detail-willacy-county.json": {
    "raw": 2597,
-   "gzip": 881
+   "gzip": 876
   },
   "data/detail-williamson-county.json": {
-   "raw": 151201,
-   "gzip": 31340
+   "raw": 151094,
+   "gzip": 31305
   },
   "data/detail-wilson-county.json": {
    "raw": 7577,
-   "gzip": 1868
+   "gzip": 1866
   },
   "data/detail-winkler-county.json": {
    "raw": 2209,
-   "gzip": 755
+   "gzip": 754
   },
   "data/detail-wise-county.json": {
    "raw": 8919,
-   "gzip": 2316
+   "gzip": 2315
   },
   "data/detail-wood-county.json": {
    "raw": 7099,
-   "gzip": 1901
+   "gzip": 1898
   },
   "data/detail-yoakum-county.json": {
    "raw": 1324,
-   "gzip": 512
+   "gzip": 510
   },
   "data/detail-young-county.json": {
    "raw": 3490,
-   "gzip": 1067
+   "gzip": 1068
   },
   "data/detail-zapata-county.json": {
    "raw": 2077,
@@ -1164,11 +1164,11 @@
   },
   "data/detail-zavala-county.json": {
    "raw": 1697,
-   "gzip": 608
+   "gzip": 609
   },
   "data/ids.json": {
-   "raw": 1021949,
-   "gzip": 591225
+   "raw": 1021936,
+   "gzip": 591208
   },
   "data/tx_shapes.json": {
    "raw": 232013,

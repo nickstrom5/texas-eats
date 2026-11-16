@@ -1,68 +1,89 @@
 {
  "schema": 2,
- "version": "2026-11-03.1",
- "records_through": "2026-11-03",
+ "version": "2026-11-15.1",
+ "records_through": "2026-11-15",
  "min_app_build": 1,
  "files": {
+  "detail-all": {
+   "path": "detail-all-06c9f29c79f6.json",
+   "sha256": "06c9f29c79f6c33883c1553b545901b9f7b8952c4fd3345fd83e1d6379c2159c",
+   "bytes": 144
+  },
   "detail-austin-central-texas": {
-   "path": "detail-austin-central-texas-d4f858ce4d7d.json",
-   "sha256": "d4f858ce4d7dca040284fc6b4f0c6b8a44b377e8b4084a1a7e47925e76038ed8",
-   "bytes": 1325791
+   "path": "detail-austin-central-texas-ca0dfc739d0e.json",
+   "sha256": "ca0dfc739d0e6c481c1b41f7d626a3eabcabe4fe8fef4f907ad6beccd0599238",
+   "bytes": 1324652
   },
   "detail-coastal-bend": {
-   "path": "detail-coastal-bend-aa0de8addd55.json",
-   "sha256": "aa0de8addd55b4141d61140ffb1d9dd658f51b5d3cc7b6a6ba44e1b974c1f0fb",
-   "bytes": 212031
+   "path": "detail-coastal-bend-72721436ba89.json",
+   "sha256": "72721436ba8918c73a00f92cf30e8043b85a34b3382ac9154fecccf724dddb6e",
+   "bytes": 211850
   },
   "detail-dallas-fort-worth": {
-   "path": "detail-dallas-fort-worth-4e4c583fa271.json",
-   "sha256": "4e4c583fa2710dc4844ccfd830cc59308b1e917d051088ff109371dc025876c8",
-   "bytes": 2405588
+   "path": "detail-dallas-fort-worth-7e378ee8ca64.json",
+   "sha256": "7e378ee8ca64a16b895b1e6ce85d6f7e737c0b10f54045e1f598560fc49f456f",
+   "bytes": 2403119
   },
   "detail-east-texas": {
-   "path": "detail-east-texas-e61ec35d8819.json",
-   "sha256": "e61ec35d8819b8b59560f486a6eb4e7a74f2d2b5a622560400f4eb4730fb00cc",
-   "bytes": 261692
+   "path": "detail-east-texas-51ac6ce1f1d4.json",
+   "sha256": "51ac6ce1f1d4916a5c2c682270c14b33890c0cac653ea903afc0f668faed5c8d",
+   "bytes": 261421
   },
   "detail-el-paso-west-texas": {
-   "path": "detail-el-paso-west-texas-edd794e413de.json",
-   "sha256": "edd794e413de1a4cf59f60b51aa59d42e3dea6cdfea4f63f8705055f920e7e8d",
-   "bytes": 723197
+   "path": "detail-el-paso-west-texas-0189b028cb13.json",
+   "sha256": "0189b028cb136788ee1afb3aa387e480ceef8942946f2e753696b679492b3b5a",
+   "bytes": 722262
   },
   "detail-houston-gulf-coast": {
-   "path": "detail-houston-gulf-coast-efeee84f3fec.json",
-   "sha256": "efeee84f3fecaf72e33bec7540fc7fc631761327ac111f614b53bccc9abe6b45",
-   "bytes": 2115443
+   "path": "detail-houston-gulf-coast-0ee308101678.json",
+   "sha256": "0ee308101678d0df58f58917ccfcc8d07b08d63e0b6c0d3d29c525bbc0a33afe",
+   "bytes": 2110702
   },
   "detail-panhandle-plains": {
-   "path": "detail-panhandle-plains-9dbd843e79fc.json",
-   "sha256": "9dbd843e79fc31d0b5029181493498225478acc2c9d13d57b99b842be88c7531",
-   "bytes": 240725
+   "path": "detail-panhandle-plains-0c04bed24ca2.json",
+   "sha256": "0c04bed24ca28380ea2917703e75467daa17fe9e8b8e6fabc387f60133bb76e2",
+   "bytes": 240403
   },
   "detail-rio-grande-valley-border": {
-   "path": "detail-rio-grande-valley-border-508185d4c333.json",
-   "sha256": "508185d4c333c6b3362faeccb75d413cbc404a5e7c519066375b9e694e04a3a3",
-   "bytes": 391175
+   "path": "detail-rio-grande-valley-border-32039ecfaf97.json",
+   "sha256": "32039ecfaf97b40a87ec2752baabffad1e1f0889fb569bda307340b62e5f8dc5",
+   "bytes": 390777
   },
   "detail-san-antonio-hill-country": {
-   "path": "detail-san-antonio-hill-country-78877ba860e0.json",
-   "sha256": "78877ba860e03c56c55a9f91a251219f47e610bc57b8c81e7c198d539a1a0987",
-   "bytes": 803648
+   "path": "detail-san-antonio-hill-country-b49137600833.json",
+   "sha256": "b49137600833ecba29321836a49d5d89db21314a99be16b78dcde442d52da619",
+   "bytes": 802106
   },
   "places": {
-   "path": "places-0f71232aff5e.json",
-   "sha256": "0f71232aff5ef27c5383a3069f71c02cb38a734071e7a8c758714725183300c8",
-   "bytes": 14911518
+   "path": "places-511472204886.json",
+   "sha256": "5114722048861fe788ba35ab057f8f9f4a78d7bb04038d980cab14d0714b6445",
+   "bytes": 14912291
   },
   "state": {
-   "path": "state-fde663dcf11b.json",
-   "sha256": "fde663dcf11b59582c9d6958fd534957840d0f6f48aab6748237685f23fe4c42",
-   "bytes": 26199
+   "path": "state-3ec021641acd.json",
+   "sha256": "3ec021641acd4336e36513aa97dd7deb31b41396bdbbb8ca987f92877bfbe596",
+   "bytes": 26212
   }
  },
  "counts": {
-  "places": 84368,
-  "restaurants": 78609,
-  "bytes": 23417007
+  "places": 84372,
+  "restaurants": 78608,
+  "bytes": 23405939
+ },
+ "previous": {
+  "version": "2026-11-03.1",
+  "files": {
+   "detail-austin-central-texas": "detail-austin-central-texas-d4f858ce4d7d.json",
+   "detail-coastal-bend": "detail-coastal-bend-aa0de8addd55.json",
+   "detail-dallas-fort-worth": "detail-dallas-fort-worth-4e4c583fa271.json",
+   "detail-east-texas": "detail-east-texas-e61ec35d8819.json",
+   "detail-el-paso-west-texas": "detail-el-paso-west-texas-edd794e413de.json",
+   "detail-houston-gulf-coast": "detail-houston-gulf-coast-efeee84f3fec.json",
+   "detail-panhandle-plains": "detail-panhandle-plains-9dbd843e79fc.json",
+   "detail-rio-grande-valley-border": "detail-rio-grande-valley-border-508185d4c333.json",
+   "detail-san-antonio-hill-country": "detail-san-antonio-hill-country-78877ba860e0.json",
+   "places": "places-0f71232aff5e.json",
+   "state": "state-fde663dcf11b.json"
+  }
  }
 }
