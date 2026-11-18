@@ -32,7 +32,6 @@ import json
 import math
 import os
 import re
-import struct
 import urllib.parse
 from collections import Counter, defaultdict
 
@@ -46,13 +45,22 @@ REPO = "texas-eats"
 DOMAIN = f"https://{CUSTOM_DOMAIN}" if CUSTOM_DOMAIN else f"https://nickstrom5.github.io/{REPO}"
 BASE = "" if CUSTOM_DOMAIN else f"/{REPO}"     # path prefix for root-relative links
 BRAND = "Texas Eats"
-APP_NAME = "Texas Eats: Restaurants"
 TAGLINE = "BBQ, Tex-Mex & taquerías"
 EMAIL = "nick@eatsranked.com"   # Nick, 2026-10-12: the site's contact address (Cloudflare Email Routing)
 PUBLISHED = "2026-10-21"        # the site's first publication (Article datePublished)
-SITE_REV = "2026-10-21"         # the last change to this generator's own copy or code: bump it when you change the words
-POLICY_UPDATED = "2026-10-21"   # privacy policy and terms: bump only when their text changes
-PRIVACY_UPDATED = "2026-10-26"   # the privacy policy alone: the app's data updates (OTA-DATA.md)
+SITE_REV = "2026-11-17"         # the last change to this generator's own copy or code: bump it when you change the words
+POLICY_UPDATED = "2026-11-17"   # privacy policy and terms: bump only when their text changes
+PRIVACY_UPDATED = "2026-11-17"  # the privacy policy alone (11-17: the app is Eats Ranked, with its own policy on the hub)
+# The app. This site is the Texas guide on the web. On iPhone and iPad the same guide is inside Eats Ranked, the one app that
+# carries the state guides; there is no Texas-only app. Pages link the hub's app section, which shows the App Store badge once
+# there is one, so nothing here links the App Store or needs Apple's artwork. Until Eats Ranked is approved the copy says
+# "coming soon"; on the day it is, set APP_LIVE = True and rebuild. Never "download" or "get" before then.
+APP_URL = "https://eatsranked.com/#app"
+APP_PRIVACY_URL = "https://eatsranked.com/privacy.html"
+APP_LIVE = False
+APP_WHEN = "free on the App Store" if APP_LIVE else "coming soon to the App Store"
+APP_LINK = f'<a href="{APP_URL}" rel="noopener">Eats Ranked for iPhone and iPad</a>'
+APP_NOTE = f"Free website. Also in {APP_LINK}, {APP_WHEN}."      # the line under a page's opening paragraph
 CHECKED = "fall 2026"
 STORAGE_PREFIX = "txeats-"      # the web app's localStorage keys (other state sites share the nickstrom5.github.io origin)
 # Texas Eats is one of the Eats Ranked state sites: the hub (eatsranked.com) lists it as a subOrganization, and every page says so
@@ -251,12 +259,6 @@ def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower().replace("'", "").replace("&", "and")).strip("-")
 
 
-def png_size(path):
-    with open(path, "rb") as f:
-        head = f.read(24)
-    return struct.unpack(">II", head[16:24])
-
-
 def join_words(xs, conj="and"):
     xs = [x for x in xs if x]
     if len(xs) <= 1:
@@ -267,8 +269,8 @@ def join_words(xs, conj="and"):
 def fit(cands, lo, hi, what=""):
     seen = []
     # a description that misses the window by a few characters gets a fixed tail (Texas counts vary more than Florida's did)
-    more = [c.rstrip(".") + t for c in cands for t in (", with addresses and websites.", ". Free iPhone app coming soon.", ", with addresses.",
-                                                         ". Free iPhone app.", ", with maps.")] if lo >= 100 else []
+    more = [c.rstrip(".") + t for c in cands for t in (", with addresses and websites.", ". Free on the web, no sign-in.", ", with addresses.",
+                                                         ". Free on the web.", ", with maps.")] if lo >= 100 else []
     for o in list(cands) + more:
         if lo <= len(o) <= hi:
             return o
@@ -341,10 +343,6 @@ CSS = """
   .step { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
   .step .n { flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--orange); color: var(--on-orange); font-weight: 800; display: grid; place-items: center; }
   .step p { margin: 4px 0 0; color: var(--ink2); }
-  .shots { display: flex; gap: 14px; overflow-x: auto; margin: 0 -20px; padding: 4px 20px 14px; scroll-snap-type: x proximity; list-style: none; }
-  .shots li { flex: 0 0 auto; width: 210px; scroll-snap-align: start; }
-  .shots img { display: block; width: 210px; height: auto; border-radius: 24px; border: 1px solid var(--rule); background: var(--surface2); }
-  .shots p { font-size: 14px; color: var(--muted); margin: 8px 2px 0; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
   .card h3 { font: 400 16px/1.1 var(--head-font); text-transform: uppercase; letter-spacing: .01em; }
@@ -445,17 +443,6 @@ def crumbs(trail):
     return f'<nav class="crumbs" aria-label="Breadcrumb"><ol>{items}</ol></nav>', ld
 
 
-def store_button(label="Ask for early access"):
-    # A plain mailto button until launch: no Apple logo (Apple's marketing rules allow it only in the official badge). When
-    # APP_STORE_URL is set in page() below, swap this for Apple's "Download on the App Store" badge artwork. Only Nick's internal
-    # TestFlight group exists (2026-10-13): the mailto asks, and no page copy promises an invite or a link.
-    return (f'<a class="btn store-btn" href="mailto:{EMAIL}?subject=Texas%20Eats%20early%20access&amp;body=Send%20me%20the%20TestFlight%20link.">'
-            f'<span class="store-label">{label}</span></a>')
-
-
-STORE_NOTE = "The free Texas Eats app for iPhone and iPad is on its way to the App Store."
-
-
 def sha256_src(s):
     return "'sha256-" + base64.b64encode(hashlib.sha256(s.encode("utf-8")).digest()).decode() + "'"
 
@@ -500,9 +487,6 @@ def page(path, title, desc, body, lds=(), robots="index,follow,max-image-preview
 <meta name="description" content="{e(desc)}">
 {canon}<meta name="robots" content="{robots}">
 <meta name="theme-color" content="#002868">
-<!-- Smart App Banner: once the App Store Connect record exists, replace APP_ID with the numeric Apple ID and uncomment.
-<meta name="apple-itunes-app" content="app-id=APP_ID">
--->
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 {og_url}<meta property="og:type" content="{og_type}">
@@ -537,31 +521,20 @@ def page(path, title, desc, body, lds=(), robots="index,follow,max-image-preview
 {body}
   <footer>
     <nav aria-label="Footer">
-      <a href="/">{BRAND} app</a>
+      <a href="/">{BRAND} home</a>
       <a href="/explore/">Search Texas restaurants</a>
 {chr(10).join(f'      <a href="{u}">{e(t)}</a>' for u, t in GUIDE_LINKS)}
       <a href="/cities/">Cities and towns</a>
+      <a href="{APP_URL}" rel="noopener">Eats Ranked app</a>
       <a href="/privacy.html">Privacy policy</a>
       <a href="/terms.html">Terms of use</a>
       <a href="mailto:{EMAIL}">Email us</a>
     </nav>
     <p>{SOURCES_LINE}</p>
-    <p>© 2026 {BRAND}. Part of <a href="{HUB['url']}" rel="noopener">Eats Ranked</a>, restaurant apps state by state.</p>
+    <p>© 2026 {BRAND}. Part of <a href="{HUB['url']}" rel="noopener">Eats Ranked</a>, free restaurant guides state by state.</p>
     <p>Created by <a href="https://work-with-nick.com/" rel="author">Nick Soderstrom</a>.</p>
   </footer>
 </div>
-<script>
-  // Once the App Store listing exists, paste its URL here (looks like https://apps.apple.com/app/id123456789).
-  // Every button switches from "Ask for early access" to "Download on the App Store" automatically (then use Apple's badge artwork,
-  // see store_button() in scripts/make-site.py). Also fill in the apple-itunes-app meta tag in <head> on every page, and put the
-  // MobileApplication "offers" back in the landing page's JSON-LD (re-run scripts/make-site.py after editing it there).
-  var APP_STORE_URL = "";
-  if (APP_STORE_URL) {{
-    document.querySelectorAll(".store-btn").forEach(function (b) {{ b.href = APP_STORE_URL; b.rel = "noopener"; }});
-    document.querySelectorAll(".store-label").forEach(function (l) {{ l.textContent = "Download on the App Store"; }});
-    document.querySelectorAll(".store-note").forEach(function (n) {{ n.textContent = "Free for iPhone and iPad."; }});
-  }}
-</script>
 </body>
 </html>
 """
@@ -752,8 +725,8 @@ def other_guides(skip):
 def guide_page(path, h1, kicker, title_opts, desc_opts, lede, about_html, places, noun, plural_noun, list_name, region=True, **item_kw):
     url = f"{DOMAIN}/{path}"
     # Texas counts are small or large enough that the written lengths can miss the 140-160 window: each option also gets fixed tails
-    tails = (", with addresses and websites.", ", with each place's address and website.", ". Free iPhone app coming soon.", ", with addresses.",
-             ". Free iPhone app.", ", with maps.")
+    tails = (", with addresses and websites.", ", with each place's address and website.", ". Free on the web, no sign-in.", ", with addresses.",
+             ". Free on the web.", ", with maps.")
     desc_opts = list(desc_opts) + [d.rstrip(".") + t for d in desc_opts for t in tails]
     title_opts = list(title_opts) + [t + f" | {BRAND}" for t in title_opts if BRAND not in t]
     title, desc = fit(title_opts, 50, 60, path + " title"), fit(desc_opts, 140, 160, path + " description")
@@ -772,7 +745,7 @@ def guide_page(path, h1, kicker, title_opts, desc_opts, lede, about_html, places
     <p class="kicker">{kicker}</p>
     <h1>{e(h1)}</h1>
     <p class="lede">{lede}</p>
-    <div class="cta-row">{store_button()}<span class="pill store-note">{STORE_NOTE}</span></div>
+    <div class="cta-row"><span class="pill">{APP_NOTE}</span></div>
   </section>
   <section id="about">
     {about_html}
@@ -806,8 +779,8 @@ HOW_BUILT = ("Our method: a place made the list only if a 2025 or 2026 source ba
              "story or an official tourism listing) and its street address matched. No current source, or a website gone dark, and it "
              "stayed off. Review sites played no part, and places run by region and town rather than by anybody's score. Barbecue joints "
              "sell out and keep short hours, so check before you drive.")
-APP_LINE = (f"On your phone, {BRAND} orders this list by how far each place is from you, and a tap opens Apple Maps' live card with "
-            "hours, photos and directions.")
+APP_LINE = ('In the <a href="/explore/">web search</a>, Near me orders this list by how far each place is from you, and each place links to '
+            "Apple Maps for hours, photos and directions.")
 
 
 def checked_kicker():
@@ -1031,7 +1004,7 @@ def city_desc(c, info, secs):
     leads = [f"In {c}, Texas", f"{c}, Texas", f"{c}, TX"]
     tails = [f". Search {n_town:,} {c} restaurants, cafés and bars", f". Search {n_town:,} local places to eat",
              f", plus {n_town:,} local places to eat on a searchable map", f", plus {n_town:,} more local places to eat", ""]
-    extras = ["", f" Checked in {CHECKED}.", " Free iPhone app coming soon.", f" Checked in {CHECKED}. Free iPhone app coming soon."]
+    extras = ["", f" Checked in {CHECKED}.", " Free on the web, no sign-in.", f" Checked in {CHECKED}. Free on the web, no sign-in."]
 
     def gen():
         for k in range(len(secs), 0, -1):
@@ -1067,14 +1040,14 @@ for c in CITY_PAGES:
     n_hc = sum(1 for p in info["listed"] if p.hc and p.tags)
     lede = (f"What {e(c)} has on our lists: {e(join_words(counts))}. "
             + (f"Each hand-checked place had a 2025 or 2026 source when we looked in {CHECKED}. " if n_hc else "")
-            + f"In all, {BRAND} maps {info['n_town']:,} restaurants, cafés, bars and bakeries in {e(c)}, nearest first on your phone.")
+            + f"In all, {BRAND} maps {info['n_town']:,} restaurants, cafés, bars and bakeries in {e(c)}, nearest first once you share your location.")
     parts = [f"""{nav}
   <main id="main">
   <section class="hero">
     <p class="kicker">{BRAND} · {e(c)}, Texas</p>
     <h1>{e(h1)}</h1>
     <p class="lede">{lede}</p>
-    <div class="cta-row">{store_button()}<span class="pill store-note">{STORE_NOTE}</span></div>
+    <div class="cta-row"><span class="pill">{APP_NOTE}</span></div>
   </section>"""]
     for s in secs:
         key = s[0]
@@ -1325,11 +1298,11 @@ body = f"""{nav}
   <section class="ex-hero">
     <p class="kicker">{BRAND} · on the web</p>
     <h1>Search Texas restaurants</h1>
-    <p class="sub">Pick a list, or type a name, a town, a street or a dish. Behind the search: {N_REST:,} Texas restaurants, cafés, bars and bakeries; {N_HC_GUIDES} hand-checked places on the barbecue, Tex-Mex, taquería, kolache, chicken-fried steak and oldest-places lists; {len(HON_L)} MICHELIN and James Beard honorees; TABC licenses; and the inspection scores Austin, El Paso and Arlington publish. It's the data the iPhone and iPad app will ship with, and what you save stays in this browser.</p>
+    <p class="sub">Pick a list, or type a name, a town, a street or a dish. Behind the search: {N_REST:,} Texas restaurants, cafés, bars and bakeries; {N_HC_GUIDES} hand-checked places on the barbecue, Tex-Mex, taquería, kolache, chicken-fried steak and oldest-places lists; {len(HON_L)} MICHELIN and James Beard honorees; TABC licenses; and the inspection scores Austin, El Paso and Arlington publish. What you save stays in this browser.</p>
   </section>
   <p id="ex-loading" hidden>Loading the restaurant list…</p>
   <noscript><p>The search needs JavaScript. The guides work without it: <a href="/{GUIDE_PATH['bbq']}">barbecue joints</a>, <a href="/{GUIDE_PATH['taqueria']}">taquerías</a>, <a href="/{GUIDE_PATH['kolache']}">kolaches</a>, <a href="/{INS_PATH}">inspections explained</a>.</p></noscript>
-  <div id="ex-app" hidden data-ver="{DATA_VER}">
+  <div id="ex-app" hidden data-ver="{DATA_VER}"{' data-applive="1"' if APP_LIVE else ""}>
     <div class="ex-controls">
       <div class="ex-guides" role="group" aria-label="Guides">{guide_buttons}</div>
       <div class="ex-row1">
@@ -1371,77 +1344,47 @@ webapp_ld = {"@context": "https://schema.org", "@type": "WebApplication", "name"
 page("explore/index.html", title, desc, body, [webapp_ld, bc], extra_css=EXPLORE_CSS, og_type="website")
 
 # ---------------------------------------------------------------- landing page
-# alt text says what each capture shows (docs/screenshots, made by scripts/capture-screenshots.sh; copies by scripts/site-images.sh)
-shots = [("home", "The Texas Eats home screen: a search box and guide cards for Barbecue Joints, Tex-Mex, Taquerías and Kolaches, each with its count of places.", "A guide for each Texas craving."),
-         ("bbq", "The hand-checked barbecue list in Texas Eats, nearest first, with each joint's town, kind and distance.", "Barbecue joints nearest you."),
-         ("detail", "Micklethwait Craft Meats in Texas Eats: its address, Bib Gourmand and barbecue tags, a button for Apple Maps' ratings, hours and photos, Directions and Call buttons, a small map and the hand-checked notes on what to order.", "Each place, hand-checked notes and all."),
-         ("map", "The Texas Eats map around Austin, with pins and numbered clusters for hand-checked places and filter buttons for barbecue, inspections and honors.", "The map, by guide."),
-         ("honors", "The MICHELIN and James Beard list in Texas Eats.", "MICHELIN Guide and James Beard honorees.")]
-shot_html = []
-for i, (name, alt, cap) in enumerate(shots):
-    png = f"{DOCS}/img/screen-{name}.png"
-    if not os.path.exists(png):
-        continue
-    w, h = png_size(png)
-    lazy = ' loading="lazy"'   # the section sits below the fold at every width
-    webp = os.path.exists(f"{DOCS}/img/screen-{name}.webp")
-    src = (f'<source srcset="/img/screen-{name}.webp" type="image/webp">' if webp else "")
-    shot_html.append(f'<li><picture>{src}<img src="/img/screen-{name}.png" alt="{e(alt)}" width="{w}" height="{h}"{lazy} decoding="async"></picture><p>{e(cap)}</p></li>')
-
 BBQ_L = L["bbq"]
 n_bbq_towns = len({p.city for p in BBQ_L if p.city})
 faq = [
-    ("Is Texas Eats free?", "Completely: no price, no ads, no in-app purchases and no account to create. It's an iPhone and iPad app on its way to the App Store, with no Android version yet; until it's out, the web search here works in any browser."),
+    ("Is Texas Eats free?", f"Completely: no price, no ads and no account to create. It's a website, so it works in any browser, on any phone or computer. The same guide is in Eats Ranked for iPhone and iPad, {APP_WHEN}."),
     ("Where do the lists come from?", f"Two kinds of source. The barbecue, Tex-Mex, taquería, kolache, chicken-fried steak and oldest-places lists are our own research from {CHECKED}, with a 2025 or 2026 source behind each place: its website or menu, a dated local news story or an official tourism listing. The wider directory of {N_REST:,} restaurants starts from Overture Maps' open place data, keeps the kinds of listing that proved reliable against Austin's, El Paso's and Arlington's inspection lists, and adds restaurants and bars from TABC's license list and those cities' inspection lists."),
     ("Where's good barbecue in Texas?", f"Our barbecue list has {len(BBQ_L)} hand-checked joints in {plural(n_bbq_towns, 'town')}. In the web search, the Barbecue list puts the nearest first once you share your location. Many joints open only a few days a week and close when the brisket runs out, so check before you drive."),
-    ("How do I check a Texas restaurant's inspection?", f"Texas has no statewide grade. Austin, El Paso and Arlington publish their inspection scores, and for places there the app and this site show the latest score out of 100 with the city's own band (Austin's Green, Yellow or Red; El Paso's passing line of 70; Arlington's letter grade). Houston, Dallas, San Antonio and Fort Worth don't publish scores in bulk; their search pages are the place to look."),
+    ("How do I check a Texas restaurant's inspection?", f"Texas has no statewide grade. Austin, El Paso and Arlington publish their inspection scores, and for places there this site shows the latest score out of 100 with the city's own band (Austin's Green, Yellow or Red; El Paso's passing line of 70; Arlington's letter grade). Houston, Dallas, San Antonio and Fort Worth don't publish scores in bulk; their search pages are the place to look."),
     ("What are the bar sales numbers?", f"Every Texas business with a Mixed Beverage permit reports its liquor, wine, beer and cover-charge receipts to the Texas Comptroller each month, and the state publishes them. We add up the latest twelve months for each place. They're reported figures, not estimates, and places with only a beer-and-wine license don't report."),
-    ("Does it show ratings and reviews?", "Not from us. Tapping a place opens Apple Maps' own card inside the app, with Apple's current ratings, hours, photos and directions. None of our lists is sorted by anyone's rating."),
-    ("Does it need my location?", "No. Location only matters for putting the nearest places first. If you share it, it stays on your iPhone or iPad and never reaches us, and the app works fine without it. On this website, Near me reads your location inside your browser and nowhere else."),
+    ("Does it show ratings and reviews?", "Not from us. In the web search, each place links to Apple Maps, which has Apple's current ratings, hours, photos and directions. None of our lists is sorted by anyone's rating."),
+    ("Does it need my location?", "No. Location only matters for putting the nearest places first, and the search works fine without it. If you share it, Near me reads your location inside your browser and nowhere else; it never reaches us."),
     ("A place has closed, or something's wrong. How do I tell you?", f"Write to {EMAIL} with the place's name, its town and what changed. Corrections ship with the next data update."),
 ]
 faq_html = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faq)
 faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "@id": f"{DOMAIN}/#faq",
           "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
-app_ld = {"@context": "https://schema.org", "@graph": [
-    # No "offers" until the app is on the App Store (put it back with the listing URL: price 0, USD).
-    {"@type": "MobileApplication", "@id": f"{DOMAIN}/#app", "name": APP_NAME,
-     "alternateName": ["Texas Eats", "TX Eats", "Texas Eats: BBQ, Tex-Mex & Taquerías"],
-     "description": f"A free guide to {N_REST:,} Texas restaurants, with hand-checked lists of barbecue joints, Tex-Mex, taquerías, kolache bakeries, chicken-fried steak and the state's oldest places, {len(HON_L)} MICHELIN and James Beard honorees, TABC licenses, reported bar sales and the inspection scores Austin, El Paso and Arlington publish. Sort by distance, open Apple Maps' live place card for hours and photos, and save places for your next trip.",
-     "url": f"{DOMAIN}/", "image": f"{DOMAIN}/og.png", "operatingSystem": "iOS, iPadOS", "applicationCategory": "TravelApplication",
-     "applicationSubCategory": "Food & Drink", "inLanguage": "en", "publisher": {"@id": ORG_ID}},
+site_ld = {"@context": "https://schema.org", "@graph": [
     {"@type": "Organization", "@id": ORG_ID, "name": BRAND, "url": f"{DOMAIN}/",
      "logo": {"@type": "ImageObject", "url": f"{DOMAIN}/icon-512.png", "width": 512, "height": 512}, "email": EMAIL,
      "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": EMAIL, "availableLanguage": "en"},
      # the Eats Ranked hub lists this site as a subOrganization; say so from this side too
      "parentOrganization": HUB},
-    {"@type": "WebSite", "@id": f"{DOMAIN}/#website", "name": BRAND, "alternateName": ["TX Eats", "Texas Eats app"], "url": f"{DOMAIN}/",
+    # no MobileApplication node: the guide's app is Eats Ranked, which the hub describes once it is on the App Store
+    {"@type": "WebSite", "@id": f"{DOMAIN}/#website", "name": BRAND, "alternateName": ["TX Eats"], "url": f"{DOMAIN}/",
+     "description": f"A free guide to {N_REST:,} Texas restaurants, with hand-checked lists of barbecue joints, Tex-Mex, taquerías, kolache bakeries, chicken-fried steak and the state's oldest places, {len(HON_L)} MICHELIN and James Beard honorees, TABC licenses, reported bar sales and the inspection scores Austin, El Paso and Arlington publish.",
      "inLanguage": "en", "publisher": {"@id": ORG_ID}}]}
-if shot_html:
-    app_ld["@graph"][0]["screenshot"] = f"{DOMAIN}/img/screen-{next(n for n, *_ in shots if os.path.exists(f'{DOCS}/img/screen-{n}.png'))}.png"
-title = fit(["Texas Eats: BBQ, Tex-Mex, Taquerías & Restaurant App", "Texas Eats: Barbecue, Tacos & Texas Restaurant Guide App"], 50, 60, "landing title")
-desc = fit([f"Brisket, breakfast tacos, kolaches and Tex-Mex: a free iPhone and iPad guide to {N_REST:,} Texas restaurants, with hand-checked lists and inspections.",
-            f"A free iPhone and iPad guide to {N_REST:,} Texas restaurants, with hand-checked barbecue joints, taquerías, Tex-Mex, kolaches and city inspection scores.",
-            f"Free iPhone and iPad guide to {N_REST:,} Texas restaurants: hand-checked barbecue, taquerías, Tex-Mex and kolaches, plus MICHELIN and James Beard."],
+title = fit(["Texas Eats: BBQ, Tex-Mex, Taquerías & Restaurant Guide", "Texas Eats: Barbecue, Tacos & Texas Restaurant Guide"], 50, 60, "landing title")
+desc = fit([f"Brisket, breakfast tacos, kolaches and Tex-Mex: a free guide to {N_REST:,} Texas restaurants, with hand-checked lists and city inspection scores.",
+            f"A free guide to {N_REST:,} Texas restaurants, with hand-checked barbecue joints, taquerías, Tex-Mex and kolaches, plus the scores three cities publish.",
+            f"Free guide to {N_REST:,} Texas restaurants: hand-checked barbecue, taquerías, Tex-Mex and kolaches, plus MICHELIN, James Beard and inspection scores."],
            140, 160, "landing description")
 city_cards = "".join(f'<li><a href="{city_url(c)}">{e(c)}</a></li>' for c in CITY_PAGES)
-screens = f"""
-  <section id="screens">
-    <h2>Inside the app</h2>
-    <ul class="shots" tabindex="0" aria-label="Texas Eats app screenshots">
-      {"".join(shot_html)}
-    </ul>
-  </section>""" if shot_html else ""
 guide_cards = "".join(f'<a class="card gc gc-{k}" href="/{GUIDE_PATH[k]}"><b>{len(L[k])}</b><h3>{e(GUIDE_NAME[k])}</h3><p>{plural(len(L[k]), "hand-checked place")}{line}.</p></a>'
                       for k, line in (("bbq", ", brisket to sausage"), ("taqueria", ", trompo to breakfast tacos"), ("texmex", ", enchiladas to fajitas"),
                                       ("kolache", " for kolaches and klobasniky"), ("cfs", " with cream gravy")))
 body = f"""  <main id="main">
   <section class="hero">
-    <p class="kicker">{BRAND}: {TAGLINE} for iPhone and iPad</p>
+    <p class="kicker">{BRAND}: {TAGLINE}</p>
     <h1>Texas restaurants, brisket to breakfast tacos</h1>
     <p class="lede">Looking for brisket on butcher paper, a breakfast taco on a flour tortilla, a kolache on the drive down I-35 or a plate of cheese enchiladas? {BRAND} starts with lists we checked place by place, adds the MICHELIN Guide and James Beard honorees, the state's alcohol licenses and the inspection scores three cities publish, and maps {N_REST:,} restaurants, cafés, bars and bakeries in {N_TOWNS:,} Texas towns.</p>
-    <div class="cta-row">{store_button()}<a class="btn btn-ghost" href="/explore/">Search on the web</a><span class="pill store-note">No charge, no ads, no sign-in. The App Store release is on its way.</span></div>
-    <ul class="stats" aria-label="What's in the app">
+    <div class="cta-row"><a class="btn" href="/explore/">Search Texas restaurants</a><span class="pill">No charge, no ads, no sign-in. Also in {APP_LINK}, {APP_WHEN}.</span></div>
+    <ul class="stats" aria-label="What's in the guide">
       <li><b>{N_HC_GUIDES}</b><span>hand-checked places</span></li>
       <li><b>{len(HON_L)}</b><span>MICHELIN &amp; James Beard</span></li>
       <li><b>{len(INS_L):,}</b><span>with a city inspection score</span></li>
@@ -1462,10 +1405,9 @@ body = f"""  <main id="main">
       <li class="step"><div class="n" aria-hidden="true">3</div><div><h3>Head out.</h3><p>Check today's hours and photos on Apple Maps' card, call ahead, get directions, or save the place for the next road trip.</p></div></li>
     </ol>
   </section>
-{screens}
   <section id="guides">
     <h2>Texas food guides</h2>
-    <p class="sub">Each of the app's lists has its own page here, free to read.</p>
+    <p class="sub">Each list has its own page here, free to read.</p>
     <div class="grid2">
       {guide_cards}
       <a class="card gc gc-oldest" href="/{OLD_PATH}"><b>{len(OLD_L)}</b><h3>Texas's oldest restaurants</h3><p>{plural(len(OLD_L), "place")} open at the same address since 1960 or earlier.</p></a>
@@ -1482,12 +1424,12 @@ body = f"""  <main id="main">
 
   <section id="pricing">
     <h2>Free, with no catch</h2>
-    <p class="sub">The app costs nothing, shows no ads and sells nothing inside, and there's no account to make. The lists ship inside the app, so they open right away and keep working when the signal drops out on a farm road.</p>
+    <p class="sub">{BRAND} costs nothing, shows no ads and sells nothing, and there's no account to make. The guides and the search are open to anyone with a browser. The Eats Ranked app keeps a state's lists on the phone, so they still open when the signal drops out on a farm road.</p>
   </section>
 
   <section id="privacy">
-    <h2>What stays on your phone</h2>
-    <p class="sub">{BRAND} collects nothing about you: no sign-in, no analytics, no ads. Location, if you turn it on, only puts the nearest places first, and your saved places are kept on the phone or iPad. The website has no cookies and no trackers. <a href="/privacy.html">The privacy policy</a> has the details.</p>
+    <h2>What stays in your browser</h2>
+    <p class="sub">{BRAND} collects nothing about you: no sign-in, no analytics, no ads, no cookies and no trackers. Location, if you share it, only puts the nearest places first, and it is read inside your browser; the places you save are kept there too. <a href="/privacy.html">The privacy policy</a> has the details.</p>
   </section>
 
   <section id="faq">
@@ -1497,11 +1439,11 @@ body = f"""  <main id="main">
 
   <section id="download" class="final">
     <h2>Find your next brisket</h2>
-    <p class="sub">The iPhone and iPad app is almost here, and it's free. Ask for early access.</p>
-    <div class="cta-row">{store_button()}</div>
+    <p class="sub">Everything here works in your browser today. The same Texas guide is in {APP_LINK}, one free app with the state guides inside, {APP_WHEN}.</p>
+    <div class="cta-row"><a class="btn" href="/explore/">Search Texas restaurants</a><a class="btn btn-ghost" href="{APP_URL}" rel="noopener">About the Eats Ranked app</a></div>
   </section>
   </main>"""
-page("index.html", title, desc, body, [app_ld, faq_ld], og_type="website")
+page("index.html", title, desc, body, [site_ld, faq_ld], og_type="website")
 
 # ---------------------------------------------------------------- privacy and terms
 nav, bc = crumbs([("Home", "/"), ("Privacy policy", "/privacy.html")])
@@ -1509,20 +1451,9 @@ body = f"""{nav}
   <main id="main" class="legal">
   <section class="hero">
     <h1>Privacy policy</h1>
-    <p class="lede">Short version: the {BRAND} app collects nothing about you, and this website doesn't track you. Last updated {PRIVACY_UPDATED}.</p>
+    <p class="lede">Short version: this website doesn't track you. No account, no analytics, no ads, no cookies. Last updated {PRIVACY_UPDATED}.</p>
   </section>
   <section>
-    <h2>The app</h2>
-    <ul>
-      <li><b>No account, no analytics, no ads.</b> The app has no sign-in, no advertising and no analytics or crash-reporting code. We receive no data from it.</li>
-      <li><b>Location.</b> If you allow it, your location is used on your device to sort places by distance and show where you are on the map. It is never sent to us. You can turn it off in Settings at any time.</li>
-      <li><b>Saved places and filters</b> are stored only on your device and are deleted when you delete the app.</li>
-      <li><b>Apple Maps.</b> When you open a place's ratings, hours and photos, or ask for directions, the app asks Apple Maps for that place. Apple handles that request under <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's privacy policy</a>, as it does for any app that shows a map.</li>
-      <li><b>Data updates.</b> When you open the app, it checks this website for newer restaurant data, at most once a day (or an hour later if a check didn't go through), and downloads it when there is some. These requests carry no location or identifiers. GitHub, which hosts this site, may keep standard server logs of them, as it does for any visit here.</li>
-      <li><b>Spotlight.</b> The app adds its hand-checked and honored places to your device's search index so you can find them from Spotlight. That index stays on your device.</li>
-      <li><b>Calls, websites and email</b> you start from a place open in the Phone app, your browser or Mail, and are handled by them.</li>
-    </ul>
-    <p>When the app is on the App Store, its privacy label will be "Data Not Collected".</p>
     <h2>This website</h2>
     <p>The site is static pages hosted on GitHub Pages. It sets no cookies and loads no analytics, fonts or scripts from anyone else.</p>
     <ul>
@@ -1530,17 +1461,19 @@ body = f"""{nav}
       <li><b>Location.</b> If you tap Near me or choose the Nearest sort, your browser asks whether to share your location. If you allow it, the location is used only inside your browser to sort places by distance and is never sent to us or anyone else.</li>
     </ul>
     <p>GitHub may keep standard server logs, such as IP addresses, for security; see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>.</p>
+    <h2>The Eats Ranked app</h2>
+    <p>On iPhone and iPad, the Texas guide is part of the Eats Ranked app, {APP_WHEN}. Eats Ranked has its own privacy policy at <a href="{APP_PRIVACY_URL}" rel="noopener">eatsranked.com/privacy.html</a>. In short, it collects nothing about you. When it downloads or refreshes the Texas guide it fetches data files from this website, in requests that carry no location and no identifier; GitHub may log them as it does any visit here.</p>
     <h2>Email</h2>
     <p>If you email us, we use your message and address only to reply and to fix the listing you told us about. We don't add you to a mailing list or share your address. Mail to {EMAIL} reaches our inbox through Cloudflare Email Routing; see <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</p>
     <h2>Children</h2>
-    <p>The app collects no personal information from anyone, including children.</p>
+    <p>This website collects no personal information from anyone, including children.</p>
     <h2>Changes and contact</h2>
     <p>If this policy changes, the new version will be posted here with a new date. Questions: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
   </section>
   </main>"""
 page("privacy.html", "Texas Eats Privacy Policy: No Tracking, No Accounts",
-     fit(["How Texas Eats treats your data: the iPhone app collects none, your location and saved places stay on your device, and this site uses no cookies or trackers.",
-          "How Texas Eats treats your data: the app collects none, your location and saved places stay on your device, and this website uses no cookies or trackers."], 140, 160),
+     fit(["How Texas Eats treats your data: the site collects none, your location and saved places stay in your browser, and there are no cookies or trackers.",
+          "How Texas Eats treats your data: this website collects none, your location and saved places stay in your browser, and it uses no cookies or trackers."], 140, 160),
      body, [bc])
 
 nav, bc = crumbs([("Home", "/"), ("Terms of use", "/terms.html")])
@@ -1548,17 +1481,17 @@ body = f"""{nav}
   <main id="main" class="legal">
   <section class="hero">
     <h1>Terms of use</h1>
-    <p class="lede">The plain-language terms for the {BRAND} app and this website. Last updated {POLICY_UPDATED}.</p>
+    <p class="lede">The plain-language terms for {BRAND}, this website. Last updated {POLICY_UPDATED}.</p>
   </section>
   <section>
-    <h2>What the app is</h2>
+    <h2>What {BRAND} is</h2>
     <p>{BRAND} is a free guide to restaurants in Texas. It is provided as is, for personal use, without charge and without warranties of any kind.</p>
     <h2>Check before you go</h2>
     <p>Restaurants open, close, change their hours and change their menus, and many barbecue joints sell out early. Dishes and founding years are what each place or a named source said when we checked in {CHECKED}. We work to keep the lists right, but we can't promise that any listing is current or complete. Call the restaurant before you make the trip.</p>
     <h2>Inspection scores and public records</h2>
-    <p>The app and this site show the inspection scores Austin Public Health, the City of El Paso and the City of Arlington publish, each with the city's own band or grade and its date. Texas has no statewide grade, and we compute none. An inspection is a snapshot of one day. Alcohol licenses come from the Texas Alcoholic Beverage Commission's license list, and bar sales are the receipts Mixed Beverage permit holders report to the Texas Comptroller. For official records, use each agency's own site (<a href="{e(TABC_SEARCH)}" rel="noopener">TABC's public inquiry</a>).</p>
+    <p>This site shows the inspection scores Austin Public Health, the City of El Paso and the City of Arlington publish, each with the city's own band or grade and its date. Texas has no statewide grade, and we compute none. An inspection is a snapshot of one day. Alcohol licenses come from the Texas Alcoholic Beverage Commission's license list, and bar sales are the receipts Mixed Beverage permit holders report to the Texas Comptroller. For official records, use each agency's own site (<a href="{e(TABC_SEARCH)}" rel="noopener">TABC's public inquiry</a>).</p>
     <h2>Other people's content</h2>
-    <p>Ratings, reviews, hours and photos in each place card come from Apple Maps and are Apple's and its providers', under Apple's terms. Restaurant names and trademarks belong to their owners. MICHELIN and the MICHELIN Guide are trademarks of Michelin; James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation. {BRAND} is not affiliated with any restaurant, chain, award body or government agency.</p>
+    <p>The web search links each place to Apple Maps; the ratings, reviews, hours and photos there are Apple's and its providers', under Apple's terms. Restaurant names and trademarks belong to their owners. MICHELIN and the MICHELIN Guide are trademarks of Michelin; James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation. {BRAND} is not affiliated with any restaurant, chain, award body or government agency.</p>
     <h2>Data sources and licenses</h2>
     <ul>
       <li>Texas Alcoholic Beverage Commission, TABC License Information, and the Texas Comptroller of Public Accounts, Mixed Beverage Gross Receipts (both on data.texas.gov), modified for use here.</li>
@@ -1573,7 +1506,7 @@ body = f"""{nav}
     <h2>Corrections</h2>
     <p>If a listing is wrong, or you own a restaurant and want something fixed, email <a href="mailto:{EMAIL}">{EMAIL}</a>. We fix mistakes in the next update.</p>
     <h2>Liability</h2>
-    <p>To the extent the law allows, we are not liable for any loss arising from use of the app or site, including a wasted drive to a closed restaurant.</p>
+    <p>To the extent the law allows, we are not liable for any loss arising from use of this site, including a wasted drive to a closed restaurant.</p>
     <h2>Changes</h2>
     <p>We may update these terms; the current version and its date are always on this page. See also the <a href="/privacy.html">privacy policy</a>.</p>
   </section>

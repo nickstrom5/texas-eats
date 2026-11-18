@@ -21,9 +21,14 @@ Static (no browser):
   to nick@eatsranked.com, no web font but the site's own headline face; work-with-nick@gmail.com and other states' app names and
   repo slugs nowhere in docs/, other states' names nowhere in the site's own copy or code; no domain or URL from
   pipeline/website_blocklist.json (hacked, expired or wrong-business sites) anywhere in docs/, data files included; the privacy policy names every localStorage
-  key the web app writes; the landing page shows the app screenshots (docs/img) with alt text, sizes and lazy loading
+  key the web app writes
 - 2026-10-13 (Nick's copy decisions): no file in docs/ says "Confirmed listing" (the label is "High-confidence listing"), and none
-  promises an invite or a TestFlight link ("we'll send you the TestFlight link", "you'll get an invite"): early access is an ask
+  promises an invite or a TestFlight link ("we'll send you the TestFlight link", "you'll get an invite")
+- 2026-11-17 (one app, Eats Ranked): no page presents a Texas-only app. No "Restaurant App" title, no early-access button or
+  TestFlight ask, no Smart App Banner tag or placeholder, no MobileApplication JSON-LD, no "Texas Eats app", no state-app
+  screenshots, and nothing links apps.apple.com. Every page links https://eatsranked.com/#app; the copy says the app is "coming
+  soon to the App Store" until APP_LIVE is set in scripts/make-site.py, and never "download" or "get the app" before then; the
+  privacy page points to the app's own policy on the hub
 Browser (Playwright, channel="chrome"): no horizontal scroll, no console errors, no CSP violations, no broken internal links or
 images; the web app loads, searches (dishes, "north lamar" direction words), opens a place with its city's inspection score and
 TABC records, Back closes it, the phone panel is a modal dialog, a #p= link opens that place, the map draws, a hostile #g= doesn't
@@ -79,6 +84,55 @@ PROMISE = re.compile(r"\b(?:we'll|we will|we'd|you'll|you will|you'd)\b[^.!?]{0,
                      # "Early access by email" states an offer; "ask for early access by email" is an ask, and passes
                      r"|(?<!ask for )(?<!asking for )\bearly access\s+(?:is\s+)?(?:by\s+(?:email|invit\w*)|available)\b", re.I)
 HUB_ORG = "https://eatsranked.com/#organization"
+# Nick, 2026-11-14: one app, Eats Ranked, carries the state guides; no state has an app of its own. This site is the guide on the web
+# and points to the hub's app section. Three rules, all checked on every page:
+# - OLD_APP: what a page that still presents a Texas-only app carries, anywhere in its source (markup, meta, JSON-LD, scripts)
+# - the word "app" is read only in APP_OK's phrases, and "iPhone"/"iPad" only in a sentence that names Eats Ranked (visible text,
+#   meta and alt text, JSON-LD; the web app's own code comments aside)
+# - NOT_YET: until the app is on the App Store (the copy then says "free on the App Store"), no page says it can be had
+APP_URL = "https://eatsranked.com/#app"
+APP_PRIVACY_URL = "https://eatsranked.com/privacy.html"
+OLD_APP = re.compile(r"apple-itunes-app|MobileApplication|APP_STORE_URL|store-btn|store-note|apps\.apple\.com|/img/screen-|TestFlight"
+                     r"|early(?:%20|\s)+access|iPhone app|Texas Eats: Restaurants|restaurant apps state by state", re.I)
+APP_OK = re.compile(r"\bweb app\b|\bEats Ranked app\b|\bone free app\b|\bApp Store\b")
+APP_WORD = re.compile(r"\bapps?\b", re.I)
+DEVICE = re.compile(r"\biPhones?\b|\biPads?\b")
+NOT_YET = re.compile(r"\b(?:download|get|install)\b[^.!?]{0,40}\b(?:Eats Ranked|App Store)\b|\b(?:available|out now|live) (?:on|in) the App Store\b", re.I)
+
+
+def readable(text):
+    """What a reader, a search engine or a link preview takes from a page: its visible text, the text in content=, alt=, title= and
+    aria-label= attributes, and its JSON-LD. Executable scripts and styles are left out."""
+    lds = re.findall(r'<script type="application/ld\+json">(.*?)</script>', text, re.S)
+    body = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", text, flags=re.S)
+    attrs = re.findall(r'\s(?:content|alt|title|aria-label)="([^"]*)"', body)
+    plain = re.sub(r"<[^>]+>", " ", body)
+    out = "\n".join([plain] + attrs + [x.encode().decode("unicode_escape", "replace") if "\\u" in x else x for x in lds])
+    return re.sub(r"[ \t]+", " ", html.unescape(out).replace("\u2019", "'"))
+
+
+def one_app_problems(where, text):
+    """The one-app rule for a page (see OLD_APP above)."""
+    out = []
+    for m in OLD_APP.finditer(html.unescape(text)):
+        out.append(f"{where}: still presents a Texas-only app ({m.group(0)!r} in the page source)")
+    r = readable(text)
+    for m in APP_WORD.finditer(APP_OK.sub(lambda k: "#" * len(k.group(0)), r)):
+        out.append(f"{where}: says 'app' outside 'web app', 'Eats Ranked app', 'one free app' and 'App Store': …{r[max(0, m.start() - 50):m.end() + 30].strip()!r}…")
+    for sent in re.split(r"(?<=[.!?])\s+|\n", r):
+        if DEVICE.search(sent) and "Eats Ranked" not in sent:
+            out.append(f"{where}: names iPhone or iPad without naming Eats Ranked: {sent.strip()[:120]!r}")
+    if f'href="{APP_URL}"' not in text:
+        out.append(f"{where}: no link to the Eats Ranked app's section on the hub ({APP_URL})")
+    if "free on the App Store" not in r:
+        for m in NOT_YET.finditer(r):
+            out.append(f"{where}: says the app can be had before it is on the App Store: {m.group(0)!r}")
+    for sent in re.split(r"(?<=[.!?])\s+|\n", r):
+        if "App Store" in sent and not re.search(r"coming soon to the App Store|free on the App Store", sent):
+            out.append(f"{where}: names the App Store without 'coming soon to' (or, once live, 'free on'): {sent.strip()[:120]!r}")
+    return out
+
+
 # other Eats Ranked states: their app names and repo slugs may not appear anywhere in docs/, and their state names may not appear in the
 # site's own copy or code (a place's own name or street, inside its list item or its JSON-LD, may say "New York" or "Washington Ave";
 # Washington, Colorado and Florida are also Texas street or river names, so they aren't checked as words)
@@ -374,7 +428,7 @@ def static_checks():
         if dup_ids:
             problems.append(f"{where}: duplicate ids {sorted(dup_ids)[:5]}")
         # --- every page: part of the Eats Ranked family, in Wisconsin's words, and the Organization names its parent (XS-08)
-        if not re.search(r'Part of <a href="https://eatsranked\.com/"(?: rel="noopener")?>Eats Ranked</a>, restaurant apps state by state\.', text):
+        if not re.search(r'Part of <a href="https://eatsranked\.com/"(?: rel="noopener")?>Eats Ranked</a>, free restaurant guides state by state\.', text):
             problems.append(f"{where}: no 'Part of Eats Ranked' footer link")
         orgs = [b for raw in pg.ldjson for b in _dicts(_safe_json(raw)) if b.get("@type") == "Organization" and b.get("@id", "").endswith("/#org")]
         if not orgs or not all((o.get("parentOrganization") or {}).get("@id") == HUB_ORG for o in orgs):
@@ -474,10 +528,8 @@ def static_checks():
         for href in re.findall(r'href="([^"]*)"', text):
             if re.match(r"\s*(javascript|data|vbscript):", href, re.I) and not href.startswith("data:image/svg+xml"):
                 problems.append(f"{where}: unsafe link {href[:40]}")
-        # --- the App Store button has no Apple logo until it's Apple's own badge
-        for m in re.finditer(r'<a class="btn store-btn"[^>]*>(.*?)</a>', text, re.S):
-            if "<svg" in m.group(1):
-                problems.append(f"{where}: the early-access button carries an Apple logo")
+        # --- one app, Eats Ranked: no page presents a Texas-only app, and every page points to the hub's app section
+        problems.extend(one_app_problems(where, text))
     # --- the inspections page: no statewide grade, each city's bands, each city's records, and no place named or listed
     ins = pages.get(INS_PAGE)
     if not ins:
@@ -601,10 +653,12 @@ def static_checks():
         for k in keys:
             if STORAGE_PREFIX + k not in priv:
                 problems.append(f"privacy.html: doesn't name the web app's localStorage key {STORAGE_PREFIX + k!r}")
-    # --- the landing page shows the app (docs/img/screen-*.png from scripts/site-images.sh), each with alt text and a size
-    shots = re.findall(r"<img src=\"[^\"]*/img/screen-[a-z]+\.png\"[^>]*>", pages.get("index.html", ""))
-    if len(shots) < 3 or any(not re.search(r'alt="[^"]{20,}"', x) or 'width="' not in x or 'loading="lazy"' not in x for x in shots):
-        problems.append(f"index.html: the 'Inside the app' screenshots are missing or lack alt/size/lazy ({len(shots)} found)")
+    # --- the privacy page covers this website and sends the app's questions to the app's own policy on the hub
+    priv = pages.get("privacy.html", "")
+    if f'href="{APP_PRIVACY_URL}"' not in priv:
+        problems.append(f"privacy.html: no link to the Eats Ranked app's privacy policy ({APP_PRIVACY_URL})")
+    if not re.search(r"this website doesn't track you", html.unescape(priv).replace("\u2019", "'")):
+        problems.append("privacy.html: doesn't say this website doesn't track you")
     return problems, len(pages)
 
 

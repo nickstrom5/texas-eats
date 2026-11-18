@@ -2,16 +2,13 @@
 <html lang="en" data-base="">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-AkMVKTRbY48IHs7HCgTMJ+hY/m+ygSRs9Y4Wj9nM0CQ=' 'sha256-YfPxYBJDc639ac4gHFGjFpJLVatKf6JcrBZeF/tuACM='; style-src 'sha256-OkUl3pAEkU6SWalzzR54GwCq0lo3enLp3wyV54WvHeU='; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-yb0lYtYTDvQngdsgXCmTyThW0mEG8AAhWc2mW1aYA20='; style-src 'sha256-nEP26GiyiV7wkkb5PZx1+T1OsEAXESSOocHxaGqChHo='; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Texas Restaurant Search: Map, Barbecue &amp; Inspection Scores</title>
 <meta name="description" content="Look up 78,608 Texas restaurants by name, town, street, zip or dish, map 203 hand-checked places and see city inspection scores, with addresses and websites.">
 <link rel="canonical" href="https://texas.eatsranked.com/explore/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#002868">
-<!-- Smart App Banner: once the App Store Connect record exists, replace APP_ID with the numeric Apple ID and uncomment.
-<meta name="apple-itunes-app" content="app-id=APP_ID">
--->
 <meta property="og:title" content="Texas Restaurant Search: Map, Barbecue &amp; Inspection Scores">
 <meta property="og:description" content="Look up 78,608 Texas restaurants by name, town, street, zip or dish, map 203 hand-checked places and see city inspection scores, with addresses and websites.">
 <meta property="og:url" content="https://texas.eatsranked.com/explore/">
@@ -90,10 +87,6 @@
   .step { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
   .step .n { flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--orange); color: var(--on-orange); font-weight: 800; display: grid; place-items: center; }
   .step p { margin: 4px 0 0; color: var(--ink2); }
-  .shots { display: flex; gap: 14px; overflow-x: auto; margin: 0 -20px; padding: 4px 20px 14px; scroll-snap-type: x proximity; list-style: none; }
-  .shots li { flex: 0 0 auto; width: 210px; scroll-snap-align: start; }
-  .shots img { display: block; width: 210px; height: auto; border-radius: 24px; border: 1px solid var(--rule); background: var(--surface2); }
-  .shots p { font-size: 14px; color: var(--muted); margin: 8px 2px 0; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
   .card h3 { font: 400 16px/1.1 var(--head-font); text-transform: uppercase; letter-spacing: .01em; }
@@ -311,7 +304,7 @@
   <section class="ex-hero">
     <p class="kicker">Texas Eats · on the web</p>
     <h1>Search Texas restaurants</h1>
-    <p class="sub">Pick a list, or type a name, a town, a street or a dish. Behind the search: 78,608 Texas restaurants, cafés, bars and bakeries; 203 hand-checked places on the barbecue, Tex-Mex, taquería, kolache, chicken-fried steak and oldest-places lists; 166 MICHELIN and James Beard honorees; TABC licenses; and the inspection scores Austin, El Paso and Arlington publish. It's the data the iPhone and iPad app will ship with, and what you save stays in this browser.</p>
+    <p class="sub">Pick a list, or type a name, a town, a street or a dish. Behind the search: 78,608 Texas restaurants, cafés, bars and bakeries; 203 hand-checked places on the barbecue, Tex-Mex, taquería, kolache, chicken-fried steak and oldest-places lists; 166 MICHELIN and James Beard honorees; TABC licenses; and the inspection scores Austin, El Paso and Arlington publish. What you save stays in this browser.</p>
   </section>
   <p id="ex-loading" hidden>Loading the restaurant list…</p>
   <noscript><p>The search needs JavaScript. The guides work without it: <a href="/texas-barbecue.html">barbecue joints</a>, <a href="/texas-taquerias.html">taquerías</a>, <a href="/texas-kolaches.html">kolaches</a>, <a href="/texas-restaurant-inspections.html">inspections explained</a>.</p></noscript>
@@ -348,7 +341,7 @@
   <aside id="ex-panel" class="ex-panel" hidden aria-labelledby="ex-pname"></aside>
   </main>
 <script>
-// Texas Eats web app: the iPhone app's guides, search, filters, map and place details, in the browser.
+// Texas Eats web app: the guides, search, filters, map and place details, in the browser.
 // Keep its guide rules in step with TexasEats/Models/Guide.swift and its search with TexasEats/Models/Search.swift.
 // Same data as the app, split by scripts/make-site.py into data/core.json (list, search and map columns), data/ids.json (each place's
 // stable id, fetched at the first tap, key, scroll or hover, so a visit that only looks doesn't download it; saved places and #p= links
@@ -739,10 +732,8 @@
     }
     html += section("How we know it's here", kv("Listed as", TIER[p.t])
       + (p.ch >= 2 ? kv("Locations in Texas", p.ch.toLocaleString()) : "") + `<p class="ex-fine">${esc(howWeKnow(p))}</p>`);
-    const store_url = safeUrl(window.APP_STORE_URL);   // set in the page footer script once the App Store listing exists
-    html += store_url
-      ? `<p class="ex-app">Save it on your phone: <a href="${esc(store_url)}" rel="noopener">get the free iPhone app</a></p>`
-      : `<p class="ex-app">The iPhone app is coming soon. <a href="${BASE}/#download">Ask for early access</a></p>`;
+    // the app is Eats Ranked, which carries this guide; data-applive is set by scripts/make-site.py (APP_LIVE) once it's on the App Store
+    html += `<p class="ex-app">Also in <a href="https://eatsranked.com/#app" rel="noopener">Eats Ranked for iPhone and iPad</a>, ${$("#ex-app").dataset.applive ? "free on" : "coming soon to"} the App Store.</p>`;
     panel.innerHTML = html;
     panel.dataset.id = pid;
     panel.dataset.i = String(p.i);
@@ -1141,7 +1132,7 @@
 </script>
   <footer>
     <nav aria-label="Footer">
-      <a href="/">Texas Eats app</a>
+      <a href="/">Texas Eats home</a>
       <a href="/explore/">Search Texas restaurants</a>
       <a href="/texas-barbecue.html">Barbecue joints</a>
       <a href="/texas-tex-mex.html">Tex-Mex</a>
@@ -1152,26 +1143,15 @@
       <a href="/texas-michelin-james-beard.html">MICHELIN &amp; James Beard</a>
       <a href="/texas-restaurant-inspections.html">Restaurant inspections</a>
       <a href="/cities/">Cities and towns</a>
+      <a href="https://eatsranked.com/#app" rel="noopener">Eats Ranked app</a>
       <a href="/privacy.html">Privacy policy</a>
       <a href="/terms.html">Terms of use</a>
       <a href="mailto:nick@eatsranked.com">Email us</a>
     </nav>
     <p>Place data: hand-checked research by Texas Eats (fall 2026); Texas Alcoholic Beverage Commission license information and the Texas Comptroller's mixed beverage gross receipts (data.texas.gov); inspection scores from Austin Public Health (data.austintexas.gov), the City of El Paso Department of Public Health and the City of Arlington; Overture Maps Foundation places (CDLA Permissive 2.0) and addresses (open address sources under permissive licenses, docs.overturemaps.org/attribution); map outlines © OpenStreetMap contributors, Overture Maps Foundation (ODbL); U.S. Census Bureau Geocoder (public domain). Not affiliated with or endorsed by the State of Texas, TABC, the Comptroller, any city, any restaurant or chain, the MICHELIN Guide or the James Beard Foundation. MICHELIN and the MICHELIN Guide are trademarks of Michelin; James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation. Places open and close, so check before you go.</p>
-    <p>© 2026 Texas Eats. Part of <a href="https://eatsranked.com/" rel="noopener">Eats Ranked</a>, restaurant apps state by state.</p>
+    <p>© 2026 Texas Eats. Part of <a href="https://eatsranked.com/" rel="noopener">Eats Ranked</a>, free restaurant guides state by state.</p>
     <p>Created by <a href="https://work-with-nick.com/" rel="author">Nick Soderstrom</a>.</p>
   </footer>
 </div>
-<script>
-  // Once the App Store listing exists, paste its URL here (looks like https://apps.apple.com/app/id123456789).
-  // Every button switches from "Ask for early access" to "Download on the App Store" automatically (then use Apple's badge artwork,
-  // see store_button() in scripts/make-site.py). Also fill in the apple-itunes-app meta tag in <head> on every page, and put the
-  // MobileApplication "offers" back in the landing page's JSON-LD (re-run scripts/make-site.py after editing it there).
-  var APP_STORE_URL = "";
-  if (APP_STORE_URL) {
-    document.querySelectorAll(".store-btn").forEach(function (b) { b.href = APP_STORE_URL; b.rel = "noopener"; });
-    document.querySelectorAll(".store-label").forEach(function (l) { l.textContent = "Download on the App Store"; });
-    document.querySelectorAll(".store-note").forEach(function (n) { n.textContent = "Free for iPhone and iPad."; });
-  }
-</script>
 </body>
 </html>

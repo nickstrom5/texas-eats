@@ -1,4 +1,4 @@
-// Texas Eats web app: the iPhone app's guides, search, filters, map and place details, in the browser.
+// Texas Eats web app: the guides, search, filters, map and place details, in the browser.
 // Keep its guide rules in step with TexasEats/Models/Guide.swift and its search with TexasEats/Models/Search.swift.
 // Same data as the app, split by scripts/make-site.py into data/core.json (list, search and map columns), data/ids.json (each place's
 // stable id, fetched at the first tap, key, scroll or hover, so a visit that only looks doesn't download it; saved places and #p= links
@@ -389,10 +389,8 @@
     }
     html += section("How we know it's here", kv("Listed as", TIER[p.t])
       + (p.ch >= 2 ? kv("Locations in Texas", p.ch.toLocaleString()) : "") + `<p class="ex-fine">${esc(howWeKnow(p))}</p>`);
-    const store_url = safeUrl(window.APP_STORE_URL);   // set in the page footer script once the App Store listing exists
-    html += store_url
-      ? `<p class="ex-app">Save it on your phone: <a href="${esc(store_url)}" rel="noopener">get the free iPhone app</a></p>`
-      : `<p class="ex-app">The iPhone app is coming soon. <a href="${BASE}/#download">Ask for early access</a></p>`;
+    // the app is Eats Ranked, which carries this guide; data-applive is set by scripts/make-site.py (APP_LIVE) once it's on the App Store
+    html += `<p class="ex-app">Also in <a href="https://eatsranked.com/#app" rel="noopener">Eats Ranked for iPhone and iPad</a>, ${$("#ex-app").dataset.applive ? "free on" : "coming soon to"} the App Store.</p>`;
     panel.innerHTML = html;
     panel.dataset.id = pid;
     panel.dataset.i = String(p.i);
